@@ -16,16 +16,16 @@ import arithmetic.ResetArithmetic;
 import assistant.KyodaiConstant;
 
 /**
- * Á¬Á¬¿´Ö÷½çÃæÊÂ¼ş´¦ÀíÀà
+ * è¿è¿çœ‹ä¸»ç•Œé¢äº‹ä»¶å¤„ç†ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-10-11
+ * åˆ›å»ºæ—¥æœŸï¼š2007-10-11
  */
 public class KyodaiMainUIEventHandler implements ActionListener {
 
 	private KyodaiMainUI m_kyodaiUI;
-	private int refreshNumberLeft;// Ê£ÓàÖØÁĞ´ÎÊı
+	private int refreshNumberLeft;// å‰©ä½™é‡åˆ—æ¬¡æ•°
 
 	public KyodaiMainUIEventHandler(KyodaiMainUI kyodaiUI) {
 		m_kyodaiUI = kyodaiUI;
@@ -33,37 +33,37 @@ public class KyodaiMainUIEventHandler implements ActionListener {
 	}
 
 	/**
-	 * ·µ»ØÖ÷½çÃæ¶ÔÏó
+	 * è¿”å›ä¸»ç•Œé¢å¯¹è±¡
 	 */
 	public KyodaiMainUI getKyodaiMainUI() {
 		return m_kyodaiUI;
 	}
 
 	/**
-	 * ÉèÖÃÊ£ÓàÖØÁĞ´ÎÊı
+	 * è®¾ç½®å‰©ä½™é‡åˆ—æ¬¡æ•°
 	 */
 	protected void setRefreshNumberLeft(int newNumber) {
 		this.refreshNumberLeft = newNumber;
 	}
 	
 	/**
-	 * ·µ»Øµ±Ç°Ê£ÓàÖØÁĞ´ÎÊı
+	 * è¿”å›å½“å‰å‰©ä½™é‡åˆ—æ¬¡æ•°
 	 */
 	protected int getRefreshNumberLeft() {
 		return refreshNumberLeft;
 	}
 
 	/**
-	 * ÏìÓ¦ÊÂ¼şµÄ´¦Àí·½·¨
+	 * å“åº”äº‹ä»¶çš„å¤„ç†æ–¹æ³•
 	 * 
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().equals("ÔİÍ£")) {
+		if (e.getActionCommand().equals("æš‚åœ")) {
 			pause();
-		} else if (e.getActionCommand().equals("¼ÌĞø")) {
+		} else if (e.getActionCommand().equals("ç»§ç»­")) {
 			goOn();
-		} else if (e.getActionCommand().equals("ÖØÁĞ")) {
+		} else if (e.getActionCommand().equals("é‡åˆ—")) {
 			refresh();
 		} else {
 			doSelectedMenuItem(e.getActionCommand());
@@ -71,26 +71,26 @@ public class KyodaiMainUIEventHandler implements ActionListener {
 	}
 
 	/**
-	 * ÔİÍ£ÓÎÏÀ
+	 * æš‚åœæ¸¸ä¾ 
 	 */
 	private void pause() {
-		// ÔİÍ£µ¹¼ÆÊ±
+		// æš‚åœå€’è®¡æ—¶
 		pauseCountingDown();
-		// ÉèÖÃ×é¼ş×´Ì¬(ÓÎÏ·»­Ãæ²»¿É¼û£¬³ıÁËÔİÍ£°´Å¥ÆäËû°´Å¥ºÍ²Ëµ¥Ïî¶¼²»¿ÉÓÃ)
+		// è®¾ç½®ç»„ä»¶çŠ¶æ€(æ¸¸æˆç”»é¢ä¸å¯è§ï¼Œé™¤äº†æš‚åœæŒ‰é’®å…¶ä»–æŒ‰é’®å’Œèœå•é¡¹éƒ½ä¸å¯ç”¨)
 		setComponentsState(false);
-		// ÖØĞÂÉèÖÃÔİÍ£°´Å¥µÄĞÅÏ¢
-		resetButtonPause("  ¼ÌĞø  ");
+		// é‡æ–°è®¾ç½®æš‚åœæŒ‰é’®çš„ä¿¡æ¯
+		resetButtonPause("  ç»§ç»­  ");
 	}
 
 	/**
-	 * ÔİÍ£µ¹¼ÆÊ±
+	 * æš‚åœå€’è®¡æ—¶
 	 */
 	private void pauseCountingDown() {
 		m_kyodaiUI.pauseCountingDown();
 	}
 
 	/**
-	 * ÉèÖÃ¸÷×é¼ş×´Ì¬
+	 * è®¾ç½®å„ç»„ä»¶çŠ¶æ€
 	 */
 	private void setComponentsState(boolean state) {
 		setGamePanelVisible(state);
@@ -99,51 +99,51 @@ public class KyodaiMainUIEventHandler implements ActionListener {
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ·Ãæ°å¿É¼ûĞÔ
+	 * è®¾ç½®æ¸¸æˆé¢æ¿å¯è§æ€§
 	 */
 	private void setGamePanelVisible(boolean state) {
 		m_kyodaiUI.setGamePanelVisible(state);
 	}
 
 	/**
-	 * ÉèÖÃÖØÁĞ°´Å¥¿ÉÓÃĞÔ
+	 * è®¾ç½®é‡åˆ—æŒ‰é’®å¯ç”¨æ€§
 	 */
 	private void setButtonRefreshState(boolean state) {
 		m_kyodaiUI.getButtonRefresh().setEnabled(state);
 	}
 
 	/**
-	 * ÉèÖÃ²Ëµ¥À¸µÄ¿ÉÓÃĞÔ
+	 * è®¾ç½®èœå•æ çš„å¯ç”¨æ€§
 	 */
 	private void setMenusState(boolean state) {
 		m_kyodaiUI.setMenusState(state);
 	}
 
 	/**
-	 * ÖØĞÂÉèÖÃÔİÍ£°´Å¥
+	 * é‡æ–°è®¾ç½®æš‚åœæŒ‰é’®
 	 */
 	private void resetButtonPause(String text) {
 		m_kyodaiUI.resetButtonPause(text);
 	}
 
 	/**
-	 * ¼ÌĞøÓÎÏ·
+	 * ç»§ç»­æ¸¸æˆ
 	 */
 	private void goOn() {
 		goOnCountingDown();
 		setComponentsState(true);
-		resetButtonPause("  ÔİÍ£  ");
+		resetButtonPause("  æš‚åœ  ");
 	}
 
 	/**
-	 * ¼ÌĞøµ¹¼ÆÊ±
+	 * ç»§ç»­å€’è®¡æ—¶
 	 */
 	private void goOnCountingDown() {
 		m_kyodaiUI.goOnCountingDown();
 	}
 
 	/**
-	 * Ö´ĞĞÖØÁĞ²Ù×÷
+	 * æ‰§è¡Œé‡åˆ—æ“ä½œ
 	 */
 	private void refresh() {
 		MusicPlayer.playRefresh();
@@ -153,60 +153,60 @@ public class KyodaiMainUIEventHandler implements ActionListener {
 	}
 
 	/**
-	 * ÔÚ°´Å¥ÉÏÏÔÊ¾ÖØÁĞ´ÎÊı
+	 * åœ¨æŒ‰é’®ä¸Šæ˜¾ç¤ºé‡åˆ—æ¬¡æ•°
 	 */
 	protected void showRefreshNumber() {
 		if (refreshNumberLeft == 0)
 			setButtonRefreshState(false);
 		else
 			setButtonRefreshState(true);
-		m_kyodaiUI.getButtonRefresh().setText("ÖØÁĞ (" + refreshNumberLeft + ")");
+		m_kyodaiUI.getButtonRefresh().setText("é‡åˆ— (" + refreshNumberLeft + ")");
 	}
 
 	/**
-	 * ÖØÁĞÁ¬Á¬¿´Ãæ°å°´Å¥
+	 * é‡åˆ—è¿è¿çœ‹é¢æ¿æŒ‰é’®
 	 */
 	private void refreshKyodaiPanel() {
-		// »ñÈ¡µ±Ç°Ä£ĞÍµÄ¶şÎ¬Êı×é
+		// è·å–å½“å‰æ¨¡å‹çš„äºŒç»´æ•°ç»„
 		int[][] the2DArray = getKyodaiPanel().getModel().get2DArray();
-		// ÖØÅÅÄ£ĞÍÖĞ¶şÎ¬Êı×éÖĞµÄÔªËØ
+		// é‡æ’æ¨¡å‹ä¸­äºŒç»´æ•°ç»„ä¸­çš„å…ƒç´ 
 		ResetArithmetic.reset2DArray(the2DArray);
-		// ¸ù¾İµ±Ç°Ä£ĞÍÖØĞÂ»æÖÆ½çÃæ
+		// æ ¹æ®å½“å‰æ¨¡å‹é‡æ–°ç»˜åˆ¶ç•Œé¢
 		getKyodaiPanel().repaintUsingCurrentModel();
 		clearButtonQueue();
 	}
 
 	/**
-	 * ·µ»ØÁ¬Á¬¿´Ö÷Ãæ°å
+	 * è¿”å›è¿è¿çœ‹ä¸»é¢æ¿
 	 */
 	private KyodaiPanel getKyodaiPanel() {
 		return m_kyodaiUI.getKyodaiPanel();
 	}
 
 	/**
-	 * Çå¿Õ°´Å¥¶ÓÁĞ
+	 * æ¸…ç©ºæŒ‰é’®é˜Ÿåˆ—
 	 */
 	private void clearButtonQueue() {
 		m_kyodaiUI.getButtonQueue().clear();
 	}
 
 	/**
-	 * Ñ¡Ôñ²Ëµ¥ÊÂ¼ş´¦Àí
+	 * é€‰æ‹©èœå•äº‹ä»¶å¤„ç†
 	 */
 	private void doSelectedMenuItem(String actionCommand) {
-		if (actionCommand.equals("¿ªÊ¼")) {
+		if (actionCommand.equals("å¼€å§‹")) {
 			start();
-		} else if (actionCommand.equals("ÖØĞÂ¿ªÊ¼")) {
+		} else if (actionCommand.equals("é‡æ–°å¼€å§‹")) {
 			restart();
-		} else if (actionCommand.equals("ÍË³ö")) {
+		} else if (actionCommand.equals("é€€å‡º")) {
 			exit();
-		} else if (actionCommand.equals("¹Ø±ÕÒôĞ§")) {
+		} else if (actionCommand.equals("å…³é—­éŸ³æ•ˆ")) {
 			turnOffMusic();
-		} else if (actionCommand.equals("´ò¿ªÒôĞ§")) {
+		} else if (actionCommand.equals("æ‰“å¼€éŸ³æ•ˆ")) {
 			turnOnMusic();
-		} else if (actionCommand.equals("×î¸ß·Ö")) {
+		} else if (actionCommand.equals("æœ€é«˜åˆ†")) {
 			showMaxScoreDialog();
-		} else if (actionCommand.equals("¹ØÓÚÁ¬Á¬¿´")) {
+		} else if (actionCommand.equals("å…³äºè¿è¿çœ‹")) {
 			showAboutDialog();
 		} else {
 			doSelectedDifficulty(actionCommand);
@@ -214,7 +214,7 @@ public class KyodaiMainUIEventHandler implements ActionListener {
 	}
 
 	/**
-	 * Ö´ĞĞ¿ªÊ¼²Ù×÷
+	 * æ‰§è¡Œå¼€å§‹æ“ä½œ
 	 */
 	private void start() {
 		m_kyodaiUI.setStarted(true);
@@ -224,7 +224,7 @@ public class KyodaiMainUIEventHandler implements ActionListener {
 	}
 
 	/**
-	 * ÖØĞÂ¿ªÊ¼
+	 * é‡æ–°å¼€å§‹
 	 */
 	private void restart() {
 		setScoreWithDefault();
@@ -234,7 +234,7 @@ public class KyodaiMainUIEventHandler implements ActionListener {
 	}
 
 	/**
-	 * ÉèÖÃ·ÖÊıºÍ·ÖÊıÀ¸ÎªÄ¬ÈÏÖµ
+	 * è®¾ç½®åˆ†æ•°å’Œåˆ†æ•°æ ä¸ºé»˜è®¤å€¼
 	 */
 	private void setScoreWithDefault() {
 		getKyodaiPanel().resetScore();
@@ -242,7 +242,7 @@ public class KyodaiMainUIEventHandler implements ActionListener {
 	}
 
 	/**
-	 * ÉèÖÃÖØÁĞ´ÎÊıºÍÖØÁĞ°´Å¥ÎªÄ¬ÈÏÖµ
+	 * è®¾ç½®é‡åˆ—æ¬¡æ•°å’Œé‡åˆ—æŒ‰é’®ä¸ºé»˜è®¤å€¼
 	 */
 	private void setRefreshWithDefault() {
 		setRefreshNumberLeft(m_kyodaiUI.getMaxRefresfNumber());
@@ -250,14 +250,14 @@ public class KyodaiMainUIEventHandler implements ActionListener {
 	}
 
 	/**
-	 * ÖØĞÂ¿ªÊ¼¼ÆÊ±
+	 * é‡æ–°å¼€å§‹è®¡æ—¶
 	 */
 	private void restartCountingDown() {
 		m_kyodaiUI.setTimeWithDefaultAndRestart();
 	}
 
 	/**
-	 * Á¬Á¬¿´°´Å¥Ãæ°åµÄ¸üĞÂ
+	 * è¿è¿çœ‹æŒ‰é’®é¢æ¿çš„æ›´æ–°
 	 */
 	private void updateKyodaiPanel() {
 		getKyodaiPanel().setNewModel();
@@ -267,85 +267,85 @@ public class KyodaiMainUIEventHandler implements ActionListener {
 	}
 
 	/**
-	 * ÍË³ö³ÌĞò
+	 * é€€å‡ºç¨‹åº
 	 */
 	private void exit() {
 		System.exit(0);
 	}
 
 	/**
-	 * ¹Ø±ÕÒôĞ§
+	 * å…³é—­éŸ³æ•ˆ
 	 */
 	private void turnOffMusic() {
 		MusicPlayer.stop();
 	}
 
 	/**
-	 * ´ò¿ªÒôĞ§
+	 * æ‰“å¼€éŸ³æ•ˆ
 	 */
 	private void turnOnMusic() {
 		MusicPlayer.start();
 	}
 
 	/**
-	 * ÏÔÊ¾"¹ØÓÚ"ĞÅÏ¢
+	 * æ˜¾ç¤º"å…³äº"ä¿¡æ¯
 	 */
 	private void showAboutDialog() {
 		StringBuilder message = new StringBuilder("Author : liuchenwei2000\n");
 		message.append("Version : " + KyodaiConstant.VERSION + "\n");
 		message.append("E-mail : liuchenwei2000@163.com\n");
-		message.append("ÈçÓĞbugÇëÁªÏµÎÒ£¬Ğ»Ğ»£¡");
+		message.append("å¦‚æœ‰bugè¯·è”ç³»æˆ‘ï¼Œè°¢è°¢ï¼");
 		DialogManager.showMessageDialog(message.toString(), "About");
 	}
 
 	/**
-	 * ÏÔÊ¾"×î¸ß·Ö"ĞÅÏ¢
+	 * æ˜¾ç¤º"æœ€é«˜åˆ†"ä¿¡æ¯
 	 */
 	private void showMaxScoreDialog() {
-		String maxScore = "×î¸ß·Ö£º" + m_kyodaiUI.getMaxScoreFromFile();
+		String maxScore = "æœ€é«˜åˆ†ï¼š" + m_kyodaiUI.getMaxScoreFromFile();
 		DialogManager.showMessageDialog(maxScore, "Max Score");
 	}
 
 	/**
-	 * Ñ¡Ôñ ÄÑ¶ÈÑ¡ÔñÀ¸°´Å¥Ïî ÊÂ¼ş´¦Àí
+	 * é€‰æ‹© éš¾åº¦é€‰æ‹©æ æŒ‰é’®é¡¹ äº‹ä»¶å¤„ç†
 	 */
 	private void doSelectedDifficulty(String actionCommand) {
-		if (actionCommand.equals("³õ¼¶")) {
+		if (actionCommand.equals("åˆçº§")) {
 			new KyodaiMainUI(KyodaiConstant.LOW);
-		} else if (actionCommand.equals("ÖĞ¼¶")) {
+		} else if (actionCommand.equals("ä¸­çº§")) {
 			new KyodaiMainUI(KyodaiConstant.MIDDLE);
-		} else if (actionCommand.equals("¸ß¼¶")) {
+		} else if (actionCommand.equals("é«˜çº§")) {
 			new KyodaiMainUI(KyodaiConstant.HIGH);
-		} else if (actionCommand.equals("×Ô¶¨Òå")) {
+		} else if (actionCommand.equals("è‡ªå®šä¹‰")) {
 			try {
 				startCustomGame();
 			} catch (Exception e) {
 				return;
 			}
 		}
-		// Í£Ö¹Ô­ÓĞµÄµ¹¼ÆÊ±Ïß³Ì
+		// åœæ­¢åŸæœ‰çš„å€’è®¡æ—¶çº¿ç¨‹
 		m_kyodaiUI.stopCountingDown();
 		m_kyodaiUI.dispose();
 	}
 
 	/**
-	 * ¿ªÊ¼×Ô¶¨ÒåÓÎÏ·(Ä£ĞÍÎ¬Êı20(º¬)Ö®ÄÚ)
+	 * å¼€å§‹è‡ªå®šä¹‰æ¸¸æˆ(æ¨¡å‹ç»´æ•°20(å«)ä¹‹å†…)
 	 * 
 	 * @throws Exception
 	 */
 	private void startCustomGame() throws Exception {
-		String input = DialogManager.showInputDialog("ÇëÊäÈë×Ô¶¨ÒåÄÑ¶È(20Ö®ÄÚÕıÅ¼Êı)£º",
+		String input = DialogManager.showInputDialog("è¯·è¾“å…¥è‡ªå®šä¹‰éš¾åº¦(20ä¹‹å†…æ­£å¶æ•°)ï¼š",
 				String.valueOf(KyodaiConstant.LOW));
-		// µã»÷È¡ÏûÊÂ¼ş´¦Àí(Ö»ÊÇ×÷Îªflag)
+		// ç‚¹å‡»å–æ¶ˆäº‹ä»¶å¤„ç†(åªæ˜¯ä½œä¸ºflag)
 		if (input == null)
-			throw new Exception("È¡ÏûÊäÈë");
-		// ÅĞ¶ÏÊäÈëºÏ·¨ĞÔ
+			throw new Exception("å–æ¶ˆè¾“å…¥");
+		// åˆ¤æ–­è¾“å…¥åˆæ³•æ€§
 		if (StringUtil.isPositiveNumber(input)
 				&& StringUtil.isEvenNumber(input)
 				&& Integer.parseInt(input) < 21) {
 			new KyodaiMainUI(Integer.parseInt(input));
 		} else {
-			DialogManager.showErrorDialog("ÄúµÄÊäÈë²»ÕıÈ·ÇëÖØĞÂÊäÈë£¡");
+			DialogManager.showErrorDialog("æ‚¨çš„è¾“å…¥ä¸æ­£ç¡®è¯·é‡æ–°è¾“å…¥ï¼");
 			startCustomGame();
 		}
 	}

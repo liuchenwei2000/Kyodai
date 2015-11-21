@@ -4,16 +4,16 @@
 package geometry;
 
 /**
- * ÕûÊıÖµÓòÀà
+ * æ•´æ•°å€¼åŸŸç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨Ê±¼ä£º2007-10-17
+ * åˆ›å»ºæ—¶é—´ï¼š2007-10-17
  */
 public class ValueField {
 
-	private int start;// ×ó±ß½ç
-	private int end;// ÓÒ±ß½ç
+	private int start;// å·¦è¾¹ç•Œ
+	private int end;// å³è¾¹ç•Œ
 
 	public ValueField() {
 		start = 0;
@@ -22,16 +22,16 @@ public class ValueField {
 
 	public ValueField(int start, int end) {
 		if (start > end)
-			throw new IllegalArgumentException("×ó±ß½ç²»¿É´óÓÚÓÒ±ß½ç");
+			throw new IllegalArgumentException("å·¦è¾¹ç•Œä¸å¯å¤§äºå³è¾¹ç•Œ");
 		this.start = start;
 		this.end = end;
 	}
 
 	/**
-	 * ÅĞ¶ÏvalueFieldÊÇ·ñÊÇµ±Ç°ÖµÓòµÄ×Ó¼¯
+	 * åˆ¤æ–­valueFieldæ˜¯å¦æ˜¯å½“å‰å€¼åŸŸçš„å­é›†
 	 * 
 	 * @param valueField
-	 *            Ä¿±êÖµÓò
+	 *            ç›®æ ‡å€¼åŸŸ
 	 * @return boolean
 	 */
 	public boolean contains(ValueField valueField) {
@@ -42,42 +42,42 @@ public class ValueField {
 	}
 	
 	/**
-	 * ÅĞ¶ÏÁ½¸öÖµÓòÊÇ·ñÓĞ½»¼¯
+	 * åˆ¤æ–­ä¸¤ä¸ªå€¼åŸŸæ˜¯å¦æœ‰äº¤é›†
 	 * 
 	 * @param valueField
-	 *            Ä¿±êÖµÓò
+	 *            ç›®æ ‡å€¼åŸŸ
 	 * @return boolean
 	 */
 	public boolean hasIntersectionWith(ValueField valueField) {
-		// ÈôthisµÄÓÒ±ß½çĞ¡ÓÚvalueFieldµÄ×ó±ß½çÔò²»Ïë½»
+		// è‹¥thisçš„å³è¾¹ç•Œå°äºvalueFieldçš„å·¦è¾¹ç•Œåˆ™ä¸æƒ³äº¤
 		if (this.getEnd() < valueField.getStart())
 			return false;
-		// ÈôvalueFieldµÄÓÒ±ß½çĞ¡ÓÚthisµÄ×ó±ß½çÔò²»Ïë½»
+		// è‹¥valueFieldçš„å³è¾¹ç•Œå°äºthisçš„å·¦è¾¹ç•Œåˆ™ä¸æƒ³äº¤
 		if (valueField.getEnd() < this.getStart())
 			return false;
 		return true;
 	}
 	
 	/**
-	 * ·µ»ØÁ½¸öÖµÓòµÄ½»¼¯ 
-	 * ÈôÃ»ÓĞ½»¼¯·µ»Ønull
+	 * è¿”å›ä¸¤ä¸ªå€¼åŸŸçš„äº¤é›† 
+	 * è‹¥æ²¡æœ‰äº¤é›†è¿”å›null
 	 * 
 	 * @param valueField
-	 *            Ä¿±êÖµÓò
+	 *            ç›®æ ‡å€¼åŸŸ
 	 * @return ValueField
 	 */
 	public ValueField getIntersectionWith(ValueField valueField) {
 		if (!this.hasIntersectionWith(valueField))
 			return null;
-		// È·¶¨½»¼¯µÄ×ó±ß½ç(Á½ÖµÓò×ó±ß½ç½Ï´óÖµ)
+		// ç¡®å®šäº¤é›†çš„å·¦è¾¹ç•Œ(ä¸¤å€¼åŸŸå·¦è¾¹ç•Œè¾ƒå¤§å€¼)
 		int start = Math.max(this.getStart(), valueField.getStart());
-		// È·¶¨½»¼¯µÄÓÒ±ß½ç(Á½ÖµÓòÓÒ±ß½ç½ÏĞ¡Öµ)
+		// ç¡®å®šäº¤é›†çš„å³è¾¹ç•Œ(ä¸¤å€¼åŸŸå³è¾¹ç•Œè¾ƒå°å€¼)
 		int end = Math.min(this.getEnd(), valueField.getEnd());
 		return new ValueField(start, end);
 	}
 	
 	/**
-	 * ·µ»ØĞÎÊ½£º[2£¬7]
+	 * è¿”å›å½¢å¼ï¼š[2ï¼Œ7]
 	 * 
 	 * @see java.lang.Object#toString()
 	 */

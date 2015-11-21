@@ -10,23 +10,23 @@ import java.net.URL;
 import assistant.KyodaiConstant;
 
 /**
- * ÒôÀÖ²¥·ÅÆ÷Àà
+ * éŸ³ä¹æ’­æ”¾å™¨ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-10-23
+ * åˆ›å»ºæ—¥æœŸï¼š2007-10-23
  */
 public class MusicPlayer {
 	
-	private static AudioClip audioClip;// Êµ¼Ê²¥·ÅÆ÷¶ÔÏó
-	private static boolean isOn = true;// ÒôĞ§×´Ì¬
+	private static AudioClip audioClip;// å®é™…æ’­æ”¾å™¨å¯¹è±¡
+	private static boolean isOn = true;// éŸ³æ•ˆçŠ¶æ€
 
 	private MusicPlayer() {
 		// do nothing and no instance
 	}
 
 	/**
-	 * ²¥·Å ÏûÈ¥ ÒôÀÖ
+	 * æ’­æ”¾ æ¶ˆå» éŸ³ä¹
 	 */
 	public static void playRemove() {
 		if (isOn) {
@@ -36,7 +36,7 @@ public class MusicPlayer {
 	}
 
 	/**
-	 * ²¥·Å ÖØÁĞ ÒôÀÖ
+	 * æ’­æ”¾ é‡åˆ— éŸ³ä¹
 	 */
 	public static void playRefresh() {
 		if (isOn) {
@@ -46,7 +46,7 @@ public class MusicPlayer {
 	}
 
 	/**
-	 * ²¥·Å Ñ¡Ôñ ÒôÀÖ
+	 * æ’­æ”¾ é€‰æ‹© éŸ³ä¹
 	 */
 	public static void playSelect() {
 		if (isOn) {
@@ -56,28 +56,28 @@ public class MusicPlayer {
 	}
 
 	/**
-	 * Í£Ö¹²¥·Å
+	 * åœæ­¢æ’­æ”¾
 	 */
 	public static void stop() {
 		isOn = false;
 	}
 
 	/**
-	 * ¿ªÊ¼²¥·Å
+	 * å¼€å§‹æ’­æ”¾
 	 */
 	public static void start() {
 		isOn = true;
 	}
 	
 	/**
-	 * ·µ»ØStringÂ·¾¶¶ÔÓ¦µÄURL
+	 * è¿”å›Stringè·¯å¾„å¯¹åº”çš„URL
 	 * 
 	 * @param path
-	 *            Â·¾¶
+	 *            è·¯å¾„
 	 * @return URL
 	 */
 	private static URL getURL(String path) {
-//		URL url = ResourceManager.getURL(path);// ´òJAR°üÊ¹ÓÃ
+//		URL url = ResourceManager.getURL(path);// æ‰“JARåŒ…ä½¿ç”¨
 		URL url = null;
 		try {
 			java.io.File file = new java.io.File(path);

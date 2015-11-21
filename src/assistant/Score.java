@@ -9,14 +9,14 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * ·ÖÊıÀà
+ * åˆ†æ•°ç±»
  * 
- * ÓÃÀ´¼ÇÂ¼Á¬Á¬¿´·ÖÊıĞÅÏ¢
- * °üÀ¨·ÖÊıÖµºÍ´´½¨¸Ã·ÖÊıµÄÈÕÆÚ
+ * ç”¨æ¥è®°å½•è¿è¿çœ‹åˆ†æ•°ä¿¡æ¯
+ * åŒ…æ‹¬åˆ†æ•°å€¼å’Œåˆ›å»ºè¯¥åˆ†æ•°çš„æ—¥æœŸ
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨Ê±¼ä£º2007-11-7
+ * åˆ›å»ºæ—¶é—´ï¼š2007-11-7
  */
 public class Score implements Serializable{
 
@@ -25,8 +25,8 @@ public class Score implements Serializable{
 	 */
 	private static final long serialVersionUID = -2469803386818828658L;
 	
-	private int score;// ·ÖÊıÖµ
-	private Date date;// ·ÖÊı´´½¨ÈÕÆÚ
+	private int score;// åˆ†æ•°å€¼
+	private Date date;// åˆ†æ•°åˆ›å»ºæ—¥æœŸ
 
 	public Score() {
 		score = 0;
@@ -54,17 +54,17 @@ public class Score implements Serializable{
 	}
 
 	/**
-	 * ¼Ó·Ö
+	 * åŠ åˆ†
 	 * 
 	 * @param newScore
-	 *            ĞÂ·ÖÊı
+	 *            æ–°åˆ†æ•°
 	 */
 	public void addScore(int newScore) {
 		this.score += newScore;
 	}
 	
 	/**
-	 * ·µ»ØĞÎÊ½£º50 (2007Äê11ÔÂ7ÈÕ ĞÇÆÚÈı)
+	 * è¿”å›å½¢å¼ï¼š50 (2007å¹´11æœˆ7æ—¥ æ˜ŸæœŸä¸‰)
 	 * 
 	 * @see java.lang.Object#toString()
 	 */

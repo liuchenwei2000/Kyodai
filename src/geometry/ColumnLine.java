@@ -4,48 +4,48 @@
 package geometry;
 
 /**
- * ´¹Ö±Ïß¶Î(ÁĞ)Àà
+ * å‚ç›´çº¿æ®µ(åˆ—)ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨Ê±¼ä£º2007-10-16
+ * åˆ›å»ºæ—¶é—´ï¼š2007-10-16
  */
 public class ColumnLine extends Line {
 
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 * 
 	 * @param location1
-	 *            Ïß¶Î¶ËµãÎ»ÖÃ1
+	 *            çº¿æ®µç«¯ç‚¹ä½ç½®1
 	 * @param location2
-	 *            Ïß¶Î¶ËµãÎ»ÖÃ2
+	 *            çº¿æ®µç«¯ç‚¹ä½ç½®2
 	 */
 	public ColumnLine(Location location1, Location location2) {
 		super(location1, location2);
 	}
 
 	/**
-	 * ¹¹½¨Ïß¶Î(°ÑÏß¶Î°üº¬µÄÎ»ÖÃ¶¼¼ÓÈëµ½locationsÖĞ)
+	 * æ„å»ºçº¿æ®µ(æŠŠçº¿æ®µåŒ…å«çš„ä½ç½®éƒ½åŠ å…¥åˆ°locationsä¸­)
 	 *
 	 * @see geometry.Line#createLine(geometry.Location, geometry.Location)
 	 */
 	@Override
 	protected void createLine(Location location1, Location location2) {
-		// ĞĞºÅĞ¡µÄ×÷ÎªÆğÊ¼Î»ÖÃ
+		// è¡Œå·å°çš„ä½œä¸ºèµ·å§‹ä½ç½®
 		if (location1.getRow() < location2.getRow()) {
 			setStartAndEndLocation(location1, location2);
 		} else {
 			setStartAndEndLocation(location2, location1);
 		}
-		// ±éÀú´ÓÆğÊ¼Î»ÖÃµ½½áÊøÎ»ÖÃµÄÁĞÏßÉÏËùÓĞµÄÎ»ÖÃ
+		// éå†ä»èµ·å§‹ä½ç½®åˆ°ç»“æŸä½ç½®çš„åˆ—çº¿ä¸Šæ‰€æœ‰çš„ä½ç½®
 		for (int i = getStart().getRow(); i <= getEnd().getRow(); i++) {
-			// ¹¹½¨Locations(ËùÓĞÎ»ÖÃµÄºá×ø±êÏàÍ¬)
+			// æ„å»ºLocations(æ‰€æœ‰ä½ç½®çš„æ¨ªåæ ‡ç›¸åŒ)
 			getLocations().add(new Location(i, getStart().getColumn()));
 		}
 	}
 
 	/**
-	 * ÅĞ¶ÏlineÊÇ·ñºÍÁĞÏßÆ½ĞĞ
+	 * åˆ¤æ–­lineæ˜¯å¦å’Œåˆ—çº¿å¹³è¡Œ
 	 * 
 	 * @see geometry.Line#isParallelWith(geometry.Line)
 	 */
@@ -55,7 +55,7 @@ public class ColumnLine extends Line {
 	}
 
 	/**
-	 * ÅĞ¶ÏlineÊÇ·ñºÍÁĞÏß´¹Ö±
+	 * åˆ¤æ–­lineæ˜¯å¦å’Œåˆ—çº¿å‚ç›´
 	 * 
 	 * @see geometry.Line#isPlumbUp(geometry.Line)
 	 */

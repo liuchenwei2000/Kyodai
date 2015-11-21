@@ -6,11 +6,11 @@ package util.other;
 import javax.swing.JOptionPane;
 
 /**
- * ¶Ô»°¿ò¹ÜÀíÆ÷Àà
+ * å¯¹è¯æ¡†ç®¡ç†å™¨ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-11-1
+ * åˆ›å»ºæ—¥æœŸï¼š2007-11-1
  */
 public class DialogManager {
 
@@ -19,10 +19,10 @@ public class DialogManager {
 	}
 
 	/**
-	 * ÏÔÊ¾´íÎóĞÅÏ¢¶Ô»°¿ò
+	 * æ˜¾ç¤ºé”™è¯¯ä¿¡æ¯å¯¹è¯æ¡†
 	 * 
 	 * @param message
-	 *            ĞÅÏ¢
+	 *            ä¿¡æ¯
 	 */
 	public static void showErrorDialog(String message) {
 		JOptionPane.showMessageDialog(null, message, "Error",
@@ -30,12 +30,12 @@ public class DialogManager {
 	}
 
 	/**
-	 * ÏÔÊ¾ÆÕÍ¨ĞÅÏ¢¶Ô»°¿ò
+	 * æ˜¾ç¤ºæ™®é€šä¿¡æ¯å¯¹è¯æ¡†
 	 * 
 	 * @param message
-	 *            ĞÅÏ¢
+	 *            ä¿¡æ¯
 	 * @param title
-	 *            ±êÌâ
+	 *            æ ‡é¢˜
 	 */
 	public static void showMessageDialog(String message, String title) {
 		JOptionPane.showMessageDialog(null, message, title,
@@ -43,12 +43,12 @@ public class DialogManager {
 	}
 
 	/**
-	 * ÏÔÊ¾ÊäÈë¶Ô»°¿ò
+	 * æ˜¾ç¤ºè¾“å…¥å¯¹è¯æ¡†
 	 * 
 	 * @param message
-	 *            ĞÅÏ¢
+	 *            ä¿¡æ¯
 	 * @param defaultValue
-	 *            ÊäÈë¿òÄ¬ÈÏÖµ
+	 *            è¾“å…¥æ¡†é»˜è®¤å€¼
 	 * @return String
 	 */
 	public static String showInputDialog(String message, String defaultValue) {
@@ -56,19 +56,19 @@ public class DialogManager {
 	}
 
 	/**
-	 * ÏÔÊ¾Ê§°ÜĞÅÏ¢¿ò
+	 * æ˜¾ç¤ºå¤±è´¥ä¿¡æ¯æ¡†
 	 */
 	public static void showFailureDialog() {
-		showMessageDialog("...ÄãÊ§°ÜÁË...", "Failed");
+		showMessageDialog("...ä½ å¤±è´¥äº†...", "Failed");
 	}
 
 	/**
-	 * ÏÔÊ¾´´Ôì×î¸ß·ÖĞÅÏ¢¿ò
+	 * æ˜¾ç¤ºåˆ›é€ æœ€é«˜åˆ†ä¿¡æ¯æ¡†
 	 * 
 	 * @param maxScore
-	 *            ×î¸ß·Ö
+	 *            æœ€é«˜åˆ†
 	 */
 	public static void showCongratulationDialog(String maxScore) {
-		showMessageDialog("ÄãÒÑ¾­´´ÔìÁËĞÂµÄ×î¸ß·Ö£º" + maxScore, "Congratulations");
+		showMessageDialog("ä½ å·²ç»åˆ›é€ äº†æ–°çš„æœ€é«˜åˆ†ï¼š" + maxScore, "Congratulations");
 	}
 }

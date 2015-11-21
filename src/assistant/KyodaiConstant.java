@@ -4,66 +4,66 @@
 package assistant;
 
 /**
- * �����������ӿ�
+ * 连连看常量接口
  * 
- * @author ����ΰ
+ * @author 刘晨伟
  *
- * ����ʱ�䣺2007-10-25
+ * 创建时间：2007-10-25
  */
 public interface KyodaiConstant {
-	/** ��ťgifͼƬ����Ŀ */
+	/** 按钮gif图片的数目 */
 	int NUMBER_OF_ICONS = 39;
-	/** ����jpgͼƬ����Ŀ */
+	/** 背景jpg图片的数目 */
 	int NUMBER_OF_IMAGES = 10;
-	/** ����ͼ���ͼƬ�� */
+	/** 重列图标的图片号 */
 	int REFRESH_ICON = 40;
 	
-	/** gifͼƬ�ĳ��������� */
+	/** gif图片的长度像素数 */
 	int X_PIX_OF_ICON = 31;
-	/** gifͼƬ�Ŀ��������� */
+	/** gif图片的宽度像素数 */
 	int Y_PIX_OF_ICON = 34;
 	
-	/** ��������ť�ĳ��� */
+	/** 连连看按钮的长度 */
 	int LENGTH_OF_BUTTON = X_PIX_OF_ICON;
-	/** ��������ť�Ŀ��� */
+	/** 连连看按钮的宽度 */
 	int WIDTH_OF_BUTTON = Y_PIX_OF_ICON;
 	
-	/** Ĭ����ȥһ�԰�ť�ķ��� */
+	/** 默认消去一对按钮的分数 */
 	int INCREMENT_OF_SCORE = 10;
 	
-	/** ��������ť�����ʾʱ����չ���� */
+	/** 连连看按钮面板显示时的扩展长度 */
 	int EXTENSION_LENGTH = 60;
 	
-	/** ��������ť�����ʾʱ����չ���� */
+	/** 连连看按钮面板显示时的扩展宽度 */
 	int EXTENSION_WIDTH = 60;
 	
-	/** �ͼ���Ӧ��ģ��ά�� */
+	/** 低级对应的模型维数 */
 	int LOW = 6;
-	/** �м���Ӧ��ģ��ά�� */
+	/** 中级对应的模型维数 */
 	int MIDDLE = 12;
-	/** �߼���Ӧ��ģ��ά�� */
+	/** 高级对应的模型维数 */
 	int HIGH = 18;
 	
-	/** �汾��Ϣ */
-	String VERSION = "������V2.3";
+	/** 版本信息 */
+	String VERSION = "连连看V2.3";
 	
-	/** jpgͼƬ��׺�� */
+	/** jpg图片后缀名 */
 	String SUFFIX_JPG = ".jpg";
-	/** gifͼƬ��׺�� */
+	/** gif图片后缀名 */
 	String SUFFIX_GIF = ".gif";
 	
-	/** ͼ��·�� */
+	/** 图标路径 */
 	String PATH_OF_ICONS = "images/";
-	/** ͼƬ·�� */
+	/** 图片路径 */
 	String PATH_OF_IMAGES = "images/bkgrd/";
 	
-	/** ��߷ִ洢�ļ����·�� */
+	/** 最高分存储文件相对路径 */
 	String SCORE = "score.info";
 	
-	/** ��ȥ �����ļ�·�� */
+	/** 消去 音乐文件路径 */
 	String REMOVE = "sound/remove.wav";
-	/** ���� �����ļ�·�� */
+	/** 重列 音乐文件路径 */
 	String REFRESH = "sound/refresh.wav";
-	/** ѡ�� �����ļ�·�� */
+	/** 选择 音乐文件路径 */
 	String SELECT = "sound/select.wav";
 }

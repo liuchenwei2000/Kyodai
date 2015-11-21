@@ -34,11 +34,11 @@ import util.resource.ImageCreator;
 import util.resource.ScoreFileManager;
 
 /**
- * Á¬Á¬¿´Ö÷½çÃæÀà
+ * è¿è¿çœ‹ä¸»ç•Œé¢ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-10-11
+ * åˆ›å»ºæ—¥æœŸï¼š2007-10-11
  */
 public class KyodaiMainUI extends MyFrame {
 
@@ -47,40 +47,40 @@ public class KyodaiMainUI extends MyFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/** ²Ëµ¥À¸ */
+	/** èœå•æ  */
 	private JMenuBar menuBar;
 
-	private JMenu manageMenu;// ²Ù×÷²Ëµ¥
-	private JMenuItem startItem;// ¿ªÊ¼²Ëµ¥Ïî
-	private JMenuItem restartItem;// ÖØĞÂ¿ªÊ¼²Ëµ¥Ïî
+	private JMenu manageMenu;// æ“ä½œèœå•
+	private JMenuItem startItem;// å¼€å§‹èœå•é¡¹
+	private JMenuItem restartItem;// é‡æ–°å¼€å§‹èœå•é¡¹
 
-	private JMenu difficultyMenu;// ÄÑ¶ÈÑ¡Ôñ²Ëµ¥
-	private JMenu settingMenu;// ÉèÖÃ²Ëµ¥
-	private JMenu helpMenu;// °ïÖú²Ëµ¥
+	private JMenu difficultyMenu;// éš¾åº¦é€‰æ‹©èœå•
+	private JMenu settingMenu;// è®¾ç½®èœå•
+	private JMenu helpMenu;// å¸®åŠ©èœå•
 
-	/** Á¬Á¬¿´Ö÷Ãæ°å */
+	/** è¿è¿çœ‹ä¸»é¢æ¿ */
 	private KyodaiPanel kyodaiPanel;
 
-	/** ¹¦ÄÜÃæ°å */
+	/** åŠŸèƒ½é¢æ¿ */
 	private JPanel functionPanel;
 
-	private JLabel scoreLabel;// ¼Æ·Ö±êÇ©
-	private JTextField scoreTextField;// ¼Æ·ÖÀ¸
+	private JLabel scoreLabel;// è®¡åˆ†æ ‡ç­¾
+	private JTextField scoreTextField;// è®¡åˆ†æ 
 
-	private JButton buttonPause;// ¿ªÊ¼°´Å¥
-	private JButton buttonRefresh;// ÖØÁĞ°´Å¥
+	private JButton buttonPause;// å¼€å§‹æŒ‰é’®
+	private JButton buttonRefresh;// é‡åˆ—æŒ‰é’®
 
-	private JLabel timeLabel;// µ¹¼ÆÊ±±êÇ©
-	private JTextField timeTextField;// µ¹¼ÆÊ±À¸
+	private JLabel timeLabel;// å€’è®¡æ—¶æ ‡ç­¾
+	private JTextField timeTextField;// å€’è®¡æ—¶æ 
 
-	private KyodaiMainUIEventHandler ehd;// ÊÂ¼ş´¦Àí¶ÔÏó
+	private KyodaiMainUIEventHandler ehd;// äº‹ä»¶å¤„ç†å¯¹è±¡
 
-	private int m_dimension;// ¹¹½¨°´Å¥Ãæ°åµÄÎ¬Êı
+	private int m_dimension;// æ„å»ºæŒ‰é’®é¢æ¿çš„ç»´æ•°
 
-	private boolean isStarted = false;// ÊÇ·ñÒÑ¾­¿ªÊ¼±êÊ¶·û
+	private boolean isStarted = false;// æ˜¯å¦å·²ç»å¼€å§‹æ ‡è¯†ç¬¦
 
-	private Thread countDown;// µ¹¼ÆÊ±Æ÷ÔËĞĞµÄÏß³Ì
-	private Calculagraph calculagraph;// µ¹¼ÆÊ±Æ÷¶ÔÏó
+	private Thread countDown;// å€’è®¡æ—¶å™¨è¿è¡Œçš„çº¿ç¨‹
+	private Calculagraph calculagraph;// å€’è®¡æ—¶å™¨å¯¹è±¡
 
 	public KyodaiMainUI(int dimension) {
 		super();
@@ -88,12 +88,12 @@ public class KyodaiMainUI extends MyFrame {
 		setDimension(dimension);
 		setLayout(new BorderLayout());
 
-		// Ôö¼Ó×é¼ş
+		// å¢åŠ ç»„ä»¶
 		addMenuBar();
 		addKyodaiPanel();
 		addFunctionPanel();
 
-		// ÉèÖÃ½çÃæ´óĞ¡
+		// è®¾ç½®ç•Œé¢å¤§å°
 		setSize(getDimension() * KyodaiConstant.LENGTH_OF_BUTTON + 170,
 				getDimension() * KyodaiConstant.WIDTH_OF_BUTTON + 110);
 
@@ -108,7 +108,7 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * Ìí¼Ó²Ëµ¥À¸
+	 * æ·»åŠ èœå•æ 
 	 */
 	private void addMenuBar() {
 		addMenus();
@@ -116,7 +116,7 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * Îª²Ëµ¥À¸Ìí¼Ó²Ëµ¥
+	 * ä¸ºèœå•æ æ·»åŠ èœå•
 	 */
 	private void addMenus() {
 		if (menuBar == null)
@@ -128,117 +128,117 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ²Ù×÷²Ëµ¥À¸
+	 * æ“ä½œèœå•æ 
 	 */
 	private JMenu getManageMenu() {
 		if (manageMenu == null) {
-			manageMenu = new JMenu("²Ù×÷");
-			manageMenu.setFont(new Font("ËÎÌå", Font.PLAIN, 12));
+			manageMenu = new JMenu("æ“ä½œ");
+			manageMenu.setFont(new Font("å®‹ä½“", Font.PLAIN, 12));
 
 			manageMenu.add(getStartItem());
 			manageMenu.add(getRestartItem());
-			manageMenu.addSeparator();// ·Ö¸ô·û
-			manageMenu.add(createMenuItemWithListener("ÍË³ö"));
+			manageMenu.addSeparator();// åˆ†éš”ç¬¦
+			manageMenu.add(createMenuItemWithListener("é€€å‡º"));
 		}
 		return manageMenu;
 	}
 
 	/**
-	 * ¿ªÊ¼²Ëµ¥Ïî
+	 * å¼€å§‹èœå•é¡¹
 	 */
 	private JMenuItem getStartItem() {
 		if (startItem == null) {
-			startItem = createMenuItemWithListener("¿ªÊ¼");
+			startItem = createMenuItemWithListener("å¼€å§‹");
 		}
 		return startItem;
 	}
 
 	/**
-	 * ÖØĞÂ¿ªÊ¼²Ëµ¥Ïî
+	 * é‡æ–°å¼€å§‹èœå•é¡¹
 	 */
 	private JMenuItem getRestartItem() {
 		if (restartItem == null) {
-			restartItem = createMenuItemWithListener("ÖØĞÂ¿ªÊ¼");
+			restartItem = createMenuItemWithListener("é‡æ–°å¼€å§‹");
 		}
 		return restartItem;
 	}
 
 	/**
-	 * ÄÑ¶ÈÑ¡Ôñ²Ëµ¥À¸
+	 * éš¾åº¦é€‰æ‹©èœå•æ 
 	 */
 	private JMenu getDifficultyMenu() {
 		if (difficultyMenu == null) {
-			difficultyMenu = new JMenu("ÄÑ¶ÈÑ¡Ôñ");
-			difficultyMenu.setFont(new Font("ËÎÌå", Font.PLAIN, 12));
+			difficultyMenu = new JMenu("éš¾åº¦é€‰æ‹©");
+			difficultyMenu.setFont(new Font("å®‹ä½“", Font.PLAIN, 12));
 
-			difficultyMenu.add(createMenuItemWithListener("³õ¼¶"));
-			difficultyMenu.add(createMenuItemWithListener("ÖĞ¼¶"));
-			difficultyMenu.add(createMenuItemWithListener("¸ß¼¶"));
-			difficultyMenu.add(createMenuItemWithListener("×Ô¶¨Òå"));
+			difficultyMenu.add(createMenuItemWithListener("åˆçº§"));
+			difficultyMenu.add(createMenuItemWithListener("ä¸­çº§"));
+			difficultyMenu.add(createMenuItemWithListener("é«˜çº§"));
+			difficultyMenu.add(createMenuItemWithListener("è‡ªå®šä¹‰"));
 		}
 		return difficultyMenu;
 	}
 
 	/**
-	 * ÉèÖÃ²Ëµ¥À¸
+	 * è®¾ç½®èœå•æ 
 	 */
 	private JMenu getSettingMenu() {
 		if (settingMenu == null) {
-			settingMenu = new JMenu("ÉèÖÃ");
-			settingMenu.setFont(new Font("ËÎÌå", Font.PLAIN, 12));
-			settingMenu.add(createMenuItemWithListener("´ò¿ªÒôĞ§"));
-			settingMenu.add(createMenuItemWithListener("¹Ø±ÕÒôĞ§"));
+			settingMenu = new JMenu("è®¾ç½®");
+			settingMenu.setFont(new Font("å®‹ä½“", Font.PLAIN, 12));
+			settingMenu.add(createMenuItemWithListener("æ‰“å¼€éŸ³æ•ˆ"));
+			settingMenu.add(createMenuItemWithListener("å…³é—­éŸ³æ•ˆ"));
 		}
 		return settingMenu;
 	}
 
 	/**
-	 * °ïÖú²Ëµ¥À¸
+	 * å¸®åŠ©èœå•æ 
 	 */
 	private JMenu getHelpMenu() {
 		if (helpMenu == null) {
-			helpMenu = new JMenu("°ïÖú");
-			helpMenu.setFont(new Font("ËÎÌå", Font.PLAIN, 12));
+			helpMenu = new JMenu("å¸®åŠ©");
+			helpMenu.setFont(new Font("å®‹ä½“", Font.PLAIN, 12));
 
-			helpMenu.add(createMenuItemWithListener("×î¸ß·Ö"));
-			helpMenu.addSeparator();// ·Ö¸ô·û
-			helpMenu.add(createMenuItemWithListener("¹ØÓÚÁ¬Á¬¿´"));
+			helpMenu.add(createMenuItemWithListener("æœ€é«˜åˆ†"));
+			helpMenu.addSeparator();// åˆ†éš”ç¬¦
+			helpMenu.add(createMenuItemWithListener("å…³äºè¿è¿çœ‹"));
 		}
 		return helpMenu;
 	}
 
 	/**
-	 * ÓÃÖ¸¶¨Ãû´´½¨´øÓĞ¼àÌıÆ÷²Ëµ¥°´Å¥
+	 * ç”¨æŒ‡å®šååˆ›å»ºå¸¦æœ‰ç›‘å¬å™¨èœå•æŒ‰é’®
 	 * 
 	 * @param name
-	 *            ²Ëµ¥°´Å¥µÄÏÔÊ¾Ãû³Æ
+	 *            èœå•æŒ‰é’®çš„æ˜¾ç¤ºåç§°
 	 * @return JMenuItem
 	 */
 	private JMenuItem createMenuItemWithListener(String name) {
 		JMenuItem item = new JMenuItem(name);
-		item.setFont(new Font("ËÎÌå", Font.PLAIN, 12));
+		item.setFont(new Font("å®‹ä½“", Font.PLAIN, 12));
 		item.addActionListener(getEhd());
 		return item;
 	}
 
 	/**
-	 * Ìí¼ÓÁ¬Á¬¿´Ö÷Ãæ°å
+	 * æ·»åŠ è¿è¿çœ‹ä¸»é¢æ¿
 	 */
 	private void addKyodaiPanel() {
-		// ¿ªÊ¼×´Ì¬²»¿É¼û
+		// å¼€å§‹çŠ¶æ€ä¸å¯è§
 		getKyodaiPanel().setVisible(isStarted());
 		add(getKyodaiPanel(), BorderLayout.CENTER);
 	}
 
 	/**
-	 * ·µ»ØÁ¬Á¬¿´Ö÷Ãæ°å
+	 * è¿”å›è¿è¿çœ‹ä¸»é¢æ¿
 	 */
 	public KyodaiPanel getKyodaiPanel() {
 		if (kyodaiPanel == null) {
 			kyodaiPanel = new KyodaiPanel(getDimension());
-			// ÎªÁËºÍÖ÷Ãæ°å½øĞĞÍ¨ĞÅÒÔÉèÖÃ·ÖÊı
+			// ä¸ºäº†å’Œä¸»é¢æ¿è¿›è¡Œé€šä¿¡ä»¥è®¾ç½®åˆ†æ•°
 			kyodaiPanel.setMainUIEhd(getEhd());
-			// ¸ù¾İÄ£ĞÍµÄÎ¬ÊıÉèÖÃÃæ°å´óĞ¡
+			// æ ¹æ®æ¨¡å‹çš„ç»´æ•°è®¾ç½®é¢æ¿å¤§å°
 			kyodaiPanel.setSize(getDimension()
 					* KyodaiConstant.LENGTH_OF_BUTTON
 					+ KyodaiConstant.EXTENSION_LENGTH, getDimension()
@@ -249,7 +249,7 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * Ìí¼Ó¹¦ÄÜÃæ°å
+	 * æ·»åŠ åŠŸèƒ½é¢æ¿
 	 */
 	private void addFunctionPanel() {
 		setButtonsAndItemsState();
@@ -257,17 +257,17 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ÉèÖÃ°´Å¥ºÍ²Ëµ¥Ïî×´Ì¬
+	 * è®¾ç½®æŒ‰é’®å’Œèœå•é¡¹çŠ¶æ€
 	 */
 	protected void setButtonsAndItemsState() {
-		// ¿ªÊ¼Ö®ºó"¿ªÊ¼²Ëµ¥Ïî"²»¿É¼û
+		// å¼€å§‹ä¹‹å"å¼€å§‹èœå•é¡¹"ä¸å¯è§
 		getStartItem().setEnabled(!isStarted());
 		getRestartItem().setEnabled(isStarted());
 		setButtonsState(isStarted());
 	}
 
 	/**
-	 * ÉèÖÃ°´Å¥µÄ¿ÉÓÃĞÔ
+	 * è®¾ç½®æŒ‰é’®çš„å¯ç”¨æ€§
 	 */
 	private void setButtonsState(boolean state) {
 		getButtonPause().setEnabled(state);
@@ -275,12 +275,12 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ·µ»Ø¹¦ÄÜÃæ°å
+	 * è¿”å›åŠŸèƒ½é¢æ¿
 	 */
 	private JPanel getFunctionPanel() {
 		if (functionPanel == null) {
 			FlowLayout flow = new FlowLayout();
-			// ÉèÖÃÁĞ¼ä¾à
+			// è®¾ç½®åˆ—é—´è·
 			flow.setVgap(15);
 			functionPanel = new JPanel(flow);
 			functionPanel.setPreferredSize(new Dimension(100, 40));
@@ -296,64 +296,64 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ·µ»Ø·ÖÊı±êÇ©
+	 * è¿”å›åˆ†æ•°æ ‡ç­¾
 	 */
 	private JLabel getScoreLabel() {
 		if (scoreLabel == null) {
-			scoreLabel = new JLabel("·Ö Êı£º");
+			scoreLabel = new JLabel("åˆ† æ•°ï¼š");
 			scoreLabel.setForeground(Color.BLUE);
 			scoreLabel.setPreferredSize(new Dimension(80, 12));
-			scoreLabel.setFont(new Font("ËÎÌå", Font.PLAIN, 12));
+			scoreLabel.setFont(new Font("å®‹ä½“", Font.PLAIN, 12));
 		}
 		return scoreLabel;
 	}
 
 	/**
-	 * ·µ»Ø·ÖÊıÀ¸
+	 * è¿”å›åˆ†æ•°æ 
 	 */
 	private JTextField getScoreTextField() {
 		if (scoreTextField == null) {
 			scoreTextField = new JTextField("0");
 			scoreTextField.setForeground(Color.DARK_GRAY);
 			scoreTextField.setPreferredSize(new Dimension(80, 20));
-			// ÉèÖÃ×é¼ş²¼¾Ö·½Ïò(´ÓÓÒµ½×ó)
+			// è®¾ç½®ç»„ä»¶å¸ƒå±€æ–¹å‘(ä»å³åˆ°å·¦)
 			scoreTextField
 					.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 			scoreTextField.setBorder(new LineBorder(Color.MAGENTA));
-			scoreTextField.setFont(new Font("ËÎÌå", Font.BOLD, 16));
+			scoreTextField.setFont(new Font("å®‹ä½“", Font.BOLD, 16));
 			scoreTextField.setEditable(false);
 		}
 		return scoreTextField;
 	}
 
 	/**
-	 * ·µ»Ø¿ªÊ¼°´Å¥
+	 * è¿”å›å¼€å§‹æŒ‰é’®
 	 */
 	protected JButton getButtonPause() {
 		if (buttonPause == null) {
-			buttonPause = new JButton("  ÔİÍ£  ");
-			buttonPause.setActionCommand("ÔİÍ£");
-			buttonPause.setFont(new Font("ËÎÌå", Font.PLAIN, 12));
+			buttonPause = new JButton("  æš‚åœ  ");
+			buttonPause.setActionCommand("æš‚åœ");
+			buttonPause.setFont(new Font("å®‹ä½“", Font.PLAIN, 12));
 			buttonPause.setForeground(Color.RED);
 		}
 		return buttonPause;
 	}
 
 	/**
-	 * ·µ»ØÖØÁĞ°´Å¥
+	 * è¿”å›é‡åˆ—æŒ‰é’®
 	 */
 	protected JButton getButtonRefresh() {
 		if (buttonRefresh == null) {
-			buttonRefresh = new JButton("ÖØÁĞ (" + getMaxRefresfNumber() + ")");
-			buttonRefresh.setActionCommand("ÖØÁĞ");
-			buttonRefresh.setFont(new Font("ËÎÌå", Font.PLAIN, 12));
+			buttonRefresh = new JButton("é‡åˆ— (" + getMaxRefresfNumber() + ")");
+			buttonRefresh.setActionCommand("é‡åˆ—");
+			buttonRefresh.setFont(new Font("å®‹ä½“", Font.PLAIN, 12));
 			buttonRefresh.setForeground(Color.BLUE);
 		}
 		return buttonRefresh;
 	}
 
 	/**
-	 * Îª°´Å¥Ìí¼Ó¼àÌıÆ÷
+	 * ä¸ºæŒ‰é’®æ·»åŠ ç›‘å¬å™¨
 	 */
 	private void addButtonsListeners() {
 		getButtonPause().addActionListener(getEhd());
@@ -361,39 +361,39 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ·µ»Øµ¹¼ÆÊ±±êÇ©
+	 * è¿”å›å€’è®¡æ—¶æ ‡ç­¾
 	 */
 	private JLabel getTimeLabel() {
 		if (timeLabel == null) {
-			timeLabel = new JLabel("µ¹¼ÆÊ±£º");
+			timeLabel = new JLabel("å€’è®¡æ—¶ï¼š");
 			timeLabel.setForeground(Color.BLUE);
 			timeLabel.setPreferredSize(new Dimension(80, 20));
-			// ±êÇ©ÄÚÈİ¿¿×óÏÔÊ¾
+			// æ ‡ç­¾å†…å®¹é å·¦æ˜¾ç¤º
 			timeLabel.setHorizontalAlignment(SwingConstants.LEFT);
-			timeLabel.setFont(new Font("ËÎÌå", Font.PLAIN, 12));
+			timeLabel.setFont(new Font("å®‹ä½“", Font.PLAIN, 12));
 		}
 		return timeLabel;
 	}
 
 	/**
-	 * ·µ»Øµ¹¼ÆÊ±À¸
+	 * è¿”å›å€’è®¡æ—¶æ 
 	 */
 	private JTextField getTimeTextField() {
 		if (timeTextField == null) {
 			timeTextField = new JTextField("" + getMaxTime());
 			timeTextField.setForeground(Color.RED);
 			timeTextField.setPreferredSize(new Dimension(80, 22));
-			// ÉèÖÃ×é¼ş²¼¾Ö·½Ïò(´ÓÓÒµ½×ó)
+			// è®¾ç½®ç»„ä»¶å¸ƒå±€æ–¹å‘(ä»å³åˆ°å·¦)
 			timeTextField
 					.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-			timeTextField.setFont(new Font("ËÎÌå", Font.BOLD, 18));
+			timeTextField.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
 			timeTextField.setEditable(false);
 		}
 		return timeTextField;
 	}
 
 	/**
-	 * ·µ»ØÖ÷½çÃæÊÂ¼ş´¦Àí¶ÔÏó
+	 * è¿”å›ä¸»ç•Œé¢äº‹ä»¶å¤„ç†å¯¹è±¡
 	 */
 	protected KyodaiMainUIEventHandler getEhd() {
 		if (ehd == null)
@@ -402,56 +402,56 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ÉèÖÃ×Ô¶¨ÒåÊó±êÖ¸ÕëĞÎ×´
+	 * è®¾ç½®è‡ªå®šä¹‰é¼ æ ‡æŒ‡é’ˆå½¢çŠ¶
 	 */
 	private void setMyCursor() {
-		// ×Ô¶¨ÒåÊó±êÖ¸ÕëĞÎ×´Í¼Æ¬Â·¾¶
+		// è‡ªå®šä¹‰é¼ æ ‡æŒ‡é’ˆå½¢çŠ¶å›¾ç‰‡è·¯å¾„
 		String iconPath = "images/cursor.gif";
 		Image image = ImageCreator.getImage(iconPath);
-		// ÉèÖÃÊó±êÖ¸ÕëĞÎ×´
+		// è®¾ç½®é¼ æ ‡æŒ‡é’ˆå½¢çŠ¶
 		setCursor(getToolkit().createCustomCursor(image, new Point(0, 0), ""));
 	}
 
 	/**
-	 * ÉèÖÃJFrame×îĞ¡»¯Ê±µÄÍ¼±ê
+	 * è®¾ç½®JFrameæœ€å°åŒ–æ—¶çš„å›¾æ ‡
 	 */
 	private void setMinimumIcon() {
-		// Í¼±êÂ·¾¶
+		// å›¾æ ‡è·¯å¾„
 		String iconPath = "images/kyodai.gif";
 		Image image = ImageCreator.getImage(iconPath);
 		setIconImage(image);
 	}
 
 	/**
-	 * ·µ»ØÄ£ĞÍÎ¬Êı
+	 * è¿”å›æ¨¡å‹ç»´æ•°
 	 */
 	public int getDimension() {
 		return m_dimension;
 	}
 
 	/**
-	 * ÉèÖÃÄ£ĞÍÎ¬Êı
+	 * è®¾ç½®æ¨¡å‹ç»´æ•°
 	 */
 	private void setDimension(int m_dimension) {
 		this.m_dimension = m_dimension;
 	}
 
 	/**
-	 * ·µ»ØÓÎÏ·ÊÇ·ñ¿ªÊ¼
+	 * è¿”å›æ¸¸æˆæ˜¯å¦å¼€å§‹
 	 */
 	protected boolean isStarted() {
 		return isStarted;
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ·¿ªÊ¼×´Ì¬
+	 * è®¾ç½®æ¸¸æˆå¼€å§‹çŠ¶æ€
 	 */
 	protected void setStarted(boolean isStarted) {
 		this.isStarted = isStarted;
 	}
 
 	/**
-	 * ·µ»Øµ¹¼ÆÊ±Æ÷Ïß³Ì
+	 * è¿”å›å€’è®¡æ—¶å™¨çº¿ç¨‹
 	 */
 	private Thread getCountDown() {
 		if (countDown == null)
@@ -460,7 +460,7 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ·µ»Øµ¹¼ÆÊ±Æ÷¶ÔÏó
+	 * è¿”å›å€’è®¡æ—¶å™¨å¯¹è±¡
 	 */
 	private Calculagraph getCalculagraph() {
 		if (calculagraph == null)
@@ -469,26 +469,26 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ÉèÖÃµ¹¼ÆÊ±Æ÷Ïß³Ì (Ò»°ãÔÚÖØĞÂ¿ªÊ¼µ¹¼ÆÊ±Ê±ÉèÎªnull)
+	 * è®¾ç½®å€’è®¡æ—¶å™¨çº¿ç¨‹ (ä¸€èˆ¬åœ¨é‡æ–°å¼€å§‹å€’è®¡æ—¶æ—¶è®¾ä¸ºnull)
 	 */
 	private void setCountDown(Thread countDown) {
 		this.countDown = countDown;
 	}
 
 	/**
-	 * ¿ªÊ¼µ¹¼ÆÊ±
+	 * å¼€å§‹å€’è®¡æ—¶
 	 */
 	protected void startCountingDown() {
 		if (isStarted()) {
 			countDown = getCountDown();
-			// µ¹¼ÆÊ±Æ÷Ïß³ÌÎªÊØ»¤Ïß³Ì
+			// å€’è®¡æ—¶å™¨çº¿ç¨‹ä¸ºå®ˆæŠ¤çº¿ç¨‹
 			countDown.setDaemon(true);
 			countDown.start();
 		}
 	}
 
 	/**
-	 * ÖØĞÂ¿ªÊ¼µ¹¼ÆÊ±
+	 * é‡æ–°å¼€å§‹å€’è®¡æ—¶
 	 */
 	public void restartCountingDown() {
 		stopCountingDown();
@@ -497,7 +497,7 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * Í£Ö¹µ¹¼ÆÊ±
+	 * åœæ­¢å€’è®¡æ—¶
 	 */
 	protected void stopCountingDown() {
 		if (isStarted())
@@ -505,50 +505,50 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ÔİÍ£µ¹¼ÆÊ±
+	 * æš‚åœå€’è®¡æ—¶
 	 */
 	protected void pauseCountingDown() {
 		getCalculagraph().pauseCountingDown();
 	}
 
 	/**
-	 * ¼ÌĞøµ¹¼ÆÊ±
+	 * ç»§ç»­å€’è®¡æ—¶
 	 */
 	protected void goOnCountingDown() {
 		getCalculagraph().goOnCountingDown();
 	}
 
 	/**
-	 * ·µ»Ø±»Ñ¡ÖĞ°´Å¥µÄ¶ÓÁĞ
+	 * è¿”å›è¢«é€‰ä¸­æŒ‰é’®çš„é˜Ÿåˆ—
 	 */
 	protected LinkedList<JButton> getButtonQueue() {
 		return getKyodaiPanel().getButtonQueue();
 	}
 
 	/**
-	 * ÉèÖÃ·ÖÊıÀ¸ÄÚÈİ
+	 * è®¾ç½®åˆ†æ•°æ å†…å®¹
 	 */
 	public void setScoreTextWith(String s) {
 		getScoreTextField().setText(s);
 	}
 
 	/**
-	 * ÉèÖÃ·ÖÊıÀ¸ÄÚÈİÎªÄ¬ÈÏÖµ(0)
+	 * è®¾ç½®åˆ†æ•°æ å†…å®¹ä¸ºé»˜è®¤å€¼(0)
 	 */
 	public void setScoreTextWithDefault() {
 		setScoreTextWith("0");
 	}
 
 	/**
-	 * ÉèÖÃÖØÁĞ°´Å¥ÄÚÈİÎªÄ¬ÈÏÖµ
+	 * è®¾ç½®é‡åˆ—æŒ‰é’®å†…å®¹ä¸ºé»˜è®¤å€¼
 	 */
 	public void setButtonRefreshWithDefault() {
 		getButtonRefresh().setEnabled(true);
-		getButtonRefresh().setText("ÖØÁĞ (" + getMaxRefresfNumber() + ")");
+		getButtonRefresh().setText("é‡åˆ— (" + getMaxRefresfNumber() + ")");
 	}
 
 	/**
-	 * ÉèÖÃµ¹¼ÆÊ±ÉÏÏŞºÍµ¹¼ÆÊ±À¸ÎªÄ¬ÈÏÖµ²¢ÖØĞÂ¿ªÊ¼µ¹¼ÆÊ±
+	 * è®¾ç½®å€’è®¡æ—¶ä¸Šé™å’Œå€’è®¡æ—¶æ ä¸ºé»˜è®¤å€¼å¹¶é‡æ–°å¼€å§‹å€’è®¡æ—¶
 	 */
 	public void setTimeWithDefaultAndRestart() {
 		setTimeTextWithDefault();
@@ -556,28 +556,28 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ÉèÖÃµ¹¼ÆÊ±À¸ÄÚÈİ
+	 * è®¾ç½®å€’è®¡æ—¶æ å†…å®¹
 	 */
 	public void setTimeTextWith(String s) {
 		getTimeTextField().setText(s);
 	}
 
 	/**
-	 * ÉèÖÃµ¹¼ÆÊ±À¸ÄÚÈİÎªÄ¬ÈÏÖµ
+	 * è®¾ç½®å€’è®¡æ—¶æ å†…å®¹ä¸ºé»˜è®¤å€¼
 	 */
 	private void setTimeTextWithDefault() {
 		getTimeTextField().setText("" + getMaxTime());
 	}
 
 	/**
-	 * ·µ»Øµ±Ç°½çÃæ·ÖÊıÀ¸µÄ·ÖÊı
+	 * è¿”å›å½“å‰ç•Œé¢åˆ†æ•°æ çš„åˆ†æ•°
 	 */
 	protected int getCurrentScore() {
 		return Integer.parseInt(getScoreTextField().getText());
 	}
 
 	/**
-	 * ·µ»Ø·ÖÊıÎÄ¼şÖĞµÄ×î¸ß·Ö
+	 * è¿”å›åˆ†æ•°æ–‡ä»¶ä¸­çš„æœ€é«˜åˆ†
 	 */
 	protected int getMaxScoreFromFile() {
 		Score score = null;
@@ -590,10 +590,10 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * Ïò·ÖÊıÎÄ¼şÖĞĞ´ÈëĞÂµÄ×î¸ß·Ö
+	 * å‘åˆ†æ•°æ–‡ä»¶ä¸­å†™å…¥æ–°çš„æœ€é«˜åˆ†
 	 * 
 	 * @param newScore
-	 *            ĞÂµÄ×î¸ß·Ö
+	 *            æ–°çš„æœ€é«˜åˆ†
 	 */
 	protected void rewriteMaxScoreToFile(Score newScore) {
 		try {
@@ -604,32 +604,32 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ·µ»Øµ¹¼ÆÊ±ÉÏÏŞ(Ê±¼äÉÏÏŞÎª Î¬Êı * Î¬Êı * 2 s)
+	 * è¿”å›å€’è®¡æ—¶ä¸Šé™(æ—¶é—´ä¸Šé™ä¸º ç»´æ•° * ç»´æ•° * 2 s)
 	 */
 	protected int getMaxTime() {
 		int maxTime = (getDimension() * getDimension() * 2 / 10) * 10;
-		// ×îÉÙ10Ãë
+		// æœ€å°‘10ç§’
 		if (maxTime < 10)
 			return 10;
 		return maxTime;
 	}
 
 	/**
-	 * ·µ»ØÖØÁĞ´ÎÊıÉÏÏŞ(µÈÓÚÎ¬Êı)
+	 * è¿”å›é‡åˆ—æ¬¡æ•°ä¸Šé™(ç­‰äºç»´æ•°)
 	 */
 	protected int getMaxRefresfNumber() {
 		return getDimension();
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ·Ãæ°åµÄ¿É¼ûĞÔ
+	 * è®¾ç½®æ¸¸æˆé¢æ¿çš„å¯è§æ€§
 	 */
 	protected void setGamePanelVisible(boolean state) {
 		getKyodaiPanel().setVisible(state);
 	}
 
 	/**
-	 * ÉèÖÃ²Ëµ¥À¸µÄ¿ÉÓÃĞÔ
+	 * è®¾ç½®èœå•æ çš„å¯ç”¨æ€§
 	 */
 	protected void setMenusState(boolean state) {
 		getManageMenu().setEnabled(state);
@@ -639,10 +639,10 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ÖØĞÂÉèÖÃÔİÍ£°´Å¥
+	 * é‡æ–°è®¾ç½®æš‚åœæŒ‰é’®
 	 * 
 	 * @param text
-	 *            ĞÂµÄÏÔÊ¾ÄÚÈİºÍ¶¯×÷ÃüÁî
+	 *            æ–°çš„æ˜¾ç¤ºå†…å®¹å’ŒåŠ¨ä½œå‘½ä»¤
 	 */
 	protected void resetButtonPause(String text) {
 		getButtonPause().setText(text);
@@ -650,7 +650,7 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ÖØ¿ªÒ»¾ÖÓÎÏ·
+	 * é‡å¼€ä¸€å±€æ¸¸æˆ
 	 */
 	protected void showNewGame() {
 		new KyodaiMainUI(this.getDimension());
@@ -658,7 +658,7 @@ public class KyodaiMainUI extends MyFrame {
 	}
 
 	/**
-	 * ÉèÖÃĞÂµÄÖØÁĞÊ£Óà´ÎÊı²¢ÔÚ½çÃæÏÔÊ¾
+	 * è®¾ç½®æ–°çš„é‡åˆ—å‰©ä½™æ¬¡æ•°å¹¶åœ¨ç•Œé¢æ˜¾ç¤º
 	 */
 	public void setRefreshNumberLeft(int newNumber) {
 		getEhd().setRefreshNumberLeft(newNumber);
@@ -666,7 +666,7 @@ public class KyodaiMainUI extends MyFrame {
 	}
 	
 	/**
-	 * ·µ»Øµ±Ç°ÖØÁĞÊ£Óà´ÎÊı
+	 * è¿”å›å½“å‰é‡åˆ—å‰©ä½™æ¬¡æ•°
 	 */
 	public int getRefreshNumberLeft(){
 		return getEhd().getRefreshNumberLeft();

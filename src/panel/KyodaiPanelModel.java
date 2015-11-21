@@ -8,52 +8,52 @@ import util.other.ParameterChecker;
 import arithmetic.RandomArithmetic;
 
 /**
- * Á¬Á¬¿´°´Å¥Ãæ°åÄ£ĞÍÀà
+ * è¿è¿çœ‹æŒ‰é’®é¢æ¿æ¨¡å‹ç±»
  * 
- * 1£¬Ä£ĞÍÊµ¼ÊÉÏÎª¶şÎ¬Êı×é£¬Î¬ÊıÎªÅ¼Êı 
- * 2£¬Ä£ĞÍµÄÊµ¼ÊÎ¬ÊıÎª²ÎÊıÎ¬Êı + 2 
- * 3£¬Ä£ĞÍÊı×éµÄ×îÍâÃæÒ»È¦ÔªËØ¶¼ÖÃÎª0
+ * 1ï¼Œæ¨¡å‹å®é™…ä¸Šä¸ºäºŒç»´æ•°ç»„ï¼Œç»´æ•°ä¸ºå¶æ•° 
+ * 2ï¼Œæ¨¡å‹çš„å®é™…ç»´æ•°ä¸ºå‚æ•°ç»´æ•° + 2 
+ * 3ï¼Œæ¨¡å‹æ•°ç»„çš„æœ€å¤–é¢ä¸€åœˆå…ƒç´ éƒ½ç½®ä¸º0
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-10-8
+ * åˆ›å»ºæ—¥æœŸï¼š2007-10-8
  */
 public class KyodaiPanelModel {
 
-	private int[][] m_2DArray = null;// ¶şÎ¬Êı×é(ÆäÔªËØµÄÖµÓÃÓÚÉú³ÉÏàÓ¦°´Å¥)
-	private int dimension;// ¶şÎ¬Êı×éÎ¬Êı
-	private int maxNumber;// ¶şÎ¬Êı×éÔªËØµÄÉÏÏŞ(ÓÃÓÚËæ»úÊı²úÉú£¬²¢ÇÒ°üÀ¨Õâ¸öÉÏÏŞ)
+	private int[][] m_2DArray = null;// äºŒç»´æ•°ç»„(å…¶å…ƒç´ çš„å€¼ç”¨äºç”Ÿæˆç›¸åº”æŒ‰é’®)
+	private int dimension;// äºŒç»´æ•°ç»„ç»´æ•°
+	private int maxNumber;// äºŒç»´æ•°ç»„å…ƒç´ çš„ä¸Šé™(ç”¨äºéšæœºæ•°äº§ç”Ÿï¼Œå¹¶ä¸”åŒ…æ‹¬è¿™ä¸ªä¸Šé™)
 
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 * 
 	 * @param maxNumber
-	 *            Ëæ»úÊıµÄÊıÖµÉÏÏŞ
+	 *            éšæœºæ•°çš„æ•°å€¼ä¸Šé™
 	 */
 	public KyodaiPanelModel(int maxNumber) {
-		// Ä¬ÈÏÎ¬ÊıÎª10
+		// é»˜è®¤ç»´æ•°ä¸º10
 		init(maxNumber, 10);
 	}
 
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 * 
 	 * @param maxNumber
-	 *            Ëæ»úÊıµÄÊıÖµÉÏÏŞ
+	 *            éšæœºæ•°çš„æ•°å€¼ä¸Šé™
 	 * @param dimension
-	 *            ²ÎÊıÎ¬Êı
+	 *            å‚æ•°ç»´æ•°
 	 */
 	public KyodaiPanelModel(int maxNumber, int dimension) {
 		init(maxNumber, dimension);
 	}
 
 	/**
-	 * ³õÊ¼»¯Ä£ĞÍ
+	 * åˆå§‹åŒ–æ¨¡å‹
 	 * 
 	 * @param maxNumber
-	 *            Ä£ĞÍÖĞ¶şÎ¬Êı×éÔªËØµÄÉÏÏŞ(º¬)
+	 *            æ¨¡å‹ä¸­äºŒç»´æ•°ç»„å…ƒç´ çš„ä¸Šé™(å«)
 	 * @param dimension
-	 *            Ä£ĞÍµÄÎ¬Êı(±ØĞëÎª´óÓÚ0µÄÅ¼Êı)
+	 *            æ¨¡å‹çš„ç»´æ•°(å¿…é¡»ä¸ºå¤§äº0çš„å¶æ•°)
 	 */
 	private void init(int maxNumber, int dimension) {
 		ParameterChecker.checkMaxNumber(maxNumber);
@@ -63,13 +63,13 @@ public class KyodaiPanelModel {
 	}
 
 	/**
-	 * ·µ»Ø(dimension+2)*(dimension+2)µÄ¶şÎ¬ÕûÊıÊı×é
+	 * è¿”å›(dimension+2)*(dimension+2)çš„äºŒç»´æ•´æ•°æ•°ç»„
 	 * 
 	 * @return int[][]
 	 */
 	public int[][] get2DArray() {
 		if (m_2DArray == null) {
-			// m_2DArrayµÄÊµ¼ÊÎ¬Êıdimension + 2
+			// m_2DArrayçš„å®é™…ç»´æ•°dimension + 2
 			m_2DArray = new int[getDimension() + 2][getDimension() + 2];
 			set2DAryWithRanSqnceNmbInPairs(m_2DArray);
 		}
@@ -77,18 +77,18 @@ public class KyodaiPanelModel {
 	}
 
 	/**
-	 * ¶Ôthe2DArray½øĞĞ¸³Öµ 
-	 * ÆäÔªËØÊÇËæ»ú²úÉúµÄmaxNumber(º¬)Ö®ÄÚµÄÕûÊı 
-	 * ²¢ÇÒÃ¿Ò»¸öËæ»úÊı¶¼ÊÇ³É¶Ô³öÏÖµÄ
+	 * å¯¹the2DArrayè¿›è¡Œèµ‹å€¼ 
+	 * å…¶å…ƒç´ æ˜¯éšæœºäº§ç”Ÿçš„maxNumber(å«)ä¹‹å†…çš„æ•´æ•° 
+	 * å¹¶ä¸”æ¯ä¸€ä¸ªéšæœºæ•°éƒ½æ˜¯æˆå¯¹å‡ºç°çš„
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 */
 	private void set2DAryWithRanSqnceNmbInPairs(int[][] the2DArray) {
-		// »ñÈ¡ÔªËØ³É¶Ô³öÏÖµÄËæ»úÊıÊı×é
+		// è·å–å…ƒç´ æˆå¯¹å‡ºç°çš„éšæœºæ•°æ•°ç»„
 		Integer[] inpairs = RandomArithmetic.getArrayWithRandomNumberInPairs(
 				getDimension() * getDimension(), getMaxNumber());
-		// »ñÈ¡°´Ëæ»úË³Ğò¶ş´ÎÅÅĞòºóµÄÊı×é
+		// è·å–æŒ‰éšæœºé¡ºåºäºŒæ¬¡æ’åºåçš„æ•°ç»„
 		Integer[] randomSequence = RandomArithmetic
 				.getArrayWithRandomSequence(inpairs);
 		ArrayConversion.to2DArray(the2DArray, randomSequence);

@@ -13,75 +13,75 @@ import geometry.RowLine;
 import geometry.ValueField;
 
 /**
- * Á¬Á¬¿´°´Å¥¿ÉÏûĞÔ¼ì²éÀà 
- * (Èô¿ÉÏû»¹½«»æÖÆ¿ÉÏûÂ·Ïß)
+ * è¿è¿çœ‹æŒ‰é’®å¯æ¶ˆæ€§æ£€æŸ¥ç±» 
+ * (è‹¥å¯æ¶ˆè¿˜å°†ç»˜åˆ¶å¯æ¶ˆè·¯çº¿)
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨Ê±¼ä£º2007-10-17
+ * åˆ›å»ºæ—¶é—´ï¼š2007-10-17
  */
 public class RemovableChecker {
 
-	private LineDrawer drawer;// Ïß¶Î»æÖÆÆ÷¶ÔÏó
+	private LineDrawer drawer;// çº¿æ®µç»˜åˆ¶å™¨å¯¹è±¡
 
 	public RemovableChecker(KyodaiPanel kyodaiPanel) {
 		drawer = new LineDrawer(kyodaiPanel);
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½¸öÎ»ÖÃÔÚ¶şÎ¬Êı×éÖĞÊÇ·ñÊÇ¿ÉÏûµÄ Èô¿ÉÏûÍ¬Ê±ÔÚ½çÃæÉÏ»æÖÆÏûÈ¥Â·Ïß
+	 * åˆ¤æ–­ä¸¤ä¸ªä½ç½®åœ¨äºŒç»´æ•°ç»„ä¸­æ˜¯å¦æ˜¯å¯æ¶ˆçš„ è‹¥å¯æ¶ˆåŒæ—¶åœ¨ç•Œé¢ä¸Šç»˜åˆ¶æ¶ˆå»è·¯çº¿
 	 * 
 	 * @param ary
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param a
-	 *            Î»ÖÃa
+	 *            ä½ç½®a
 	 * @param b
-	 *            Î»ÖÃb
+	 *            ä½ç½®b
 	 * @return boolean
 	 */
 	public boolean isRemovable(int[][] ary, Location a, Location b) {
-		/** Á½Î»ÖÃÔÚÍ¬Ò»Ö±ÏßÉÏ¿ÉÁ¬Í¨ */
+		/** ä¸¤ä½ç½®åœ¨åŒä¸€ç›´çº¿ä¸Šå¯è¿é€š */
 		if (isConnectedInTheSameLine(ary, a, b)) {
 			drawer.drawRemovablePathAndUpdateUI(a, b);
 			return true;
 		}
-		/** Á½Î»ÖÃËùÔÚµÄĞĞÁĞÏß¶ÎÏà½» */
-		// Î»ÖÃaËùÔÚµÄĞĞÏß¶Î
+		/** ä¸¤ä½ç½®æ‰€åœ¨çš„è¡Œåˆ—çº¿æ®µç›¸äº¤ */
+		// ä½ç½®aæ‰€åœ¨çš„è¡Œçº¿æ®µ
 		Line rowLineA = getRowLineContainsLocation(ary, a);
-		// Î»ÖÃbËùÔÚµÄĞĞÏß¶Î
+		// ä½ç½®bæ‰€åœ¨çš„è¡Œçº¿æ®µ
 		Line rowLineB = getRowLineContainsLocation(ary, b);
-		// Î»ÖÃaËùÔÚµÄÁĞÏß¶Î
+		// ä½ç½®aæ‰€åœ¨çš„åˆ—çº¿æ®µ
 		Line columnLineA = getColumnLineContainsLocation(ary, a);
-		// Î»ÖÃbËùÔÚµÄÁĞÏß¶Î
+		// ä½ç½®bæ‰€åœ¨çš„åˆ—çº¿æ®µ
 		Line columnLineB = getColumnLineContainsLocation(ary, b);
 
-		Location intersection = null;// Ïß¶Î½»µã
-		// aÎ»ÖÃËùÔÚµÄĞĞÏß¶ÎºÍbÎ»ÖÃËùÔÚµÄÁĞÏß¶ÎÏà½»
+		Location intersection = null;// çº¿æ®µäº¤ç‚¹
+		// aä½ç½®æ‰€åœ¨çš„è¡Œçº¿æ®µå’Œbä½ç½®æ‰€åœ¨çš„åˆ—çº¿æ®µç›¸äº¤
 		if (rowLineA.isIntersectantWith(columnLineB)) {
 			intersection = rowLineA.getPointOfIntersection(columnLineB);
 			drawer.drawRemovablePathAndUpdateUI(a, intersection, b);
 			return true;
 		}
-		// aÎ»ÖÃËùÔÚµÄÁĞÏß¶ÎºÍbÎ»ÖÃËùÔÚµÄĞĞÏß¶ÎÏà½»
+		// aä½ç½®æ‰€åœ¨çš„åˆ—çº¿æ®µå’Œbä½ç½®æ‰€åœ¨çš„è¡Œçº¿æ®µç›¸äº¤
 		if (columnLineA.isIntersectantWith(rowLineB)) {
 			intersection = columnLineA.getPointOfIntersection(rowLineB);
 			drawer.drawRemovablePathAndUpdateUI(a, intersection, b);
 			return true;
 		}
-		/** ´æÔÚÒ»ÌõÏß¶Î´¹Ö±Ïà½»ÓÚÁ½Î»ÖÃËùÔÚµÄĞĞÁĞÆ½ĞĞÏß */
-		Location[] intersections = null;// Ïß¶Î½»µãÊı×é
-		// ĞĞÏß¶Î½»µãÊı×é
+		/** å­˜åœ¨ä¸€æ¡çº¿æ®µå‚ç›´ç›¸äº¤äºä¸¤ä½ç½®æ‰€åœ¨çš„è¡Œåˆ—å¹³è¡Œçº¿ */
+		Location[] intersections = null;// çº¿æ®µäº¤ç‚¹æ•°ç»„
+		// è¡Œçº¿æ®µäº¤ç‚¹æ•°ç»„
 		intersections = getIntersectionsForRowLines(ary, rowLineA, rowLineB);
-		// ´æÔÚÒ»ÌõÏß¶Î´¹Ö±Ïà½»ÓÚa,bËùÔÚµÄµÄĞĞÏß¶Î
+		// å­˜åœ¨ä¸€æ¡çº¿æ®µå‚ç›´ç›¸äº¤äºa,bæ‰€åœ¨çš„çš„è¡Œçº¿æ®µ
 		if (intersections != null) {
 			drawer.drawRemovablePathAndUpdateUI(a, intersections[0],
 					intersections[1], b);
 			return true;
 		}
-		// ÁĞÏß¶Î½»µãÊı×é
+		// åˆ—çº¿æ®µäº¤ç‚¹æ•°ç»„
 		intersections = getIntersectionsForColumnLines(ary, columnLineA,
 				columnLineB);
-		// ´æÔÚÒ»ÌõÏß¶Î´¹Ö±Ïà½»ÓÚa,bËùÔÚµÄµÄÁĞÏß¶Î
+		// å­˜åœ¨ä¸€æ¡çº¿æ®µå‚ç›´ç›¸äº¤äºa,bæ‰€åœ¨çš„çš„åˆ—çº¿æ®µ
 		if (intersections != null) {
 			drawer.drawRemovablePathAndUpdateUI(a, intersections[0],
 					intersections[1], b);
@@ -91,14 +91,14 @@ public class RemovableChecker {
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½¸öÎ»ÖÃÔÚÊı×éÖĞÊÇ·ñÔÚÍ¬Ò»Ö±ÏßÉÏ¿ÉÁ¬Í¨
+	 * åˆ¤æ–­ä¸¤ä¸ªä½ç½®åœ¨æ•°ç»„ä¸­æ˜¯å¦åœ¨åŒä¸€ç›´çº¿ä¸Šå¯è¿é€š
 	 * 
 	 * @param ary
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param a
-	 *            Î»ÖÃa
+	 *            ä½ç½®a
 	 * @param b
-	 *            Î»ÖÃb
+	 *            ä½ç½®b
 	 * @return boolean
 	 */
 	private boolean isConnectedInTheSameLine(int[][] ary, Location a, Location b) {
@@ -110,14 +110,14 @@ public class RemovableChecker {
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½Î»ÖÃÔÚÍ¬Ò»ĞĞÉÏÊÇ·ñÊÇ¿ÉÁ¬Í¨µÄ
+	 * åˆ¤æ–­ä¸¤ä½ç½®åœ¨åŒä¸€è¡Œä¸Šæ˜¯å¦æ˜¯å¯è¿é€šçš„
 	 * 
 	 * @param ary
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param a
-	 *            Î»ÖÃa
+	 *            ä½ç½®a
 	 * @param b
-	 *            Î»ÖÃb
+	 *            ä½ç½®b
 	 * @return boolean
 	 */
 	private boolean isConnectedInRow(int[][] ary, Location a, Location b) {
@@ -125,11 +125,11 @@ public class RemovableChecker {
 		if (!a.isInTheSameRowWith(b))
 			return false;
 		Line line = new RowLine(a, b);
-		int startColumn = line.getStart().getColumn();// ÆğÊ¼Î»ÖÃµÄÁĞºÅ
-		int endColumn = line.getEnd().getColumn();// ½áÊøÎ»ÖÃµÄÁĞºÅ
-		// ±éÀú´ÓÆğÊ¼Î»ÖÃµ½½áÊøÎ»ÖÃµÄĞĞÏßÉÏËùÓĞµÄÎ»ÖÃ(²»°üÀ¨Á½¸ö¶Ëµã)
+		int startColumn = line.getStart().getColumn();// èµ·å§‹ä½ç½®çš„åˆ—å·
+		int endColumn = line.getEnd().getColumn();// ç»“æŸä½ç½®çš„åˆ—å·
+		// éå†ä»èµ·å§‹ä½ç½®åˆ°ç»“æŸä½ç½®çš„è¡Œçº¿ä¸Šæ‰€æœ‰çš„ä½ç½®(ä¸åŒ…æ‹¬ä¸¤ä¸ªç«¯ç‚¹)
 		for (int i = startColumn + 1; i < endColumn; i++) {
-			// ÈôĞĞÏßÉÏ´æÔÚÄ³Î»ÖÃ²»Îª0ÔòÁ½Î»ÖÃÔÚĞĞÏßÉÏ²»Á¬Í¨
+			// è‹¥è¡Œçº¿ä¸Šå­˜åœ¨æŸä½ç½®ä¸ä¸º0åˆ™ä¸¤ä½ç½®åœ¨è¡Œçº¿ä¸Šä¸è¿é€š
 			if (ary[a.getRow()][i] != 0)
 				return false;
 		}
@@ -137,14 +137,14 @@ public class RemovableChecker {
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½Î»ÖÃÔÚÍ¬Ò»ÁĞÉÏÊÇ·ñÊÇ¿ÉÁ¬Í¨µÄ
+	 * åˆ¤æ–­ä¸¤ä½ç½®åœ¨åŒä¸€åˆ—ä¸Šæ˜¯å¦æ˜¯å¯è¿é€šçš„
 	 * 
 	 * @param ary
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param a
-	 *            Î»ÖÃa
+	 *            ä½ç½®a
 	 * @param b
-	 *            Î»ÖÃb
+	 *            ä½ç½®b
 	 * @return boolean
 	 */
 	private boolean isConnectedInColumn(int[][] ary, Location a, Location b) {
@@ -152,11 +152,11 @@ public class RemovableChecker {
 		if (!a.isInTheSameColumnWith(b))
 			return false;
 		Line line = new ColumnLine(a, b);
-		int startRow = line.getStart().getRow();// ÆğÊ¼Î»ÖÃµÄĞĞºÅ
-		int endRow = line.getEnd().getRow();// ½áÊøÎ»ÖÃµÄĞĞºÅ
-		// ±éÀú´ÓÆğÊ¼Î»ÖÃµ½½áÊøÎ»ÖÃµÄÁĞÏßÉÏËùÓĞµÄÎ»ÖÃ(²»°üÀ¨Á½¸ö¶Ëµã)
+		int startRow = line.getStart().getRow();// èµ·å§‹ä½ç½®çš„è¡Œå·
+		int endRow = line.getEnd().getRow();// ç»“æŸä½ç½®çš„è¡Œå·
+		// éå†ä»èµ·å§‹ä½ç½®åˆ°ç»“æŸä½ç½®çš„åˆ—çº¿ä¸Šæ‰€æœ‰çš„ä½ç½®(ä¸åŒ…æ‹¬ä¸¤ä¸ªç«¯ç‚¹)
 		for (int i = startRow + 1; i < endRow; i++) {
-			// ÈôÁĞÏßÉÏ´æÔÚÄ³Î»ÖÃ²»Îª0ÔòÁ½Î»ÖÃÔÚÁĞÏßÉÏ²»Á¬Í¨
+			// è‹¥åˆ—çº¿ä¸Šå­˜åœ¨æŸä½ç½®ä¸ä¸º0åˆ™ä¸¤ä½ç½®åœ¨åˆ—çº¿ä¸Šä¸è¿é€š
 			if (ary[i][a.getColumn()] != 0)
 				return false;
 		}
@@ -164,53 +164,53 @@ public class RemovableChecker {
 	}
 
 	/**
-	 * ·µ»Ø°üº¬Î»ÖÃlocationµÄË®Æ½Ïß¶Î(ĞÎÊ½Èç£º00000location000) 
-	 * Ò²¾ÍÊÇÓÉlocationµÄË®Æ½ÁÚ½ÓÎ»ÖÃ(ÖµÎª0µÄ)×é³ÉµÄÏß¶Î
-	 * Èôlocation×óÓÒ¶¼ÊÇ·Ç0Î»ÖÃÔò·µ»ØÖ»°üÀ¨×ÔÉíµÄµ¥µãĞĞÏß¶Î
+	 * è¿”å›åŒ…å«ä½ç½®locationçš„æ°´å¹³çº¿æ®µ(å½¢å¼å¦‚ï¼š00000location000) 
+	 * ä¹Ÿå°±æ˜¯ç”±locationçš„æ°´å¹³é‚»æ¥ä½ç½®(å€¼ä¸º0çš„)ç»„æˆçš„çº¿æ®µ
+	 * è‹¥locationå·¦å³éƒ½æ˜¯é0ä½ç½®åˆ™è¿”å›åªåŒ…æ‹¬è‡ªèº«çš„å•ç‚¹è¡Œçº¿æ®µ
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param location
-	 *            Ä¿±êÎ»ÖÃ
+	 *            ç›®æ ‡ä½ç½®
 	 * @return Line
 	 */
 	private Line getRowLineContainsLocation(int[][] the2DArray,
 			Location location) {
-		// Ñ°ÕÒĞĞÏß¶ÎµÄ×ó¶ËÎ»ÖÃ
+		// å¯»æ‰¾è¡Œçº¿æ®µçš„å·¦ç«¯ä½ç½®
 		Location left = getLeftPort(the2DArray, location);
-		// Ñ°ÕÒĞĞÏß¶ÎµÄÓÒ¶ËÎ»ÖÃ
+		// å¯»æ‰¾è¡Œçº¿æ®µçš„å³ç«¯ä½ç½®
 		Location right = getRightPort(the2DArray, location);
 		return new RowLine(left, right);
 	}
 
 	/**
-	 * ·µ»Ø°üº¬Î»ÖÃlocationµÄ´¹Ö±Ïß¶Î 
-	 * Ò²¾ÍÊÇÓÉlocationµÄ´¹Ö±ÁÚ½ÓÎ»ÖÃ(ÖµÎª0µÄ)×é³ÉµÄÏß¶Î
-	 * ÈôlocationÉÏÏÂ¶¼ÊÇ·Ç0Î»ÖÃÔò·µ»ØÖ»°üÀ¨×ÔÉíµÄµ¥µãÁĞÏß¶Î
+	 * è¿”å›åŒ…å«ä½ç½®locationçš„å‚ç›´çº¿æ®µ 
+	 * ä¹Ÿå°±æ˜¯ç”±locationçš„å‚ç›´é‚»æ¥ä½ç½®(å€¼ä¸º0çš„)ç»„æˆçš„çº¿æ®µ
+	 * è‹¥locationä¸Šä¸‹éƒ½æ˜¯é0ä½ç½®åˆ™è¿”å›åªåŒ…æ‹¬è‡ªèº«çš„å•ç‚¹åˆ—çº¿æ®µ
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param location
-	 *            Ä¿±êÎ»ÖÃ
+	 *            ç›®æ ‡ä½ç½®
 	 * @return Line
 	 */
 	private Line getColumnLineContainsLocation(int[][] the2DArray,
 			Location location) {
-		// Ñ°ÕÒÁĞÏß¶ÎµÄÉÏ¶ËÎ»ÖÃ
+		// å¯»æ‰¾åˆ—çº¿æ®µçš„ä¸Šç«¯ä½ç½®
 		Location up = getUpPort(the2DArray, location);
-		// Ñ°ÕÒÁĞÏß¶ÎµÄÏÂ¶ËÎ»ÖÃ
+		// å¯»æ‰¾åˆ—çº¿æ®µçš„ä¸‹ç«¯ä½ç½®
 		Location down = getDownPort(the2DArray, location);
 		return new ColumnLine(up, down);
 	}
 
 	/**
-	 * ·µ»ØlocationËùÔÚµÄĞĞÏß¶ÎµÄ×ó¶ËÎ»ÖÃ 
-	 * ÈôÃ»ÓĞ×ó¶ËÎ»ÖÃÔò·µ»Ølocation
+	 * è¿”å›locationæ‰€åœ¨çš„è¡Œçº¿æ®µçš„å·¦ç«¯ä½ç½® 
+	 * è‹¥æ²¡æœ‰å·¦ç«¯ä½ç½®åˆ™è¿”å›location
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param location
-	 *            Ä¿±êÎ»ÖÃ
+	 *            ç›®æ ‡ä½ç½®
 	 * @return Location
 	 */
 	private Location getLeftPort(int[][] the2DArray, Location location) {
@@ -225,13 +225,13 @@ public class RemovableChecker {
 	}
 
 	/**
-	 * ·µ»ØlocationËùÔÚµÄĞĞÏß¶ÎµÄÓÒ¶ËÎ»ÖÃ 
-	 * ÈôÃ»ÓĞÓÒ¶ËÎ»ÖÃÔò·µ»Ølocation
+	 * è¿”å›locationæ‰€åœ¨çš„è¡Œçº¿æ®µçš„å³ç«¯ä½ç½® 
+	 * è‹¥æ²¡æœ‰å³ç«¯ä½ç½®åˆ™è¿”å›location
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param location
-	 *            Ä¿±êÎ»ÖÃ
+	 *            ç›®æ ‡ä½ç½®
 	 * @return Location
 	 */
 	private Location getRightPort(int[][] the2DArray, Location location) {
@@ -246,13 +246,13 @@ public class RemovableChecker {
 	}
 
 	/**
-	 * ·µ»ØlocationËùÔÚµÄÁĞÏß¶ÎµÄÉÏ¶ËÎ»ÖÃ 
-	 * ÈôÃ»ÓĞÉÏ¶ËÎ»ÖÃÔò·µ»Ølocation
+	 * è¿”å›locationæ‰€åœ¨çš„åˆ—çº¿æ®µçš„ä¸Šç«¯ä½ç½® 
+	 * è‹¥æ²¡æœ‰ä¸Šç«¯ä½ç½®åˆ™è¿”å›location
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param location
-	 *            Ä¿±êÎ»ÖÃ
+	 *            ç›®æ ‡ä½ç½®
 	 * @return Location
 	 */
 	private Location getUpPort(int[][] the2DArray, Location location) {
@@ -267,13 +267,13 @@ public class RemovableChecker {
 	}
 
 	/**
-	 * ·µ»ØlocationËùÔÚµÄÁĞÏß¶ÎµÄÏÂ¶ËÎ»ÖÃ 
-	 * ÈôÃ»ÓĞÏÂ¶ËÎ»ÖÃÔò·µ»Ølocation
+	 * è¿”å›locationæ‰€åœ¨çš„åˆ—çº¿æ®µçš„ä¸‹ç«¯ä½ç½® 
+	 * è‹¥æ²¡æœ‰ä¸‹ç«¯ä½ç½®åˆ™è¿”å›location
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param location
-	 *            Ä¿±êÎ»ÖÃ
+	 *            ç›®æ ‡ä½ç½®
 	 * @return Location
 	 */
 	private Location getDownPort(int[][] the2DArray, Location location) {
@@ -288,32 +288,32 @@ public class RemovableChecker {
 	}
 
 	/**
-	 * Èô´æÔÚÒ»ÌõÈ«0ÖµÏß¶ÎºÍÕâÁ½ÌõĞĞÏß¶Î´¹Ö±ÇÒÏà½»Ôò·µ»Ø½»µãÎ»ÖÃÊı×é 
-	 * ·ñÔò·µ»Ønull
+	 * è‹¥å­˜åœ¨ä¸€æ¡å…¨0å€¼çº¿æ®µå’Œè¿™ä¸¤æ¡è¡Œçº¿æ®µå‚ç›´ä¸”ç›¸äº¤åˆ™è¿”å›äº¤ç‚¹ä½ç½®æ•°ç»„ 
+	 * å¦åˆ™è¿”å›null
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param line1
-	 *            ĞĞÏß¶Î1
+	 *            è¡Œçº¿æ®µ1
 	 * @param line2
-	 *            ĞĞÏß¶Î2
+	 *            è¡Œçº¿æ®µ2
 	 * @return Location[]
 	 */
 	private Location[] getIntersectionsForRowLines(int[][] the2DArray, Line line1,
 			Line line2) {
 		ValueField columnField1 = line1.getColumnField();
 		ValueField columnField2 = line2.getColumnField();
-		// ÈôÁ½ÌõĞĞÏß¶ÎµÄÁĞºÅÇø¼äÃ»ÓĞ½»¼¯Ôò²»¿ÉÄÜÍ¨¹ıÁíÒ»ÌõÏß¶ÎÊ¹Ö®´¹Ö±ÇÒÏà½»
+		// è‹¥ä¸¤æ¡è¡Œçº¿æ®µçš„åˆ—å·åŒºé—´æ²¡æœ‰äº¤é›†åˆ™ä¸å¯èƒ½é€šè¿‡å¦ä¸€æ¡çº¿æ®µä½¿ä¹‹å‚ç›´ä¸”ç›¸äº¤
 		if (!columnField1.hasIntersectionWith(columnField2))
 			return null;
-		// »ñÈ¡Á½ÌõĞĞÏß¶ÎÁĞºÅÖµÓòµÄ½»¼¯
+		// è·å–ä¸¤æ¡è¡Œçº¿æ®µåˆ—å·å€¼åŸŸçš„äº¤é›†
 		ValueField intersection = columnField1
 				.getIntersectionWith(columnField2);
-		// ±éÀúÕâ¸ö½»¼¯£¬È¡³ö¶ÔÓ¦µÄÎ»ÖÃ½øĞĞÅĞ¶ÏÊÇ·ñÔÚÁĞÉÏ¿ÉÁ¬Í¨µÄ
+		// éå†è¿™ä¸ªäº¤é›†ï¼Œå–å‡ºå¯¹åº”çš„ä½ç½®è¿›è¡Œåˆ¤æ–­æ˜¯å¦åœ¨åˆ—ä¸Šå¯è¿é€šçš„
 		for (int i = intersection.getStart(); i <= intersection.getEnd(); i++) {
-			// line1ÉÏµÄ¶ÔÓ¦Î»ÖÃ
+			// line1ä¸Šçš„å¯¹åº”ä½ç½®
 			Location a = new Location(line1.getStart().getRow(), i);
-			// line2ÉÏµÄ¶ÔÓ¦Î»ÖÃ
+			// line2ä¸Šçš„å¯¹åº”ä½ç½®
 			Location b = new Location(line2.getStart().getRow(), i);
 			if (isConnectedInColumn(the2DArray, a, b))
 				return new Location[] { a, b };
@@ -322,31 +322,31 @@ public class RemovableChecker {
 	}
 
 	/**
-	 * Èô´æÔÚÒ»Ìõ0ÖµÏß¶ÎºÍÕâÁ½ÌõÁĞÏß¶Î´¹Ö±ÇÒÏà½»Ôò·µ»Ø½»µãÎ»ÖÃÊı×é 
-	 * ·ñÔò·µ»Ønull
+	 * è‹¥å­˜åœ¨ä¸€æ¡0å€¼çº¿æ®µå’Œè¿™ä¸¤æ¡åˆ—çº¿æ®µå‚ç›´ä¸”ç›¸äº¤åˆ™è¿”å›äº¤ç‚¹ä½ç½®æ•°ç»„ 
+	 * å¦åˆ™è¿”å›null
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param line1
-	 *            ÁĞÏß¶Î1
+	 *            åˆ—çº¿æ®µ1
 	 * @param line2
-	 *            ÁĞÏß¶Î2
+	 *            åˆ—çº¿æ®µ2
 	 * @return Location[]
 	 */
 	private Location[] getIntersectionsForColumnLines(int[][] the2DArray,
 			Line line1, Line line2) {
 		ValueField rowField1 = line1.getRowField();
 		ValueField rowField2 = line2.getRowField();
-		// ÈôÁ½ÌõÁĞÏß¶ÎµÄĞĞºÅÇø¼äÃ»ÓĞ½»¼¯Ôò²»¿ÉÄÜÍ¨¹ıÁíÒ»ÌõÏß¶ÎÊ¹Ö®´¹Ö±ÇÒÏà½»
+		// è‹¥ä¸¤æ¡åˆ—çº¿æ®µçš„è¡Œå·åŒºé—´æ²¡æœ‰äº¤é›†åˆ™ä¸å¯èƒ½é€šè¿‡å¦ä¸€æ¡çº¿æ®µä½¿ä¹‹å‚ç›´ä¸”ç›¸äº¤
 		if (!rowField1.hasIntersectionWith(rowField2))
 			return null;
-		// »ñÈ¡Á½ÌõÁĞÏß¶ÎĞĞºÅÖµÓòµÄ½»¼¯
+		// è·å–ä¸¤æ¡åˆ—çº¿æ®µè¡Œå·å€¼åŸŸçš„äº¤é›†
 		ValueField intersection = rowField1.getIntersectionWith(rowField2);
-		// ±éÀúÕâ¸ö½»¼¯£¬È¡³ö¶ÔÓ¦µÄÎ»ÖÃ½øĞĞÅĞ¶ÏÊÇ·ñÊÇĞĞÉÏ¿ÉÁ¬Í¨µÄ
+		// éå†è¿™ä¸ªäº¤é›†ï¼Œå–å‡ºå¯¹åº”çš„ä½ç½®è¿›è¡Œåˆ¤æ–­æ˜¯å¦æ˜¯è¡Œä¸Šå¯è¿é€šçš„
 		for (int i = intersection.getStart(); i <= intersection.getEnd(); i++) {
-			// line1ÉÏµÄ¶ÔÓ¦Î»ÖÃ
+			// line1ä¸Šçš„å¯¹åº”ä½ç½®
 			Location a = new Location(i, line1.getStart().getColumn());
-			// line2ÉÏµÄ¶ÔÓ¦Î»ÖÃ
+			// line2ä¸Šçš„å¯¹åº”ä½ç½®
 			Location b = new Location(i, line2.getStart().getColumn());
 			if (isConnectedInRow(the2DArray, a, b))
 				return new Location[] { a, b };

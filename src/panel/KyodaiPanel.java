@@ -19,11 +19,11 @@ import assistant.KyodaiConstant;
 import assistant.Score;
 
 /**
- * Á¬Á¬¿´°´Å¥Ãæ°å
+ * è¿è¿çœ‹æŒ‰é’®é¢æ¿
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-10-4
+ * åˆ›å»ºæ—¥æœŸï¼š2007-10-4
  */
 public class KyodaiPanel extends JPanel {
 
@@ -32,69 +32,69 @@ public class KyodaiPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/** gifÍ¼Æ¬Ãû³ÆµÄÊı×é */
+	/** gifå›¾ç‰‡åç§°çš„æ•°ç»„ */
 	private static String[] icons;
 
-	private KyodaiPanelModel model;// °´Å¥Ãæ°åÄ£ĞÍ
-	private KyodaiPanelEHD ehd;// °´Å¥Ãæ°åÊÂ¼ş´¦Àí¶ÔÏó
-	private KyodaiMainUIEventHandler mainUIEhd;// Ö÷½çÃæÊÂ¼ş´¦Àí¶ÔÏó
+	private KyodaiPanelModel model;// æŒ‰é’®é¢æ¿æ¨¡å‹
+	private KyodaiPanelEHD ehd;// æŒ‰é’®é¢æ¿äº‹ä»¶å¤„ç†å¯¹è±¡
+	private KyodaiMainUIEventHandler mainUIEhd;// ä¸»ç•Œé¢äº‹ä»¶å¤„ç†å¯¹è±¡
 
-	private JLabel imageLabel;// ±³¾°Í¼Æ¬±êÇ©
+	private JLabel imageLabel;// èƒŒæ™¯å›¾ç‰‡æ ‡ç­¾
 	
-	private int m_dimension;// Ä£ĞÍÎ¬Êı
-	private JButton[][] buttons;// ÓÉÄ£ĞÍµÃµ½µÄ¶ÔÓ¦µÄ°´Å¥¶şÎ¬Êı×é
+	private int m_dimension;// æ¨¡å‹ç»´æ•°
+	private JButton[][] buttons;// ç”±æ¨¡å‹å¾—åˆ°çš„å¯¹åº”çš„æŒ‰é’®äºŒç»´æ•°ç»„
 
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
 	public KyodaiPanel() {
 		init();
 	}
 
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 * 
 	 * @param dimension
-	 *            Ö¸¶¨µÄÎ¬Êı
+	 *            æŒ‡å®šçš„ç»´æ•°
 	 */
 	public KyodaiPanel(int dimension) {
 		init(dimension);
 	}
 
 	/**
-	 * ³õÊ¼»¯°´Å¥Ãæ°å½çÃæ
+	 * åˆå§‹åŒ–æŒ‰é’®é¢æ¿ç•Œé¢
 	 */
 	protected void init() {
-		// Ä¬ÈÏÎ¬Êı10
+		// é»˜è®¤ç»´æ•°10
 		init(10);
 	}
 
 	/**
-	 * ÓÃÖ¸¶¨Î¬Êı³õÊ¼»¯°´Å¥Ãæ°å½çÃæ
+	 * ç”¨æŒ‡å®šç»´æ•°åˆå§‹åŒ–æŒ‰é’®é¢æ¿ç•Œé¢
 	 * 
 	 * @param dimension
-	 *            Ö¸¶¨Î¬Êı
+	 *            æŒ‡å®šç»´æ•°
 	 */
 	protected void init(int dimension) {
 		setDimension(dimension);
 		setLayout(null);
-		// ÉèÖÃPanelÎª¸¡µñ»¯±ß¿ò
+		// è®¾ç½®Panelä¸ºæµ®é›•åŒ–è¾¹æ¡†
 		setBorder(new EtchedBorder());
-		// ÉèÖÃ±³¾°É«
+		// è®¾ç½®èƒŒæ™¯è‰²
 		setBackground(Color.WHITE);
-		// Ìí¼Ó½çÃæËùĞèÒªµÄËùÓĞ°´Å¥
+		// æ·»åŠ ç•Œé¢æ‰€éœ€è¦çš„æ‰€æœ‰æŒ‰é’®
 		addButtons();
-		// Ìí¼Ó±³¾°Í¼Æ¬
+		// æ·»åŠ èƒŒæ™¯å›¾ç‰‡
 		addBkgrdImage();
 	}
 
 	/**
-	 * ÔÚÃæ°åÉÏµÄÌí¼ÓËùÓĞµÄÁ¬Á¬¿´°´Å¥
+	 * åœ¨é¢æ¿ä¸Šçš„æ·»åŠ æ‰€æœ‰çš„è¿è¿çœ‹æŒ‰é’®
 	 */
 	private void addButtons() {
 		for (int i = 0; i < getButtons().length; i++) {
 			for (int j = 0; j < getButtons().length; j++) {
-				// °´ÕÕ¶şÎ¬Êı×éËù±íÊ¾µÄË³ĞòÉèÖÃ°´Å¥£¬SIZE_OF_BUTTONÊÇ¸ù¾İÍ¼Æ¬ÏñËØÔ¤ÖÃµÄ´óĞ¡
+				// æŒ‰ç…§äºŒç»´æ•°ç»„æ‰€è¡¨ç¤ºçš„é¡ºåºè®¾ç½®æŒ‰é’®ï¼ŒSIZE_OF_BUTTONæ˜¯æ ¹æ®å›¾ç‰‡åƒç´ é¢„ç½®çš„å¤§å°
 				getButtons()[i][j].setBounds(30
 						+ KyodaiConstant.LENGTH_OF_BUTTON * j, 30
 						+ KyodaiConstant.WIDTH_OF_BUTTON * i,
@@ -107,7 +107,7 @@ public class KyodaiPanel extends JPanel {
 	}
 
 	/**
-	 * ·µ»ØÃæ°åËùÓĞ°´Å¥¶ÔÏóµÄÊı×é
+	 * è¿”å›é¢æ¿æ‰€æœ‰æŒ‰é’®å¯¹è±¡çš„æ•°ç»„
 	 * 
 	 * @return JButton[][]
 	 */
@@ -118,10 +118,10 @@ public class KyodaiPanel extends JPanel {
 			for (int i = 0; i < getModel().getDimension(); i++) {
 				for (int j = 0; j < getModel().getDimension(); j++) {
 					/*
-					 * ÒòÎªÄ£ĞÍÖĞµÄ¶şÎ¬Êı×éÊÇ(dimension + 2) * (dimension + 2)µÄ
-					 * ËùÒÔbuttons[i][j]¶ÔÓ¦ÓÚget2DArray()[i + 1][j + 1]
+					 * å› ä¸ºæ¨¡å‹ä¸­çš„äºŒç»´æ•°ç»„æ˜¯(dimension + 2) * (dimension + 2)çš„
+					 * æ‰€ä»¥buttons[i][j]å¯¹åº”äºget2DArray()[i + 1][j + 1]
 					 */
-					// Èç¹ûÄ£ĞÍÖĞµÄÖµÎª0ÔòÉèÖÃÎª¸Ã°´Å¥²»¿É¼û
+					// å¦‚æœæ¨¡å‹ä¸­çš„å€¼ä¸º0åˆ™è®¾ç½®ä¸ºè¯¥æŒ‰é’®ä¸å¯è§
 					if (getModel().get2DArray()[i + 1][j + 1] == 0) {
 						buttons[i][j] = getNullButton();
 					} else {
@@ -134,57 +134,57 @@ public class KyodaiPanel extends JPanel {
 	}
 
 	/**
-	 * ÉèÖÃÃæ°åµÄÁ¬Á¬¿´°´Å¥
+	 * è®¾ç½®é¢æ¿çš„è¿è¿çœ‹æŒ‰é’®
 	 */
 	protected void setButtons(JButton[][] buttons) {
 		this.buttons = buttons;
 	}
 
 	/**
-	 * ·µ»ØÒ»¸ö¿Õ°×°´Å¥(ÔÚ½çÃæÉÏµÄ²»ÏÔÊ¾) µ±Ä£ĞÍ¶şÎ¬Êı×éÖĞµÄÔªËØÖµÎª0Ê±²Åµ÷ÓÃ´Ë·½·¨´´½¨°´Å¥
+	 * è¿”å›ä¸€ä¸ªç©ºç™½æŒ‰é’®(åœ¨ç•Œé¢ä¸Šçš„ä¸æ˜¾ç¤º) å½“æ¨¡å‹äºŒç»´æ•°ç»„ä¸­çš„å…ƒç´ å€¼ä¸º0æ—¶æ‰è°ƒç”¨æ­¤æ–¹æ³•åˆ›å»ºæŒ‰é’®
 	 * 
 	 * @return JButton
 	 */
 	private JButton getNullButton() {
 		JButton nullButton = new JButton();
-		// ActionCommandÎª0
+		// ActionCommandä¸º0
 		nullButton.setActionCommand("0");
 		nullButton.setVisible(false);
 		return nullButton;
 	}
 
 	/**
-	 * ·µ»Ø Á¬Á¬¿´ °´Å¥ ÓÉnÖ¸¶¨Ëù¶ÔÓ¦ÔÚÍ¼Æ¬Ãû³ÆÊı×éÖĞµÄgifÍ¼Æ¬
+	 * è¿”å› è¿è¿çœ‹ æŒ‰é’® ç”±næŒ‡å®šæ‰€å¯¹åº”åœ¨å›¾ç‰‡åç§°æ•°ç»„ä¸­çš„gifå›¾ç‰‡
 	 * 
 	 * @param n
-	 *            Í¼Æ¬±àºÅ
+	 *            å›¾ç‰‡ç¼–å·
 	 * @return JButton
 	 */
 	private JButton getButton(int n) {
 		JButton button = null;
-		String iconName = getIcons()[n];// Í¼Æ¬Ãû
+		String iconName = getIcons()[n];// å›¾ç‰‡å
 		ImageIcon icon = ImageCreator.getImageIcon(iconName);
 		button = new JButton(icon);
-		// Ã¿¸ö°´Å¥µÄActionCommand¶¼ÊÇËüµÄÍ¼Æ¬ºÅ(Ò²ºÍÄ£ĞÍÖĞµÄ¶ÔÓ¦ÔªËØÏàÍ¬)
+		// æ¯ä¸ªæŒ‰é’®çš„ActionCommandéƒ½æ˜¯å®ƒçš„å›¾ç‰‡å·(ä¹Ÿå’Œæ¨¡å‹ä¸­çš„å¯¹åº”å…ƒç´ ç›¸åŒ)
 		button.setActionCommand(iconName.substring(iconName.indexOf('\\') + 1,
 				iconName.indexOf('.')));
 		return button;
 	}
 
 	/**
-	 * ·µ»Ø gif Í¼Æ¬Ãû³ÆµÄÊı×é
+	 * è¿”å› gif å›¾ç‰‡åç§°çš„æ•°ç»„
 	 * 
 	 * @return String[]
 	 */
 	private static String[] getIcons() {
 		if (icons == null) {
-			// ³¤¶ÈÎª NUMBER_OF_ICONS + 1 ÊÇÎªÁËÊ¹Í¼Æ¬ºÅºÍÄ£ĞÍÖĞµÄÔªËØÏàÍ¬
+			// é•¿åº¦ä¸º NUMBER_OF_ICONS + 1 æ˜¯ä¸ºäº†ä½¿å›¾ç‰‡å·å’Œæ¨¡å‹ä¸­çš„å…ƒç´ ç›¸åŒ
 			icons = new String[KyodaiConstant.NUMBER_OF_ICONS + 1];
-			// Í¼Æ¬Êı×éµÄµÚÒ»¸öÊÇ²»´æÔÚµÄÍ¼Æ¬ "images/0.gif"
+			// å›¾ç‰‡æ•°ç»„çš„ç¬¬ä¸€ä¸ªæ˜¯ä¸å­˜åœ¨çš„å›¾ç‰‡ "images/0.gif"
 			icons[0] = KyodaiConstant.PATH_OF_ICONS + "0"
 					+ KyodaiConstant.SUFFIX_GIF;
 			for (int i = 1; i < icons.length; i++) {
-				// Æ´³öÍ¼Æ¬ÍêÕûÃû
+				// æ‹¼å‡ºå›¾ç‰‡å®Œæ•´å
 				icons[i] = KyodaiConstant.PATH_OF_ICONS + i
 						+ KyodaiConstant.SUFFIX_GIF;
 			}
@@ -193,7 +193,7 @@ public class KyodaiPanel extends JPanel {
 	}
 
 	/**
-	 * ÎªÃæ°åÌí¼Ó±³¾°Í¼Æ¬
+	 * ä¸ºé¢æ¿æ·»åŠ èƒŒæ™¯å›¾ç‰‡
 	 */
 	private void addBkgrdImage() {
 		add(getImageLabel());
@@ -201,7 +201,7 @@ public class KyodaiPanel extends JPanel {
 
 	
 	/**
-	 * ·µ»ØÃæ°åµÄÊı¾İÄ£ĞÍ
+	 * è¿”å›é¢æ¿çš„æ•°æ®æ¨¡å‹
 	 */
 	public KyodaiPanelModel getModel() {
 		if (model == null) {
@@ -211,14 +211,14 @@ public class KyodaiPanel extends JPanel {
 	}
 
 	/**
-	 * ÉèÖÃÃæ°åµÄÊı¾İÄ£ĞÍ
+	 * è®¾ç½®é¢æ¿çš„æ•°æ®æ¨¡å‹
 	 */
 	private void setModel(KyodaiPanelModel model) {
 		this.model = model;
 	}
 
 	/**
-	 * ·µ»Ø°´Å¥Ãæ°åÊÂ¼ş´¦Àí¶ÔÏó
+	 * è¿”å›æŒ‰é’®é¢æ¿äº‹ä»¶å¤„ç†å¯¹è±¡
 	 */
 	protected KyodaiPanelEHD getKyodaiPanelEHD() {
 		if (ehd == null)
@@ -227,23 +227,23 @@ public class KyodaiPanel extends JPanel {
 	}
 
 	/**
-	 * ÔÚ¹¹½¨±¾Ãæ°åµÄÊ±ºòĞèÒªµ÷ÓÃ¸Ã·½·¨½øĞĞÉèÖÃ (ÎªÁËÊ¹±¾Ãæ°å¿ÉÒÔºÍÖ÷Ãæ°å½øĞĞÍ¨ĞÅ)
+	 * åœ¨æ„å»ºæœ¬é¢æ¿çš„æ—¶å€™éœ€è¦è°ƒç”¨è¯¥æ–¹æ³•è¿›è¡Œè®¾ç½® (ä¸ºäº†ä½¿æœ¬é¢æ¿å¯ä»¥å’Œä¸»é¢æ¿è¿›è¡Œé€šä¿¡)
 	 * 
 	 * @param mainUIEhd
-	 *            Ö÷½çÃæÊÂ¼ş´¦Àí¶ÔÏó
+	 *            ä¸»ç•Œé¢äº‹ä»¶å¤„ç†å¯¹è±¡
 	 */
 	public void setMainUIEhd(KyodaiMainUIEventHandler mainUIEhd) {
 		this.mainUIEhd = mainUIEhd;
 	}
 
 	/**
-	 * ·µ»Ø±³¾°Í¼Æ¬±êÇ©
+	 * è¿”å›èƒŒæ™¯å›¾ç‰‡æ ‡ç­¾
 	 */
 	private JLabel getImageLabel() {
 		if (imageLabel == null) {
 			imageLabel = new JLabel();
 		}
-		// Í¼Æ¬ÊÇËæ»ú²úÉúµÄ
+		// å›¾ç‰‡æ˜¯éšæœºäº§ç”Ÿçš„
 		ImageIcon bkgrdImage = ImageCreator.getImageIcon(getRandomImageName());
 		imageLabel.setIcon(bkgrdImage);
 		imageLabel.setBounds(0, 0, bkgrdImage.getIconWidth(), bkgrdImage
@@ -252,13 +252,13 @@ public class KyodaiPanel extends JPanel {
 	}
 	
 	/**
-	 * ·µ»ØËæ»ú²úÉúµÄÍ¼Æ¬Ãû
+	 * è¿”å›éšæœºäº§ç”Ÿçš„å›¾ç‰‡å
 	 */
 	private String getRandomImageName() {
-		// Í¼Æ¬ºÅ
+		// å›¾ç‰‡å·
 		int code = RandomArithmetic
 				.getRandomInteger(KyodaiConstant.NUMBER_OF_IMAGES) + 1;
-		// Æ´³öÍ¼Æ¬ÍêÕûÃû³Æ
+		// æ‹¼å‡ºå›¾ç‰‡å®Œæ•´åç§°
 		StringBuilder name = new StringBuilder(KyodaiConstant.PATH_OF_IMAGES);
 		name.append(code);
 		name.append(KyodaiConstant.SUFFIX_JPG);
@@ -266,49 +266,49 @@ public class KyodaiPanel extends JPanel {
 	}
 
 	/**
-	 * ÉèÖÃÎ¬Êı
+	 * è®¾ç½®ç»´æ•°
 	 */
 	private void setDimension(int dimension) {
 		this.m_dimension = dimension;
 	}
 
 	/**
-	 * Îª°´Å¥Ãæ°åÉèÖÃĞÂµÄÄ£ĞÍ
+	 * ä¸ºæŒ‰é’®é¢æ¿è®¾ç½®æ–°çš„æ¨¡å‹
 	 */
 	public void setNewModel() {
-		// »ñÈ¡µ±Ç°Ä£ĞÍÎ¬Êı
+		// è·å–å½“å‰æ¨¡å‹ç»´æ•°
 		int dimension = getModel().getDimension();
-		// ¸ù¾İÎ¬ÊıÉú³ÉĞÂÄ£ĞÍ
+		// æ ¹æ®ç»´æ•°ç”Ÿæˆæ–°æ¨¡å‹
 		KyodaiPanelModel model = new KyodaiPanelModel(
 				KyodaiConstant.NUMBER_OF_ICONS, dimension);
 		setModel(model);
 	}
 
 	/**
-	 * ÖØÉè·ÖÊı(Ä¬ÈÏÎª0)
+	 * é‡è®¾åˆ†æ•°(é»˜è®¤ä¸º0)
 	 */
 	public void resetScore() {
 		getKyodaiPanelEHD().setScore(new Score());
 	}
 
 	/**
-	 * Ê¹ÓÃµ±Ç°Ä£ĞÍÖØĞÂ»æÖÆ°´Å¥Ãæ°å
+	 * ä½¿ç”¨å½“å‰æ¨¡å‹é‡æ–°ç»˜åˆ¶æŒ‰é’®é¢æ¿
 	 */
 	public void repaintUsingCurrentModel() {
-		// Çå³ıÃæ°åµÄËùÓĞ°´Å¥
+		// æ¸…é™¤é¢æ¿çš„æ‰€æœ‰æŒ‰é’®
 		removeAll();
-		// °ÑbuttonsÉèÖÃÎª¿Õ
+		// æŠŠbuttonsè®¾ç½®ä¸ºç©º
 		setButtons(null);
-		// Ôö¼ÓĞÂ°´Å¥
+		// å¢åŠ æ–°æŒ‰é’®
 		addButtons();
-		// Ôö¼Ó±³¾°Í¼Æ¬
+		// å¢åŠ èƒŒæ™¯å›¾ç‰‡
 		addBkgrdImage();
-		// Ë¢ĞÂ½çÃæ
+		// åˆ·æ–°ç•Œé¢
 		updateUI();
 	}
 
 	/**
-	 * ÉèÖÃ·ÖÊıÀ¸ÄÚÈİ
+	 * è®¾ç½®åˆ†æ•°æ å†…å®¹
 	 * 
 	 * @param text
 	 */
@@ -317,35 +317,35 @@ public class KyodaiPanel extends JPanel {
 	}
 
 	/**
-	 * ÖØĞÂ¿ªÊ¼¼ÆÊ±
+	 * é‡æ–°å¼€å§‹è®¡æ—¶
 	 */
 	protected void restartCountingDown() {
 		mainUIEhd.getKyodaiMainUI().restartCountingDown();
 	}
 
 	/**
-	 * ÉèÖÃĞÂµÄË¢ĞÂ´ÎÊı
+	 * è®¾ç½®æ–°çš„åˆ·æ–°æ¬¡æ•°
 	 */
 	protected void setRefreshNumberLeft(int newNumber) {
 		mainUIEhd.getKyodaiMainUI().setRefreshNumberLeft(newNumber);
 	}
 
 	/**
-	 * ·µ»Øµ±Ç°Ê£ÓàÖØÁĞ´ÎÊı
+	 * è¿”å›å½“å‰å‰©ä½™é‡åˆ—æ¬¡æ•°
 	 */
 	protected int getRefreshNumberLeft() {
 		return mainUIEhd.getKyodaiMainUI().getRefreshNumberLeft();
 	}
 	
 	/**
-	 * ÖØÉèÒÑÏûÈ¥°´Å¥¼ÆÊıÆ÷(Ä¬ÈÏÎª0)
+	 * é‡è®¾å·²æ¶ˆå»æŒ‰é’®è®¡æ•°å™¨(é»˜è®¤ä¸º0)
 	 */
 	public void resetButtonCounter() {
 		getKyodaiPanelEHD().setCounter(0);
 	}
 	
 	/**
-	 * ·µ»Ø±»Ñ¡ÖĞ°´Å¥µÄ¶ÓÁĞ
+	 * è¿”å›è¢«é€‰ä¸­æŒ‰é’®çš„é˜Ÿåˆ—
 	 */
 	public LinkedList<JButton> getButtonQueue() {
 		return getKyodaiPanelEHD().getButtonQueue();

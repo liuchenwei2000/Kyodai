@@ -7,13 +7,13 @@ import java.io.InputStream;
 import java.net.URL;
 
 /**
- * ×ÊÔ´¹ÜÀíÆ÷
+ * èµ„æºç®¡ç†å™¨
  * 
- * Ö÷ÒªÓÃÓÚ¶¨Î»»ñÈ¡ÏµÍ³×ÊÔ´
+ * ä¸»è¦ç”¨äºå®šä½è·å–ç³»ç»Ÿèµ„æº
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-10-23
+ * åˆ›å»ºæ—¥æœŸï¼š2007-10-23
  */
 public class ResourceManager {
 
@@ -22,11 +22,11 @@ public class ResourceManager {
 	}
 
 	/**
-	 * ·µ»ØStringÂ·¾¶¶ÔÓ¦µÄURL 
-	 * <strong> Warning£ºÖ»ÓĞÔÚ´ò°üÊ±µ÷ÓÃ±¾·½·¨ </strong>
+	 * è¿”å›Stringè·¯å¾„å¯¹åº”çš„URL 
+	 * <strong> Warningï¼šåªæœ‰åœ¨æ‰“åŒ…æ—¶è°ƒç”¨æœ¬æ–¹æ³• </strong>
 	 * 
 	 * @param path
-	 *            ÎÄ¼şµÄÏà¶ÔÂ·¾¶
+	 *            æ–‡ä»¶çš„ç›¸å¯¹è·¯å¾„
 	 * @return URL
 	 */
 	public static URL getURL(String path) {
@@ -35,11 +35,11 @@ public class ResourceManager {
 	}
 
 	/**
-	 * ·µ»ØStringÂ·¾¶¶ÔÓ¦µÄInputStream 
-	 * <strong> Warning£ºÖ»ÓĞÔÚ´ò°üÊ±µ÷ÓÃ±¾·½·¨ </strong>
+	 * è¿”å›Stringè·¯å¾„å¯¹åº”çš„InputStream 
+	 * <strong> Warningï¼šåªæœ‰åœ¨æ‰“åŒ…æ—¶è°ƒç”¨æœ¬æ–¹æ³• </strong>
 	 * 
 	 * @param path
-	 *            ÎÄ¼şµÄÏà¶ÔÂ·¾¶
+	 *            æ–‡ä»¶çš„ç›¸å¯¹è·¯å¾„
 	 * @return InputStream
 	 */
 	public static InputStream getInputStream(String path) {

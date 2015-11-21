@@ -7,11 +7,11 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**
- * Í¼Æ¬Éú³ÉÆ÷Àà
+ * å›¾ç‰‡ç”Ÿæˆå™¨ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-10-21
+ * åˆ›å»ºæ—¥æœŸï¼š2007-10-21
  */
 public class ImageCreator {
 
@@ -20,10 +20,10 @@ public class ImageCreator {
 	}
 
 	/**
-	 * ¸ù¾İiconPath±íÊ¾µÄÂ·¾¶·µ»Ø¿ª·¢»·¾³ÏÂÊ¹ÓÃµÄImage
+	 * æ ¹æ®iconPathè¡¨ç¤ºçš„è·¯å¾„è¿”å›å¼€å‘ç¯å¢ƒä¸‹ä½¿ç”¨çš„Image
 	 * 
 	 * @param iconPath
-	 *            Í¼Æ¬Ïà¶ÔÂ·¾¶×Ö·û´®
+	 *            å›¾ç‰‡ç›¸å¯¹è·¯å¾„å­—ç¬¦ä¸²
 	 * @return Image
 	 */
 	public static Image getImage(String iconPath) {
@@ -32,10 +32,10 @@ public class ImageCreator {
 	}
 
 	/**
-	 * ¸ù¾İiconPath±íÊ¾µÄÂ·¾¶·µ»Ø¿ª·¢»·¾³ÏÂÊ¹ÓÃµÄImageIcon
+	 * æ ¹æ®iconPathè¡¨ç¤ºçš„è·¯å¾„è¿”å›å¼€å‘ç¯å¢ƒä¸‹ä½¿ç”¨çš„ImageIcon
 	 * 
 	 * @param iconPath
-	 *            Í¼Æ¬Ïà¶ÔÂ·¾¶×Ö·û´®
+	 *            å›¾ç‰‡ç›¸å¯¹è·¯å¾„å­—ç¬¦ä¸²
 	 * @return Image
 	 */
 	public static ImageIcon getImageIcon(String iconPath) {
@@ -44,10 +44,10 @@ public class ImageCreator {
 	}
 
 //	/**
-//	 * ¸ù¾İiconPath±íÊ¾µÄÂ·¾¶·µ»ØJARÏÂÊ¹ÓÃµÄImage
+//	 * æ ¹æ®iconPathè¡¨ç¤ºçš„è·¯å¾„è¿”å›JARä¸‹ä½¿ç”¨çš„Image
 //	 * 
 //	 * @param iconPath
-//	 *            Í¼Æ¬Ïà¶ÔÂ·¾¶×Ö·û´®
+//	 *            å›¾ç‰‡ç›¸å¯¹è·¯å¾„å­—ç¬¦ä¸²
 //	 * @return Image
 //	 */
 //	public static Image getImage(String iconPath) {
@@ -56,10 +56,10 @@ public class ImageCreator {
 //	}
 //	
 //	/**
-//	 * ¸ù¾İiconPath±íÊ¾µÄÂ·¾¶·µ»ØJARÏÂÊ¹ÓÃµÄImageIcon
+//	 * æ ¹æ®iconPathè¡¨ç¤ºçš„è·¯å¾„è¿”å›JARä¸‹ä½¿ç”¨çš„ImageIcon
 //	 * 
 //	 * @param iconPath
-//	 *            Í¼Æ¬Ïà¶ÔÂ·¾¶×Ö·û´®
+//	 *            å›¾ç‰‡ç›¸å¯¹è·¯å¾„å­—ç¬¦ä¸²
 //	 * @return Image
 //	 */
 //	public static ImageIcon getImageIcon(String iconPath) {

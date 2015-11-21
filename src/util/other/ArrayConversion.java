@@ -6,13 +6,13 @@ package util.other;
 import java.util.ArrayList;
 
 /**
- * Êı×é×ª»»Àà
+ * æ•°ç»„è½¬æ¢ç±»
  * 
- * (½«Êı¾İÔÚÒ»Î¬Êı×éºÍ¶şÎ¬Êı×éÖ®¼ä»¥Ïà×ª»»´æ´¢)
+ * (å°†æ•°æ®åœ¨ä¸€ç»´æ•°ç»„å’ŒäºŒç»´æ•°ç»„ä¹‹é—´äº’ç›¸è½¬æ¢å­˜å‚¨)
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-10-19
+ * åˆ›å»ºæ—¥æœŸï¼š2007-10-19
  */
 public class ArrayConversion {
 
@@ -21,15 +21,15 @@ public class ArrayConversion {
 	}
 	
 	/**
-	 * ½«Ä£ĞÍ¶şÎ¬Êı×éµÄÓĞÒâÒåµÄÖµ´æ·Åµ½Ò»Î¬Êı×éÖĞ
+	 * å°†æ¨¡å‹äºŒç»´æ•°ç»„çš„æœ‰æ„ä¹‰çš„å€¼å­˜æ”¾åˆ°ä¸€ç»´æ•°ç»„ä¸­
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @return Integer[]
 	 */
 	public static Integer[] toArray(int[][] the2DArray) {
 		ArrayList<Integer> al = new ArrayList<Integer>();
-		// Ö»´¦Àí¶şÎ¬Êı×éÖĞÕæÕıµÄÔªËØ(¼´²»º¬×îÍâÃæÒ»È¦0ÔªËØ)
+		// åªå¤„ç†äºŒç»´æ•°ç»„ä¸­çœŸæ­£çš„å…ƒç´ (å³ä¸å«æœ€å¤–é¢ä¸€åœˆ0å…ƒç´ )
 		for (int i = 1; i < the2DArray.length - 1; i++) {
 			for (int j = 1; j < the2DArray[i].length - 1; j++) {
 				al.add(the2DArray[i][j]);
@@ -39,15 +39,15 @@ public class ArrayConversion {
 	}
 
 	/**
-	 * ½«arrayÖĞµÄÔªËØÒÀ´Î¸³Öµ¸øÄ£ĞÍ¶şÎ¬Êı×é
+	 * å°†arrayä¸­çš„å…ƒç´ ä¾æ¬¡èµ‹å€¼ç»™æ¨¡å‹äºŒç»´æ•°ç»„
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê2Î¬Êı×é
+	 *            ç›®æ ‡2ç»´æ•°ç»„
 	 * @param array
-	 *            Ô´Êı×é
+	 *            æºæ•°ç»„
 	 */
 	public static void to2DArray(int[][] the2DArray, Integer[] array) {
-		int index = 0;// arrayµÄË÷Òı
+		int index = 0;// arrayçš„ç´¢å¼•
 		for (int i = 1; i < the2DArray.length - 1; i++) {
 			for (int j = 1; j < the2DArray[i].length - 1; j++) {
 				the2DArray[i][j] = array[index].intValue();

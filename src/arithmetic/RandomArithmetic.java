@@ -10,15 +10,15 @@ import java.util.Random;
 import util.other.ParameterChecker;
 
 /**
- * ²úÉúËæ»úÊıÊı×éµÄËã·¨Àà
+ * äº§ç”Ÿéšæœºæ•°æ•°ç»„çš„ç®—æ³•ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨Ê±¼ä£º2007-10-19
+ * åˆ›å»ºæ—¶é—´ï¼š2007-10-19
  */
 public class RandomArithmetic {
 	
-	/** Ëæ»ú¶ÔÏó */
+	/** éšæœºå¯¹è±¡ */
 	private static final Random RANDOM = new Random();
 	
 	private RandomArithmetic() {
@@ -26,31 +26,31 @@ public class RandomArithmetic {
 	}
 
 	/**
-	 * ·µ»Ø°´Ëæ»úË³ĞòÅÅÁĞoldAryÔªËØºóµÄĞÂÊı×é 
+	 * è¿”å›æŒ‰éšæœºé¡ºåºæ’åˆ—oldAryå…ƒç´ åçš„æ–°æ•°ç»„ 
 	 * 
-	 * Ëã·¨ÃèÊö£º 
-	 * 1£¬²úÉúÒ»¸öoldArray.lengthÖ®ÄÚµÄËæ»úÊı
-	 * 2£¬½«oldArrayµÄ¸ÃËæ»úÊıË÷Òı´¦µÄÔªËØ(Èô²»Îª¿Õ)¼ÓÈëµ½listÖ®ºóÉèÖÃÎªnull
-	 * 3£¬ÖØ¸´½øĞĞÖ±µ½oldArrayËùÓĞµÄÔªËØ¶¼±»¼ÓÈëµ½ÁËlistÖĞ
+	 * ç®—æ³•æè¿°ï¼š 
+	 * 1ï¼Œäº§ç”Ÿä¸€ä¸ªoldArray.lengthä¹‹å†…çš„éšæœºæ•°
+	 * 2ï¼Œå°†oldArrayçš„è¯¥éšæœºæ•°ç´¢å¼•å¤„çš„å…ƒç´ (è‹¥ä¸ä¸ºç©º)åŠ å…¥åˆ°listä¹‹åè®¾ç½®ä¸ºnull
+	 * 3ï¼Œé‡å¤è¿›è¡Œç›´åˆ°oldArrayæ‰€æœ‰çš„å…ƒç´ éƒ½è¢«åŠ å…¥åˆ°äº†listä¸­
 	 *  
 	 * <strong> 
-	 * Warning£º¸Ã·½·¨Ö´ĞĞºóoldArrayµÄÔªËØ¶¼½«±äÎªnull
+	 * Warningï¼šè¯¥æ–¹æ³•æ‰§è¡ŒåoldArrayçš„å…ƒç´ éƒ½å°†å˜ä¸ºnull
 	 * </strong>
 	 * 
 	 * @param oldArray
-	 *            Ô´Êı×é
+	 *            æºæ•°ç»„
 	 * @return Integer[]
 	 */
 	public static Integer[] getArrayWithRandomSequence(Integer[] oldArray) {
 		ParameterChecker.checkArray(oldArray);
-		// ½øĞĞËæ»úÅÅ·ÅºóµÄĞÂÊı×é
+		// è¿›è¡Œéšæœºæ’æ”¾åçš„æ–°æ•°ç»„
 		ArrayList<Integer> newArray = new ArrayList<Integer>();
 		do {
 			int n = RANDOM.nextInt(oldArray.length);
-			// ÈôËæ»úÊıË÷Òı´¦µÄÔªËØ²»ÎªnullÔò¼ÓÈënewArrayÖĞ
+			// è‹¥éšæœºæ•°ç´¢å¼•å¤„çš„å…ƒç´ ä¸ä¸ºnullåˆ™åŠ å…¥newArrayä¸­
 			if (oldArray[n] != null) {
 				newArray.add(oldArray[n]);
-				// °ÑÔ­Êı×éµÄ¸ÃÔªËØÖÃÎªnull
+				// æŠŠåŸæ•°ç»„çš„è¯¥å…ƒç´ ç½®ä¸ºnull
 				oldArray[n] = null;
 			}
 		} while (newArray.size() != oldArray.length);
@@ -58,34 +58,34 @@ public class RandomArithmetic {
 	}
 	
 	/**
-	 * ·µ»Ø³É¶Ô³öÏÖµÄËæ»úÊıÊı×é 
-	 * (ÕâÀïµÄËæ»úÊı²»°üÀ¨0)
+	 * è¿”å›æˆå¯¹å‡ºç°çš„éšæœºæ•°æ•°ç»„ 
+	 * (è¿™é‡Œçš„éšæœºæ•°ä¸åŒ…æ‹¬0)
 	 * 
 	 * @param total
-	 *            ËùÒª²úÉúµÄËæ»úÊıµÄ¸öÊı(ĞèÎªÅ¼Êı)
+	 *            æ‰€è¦äº§ç”Ÿçš„éšæœºæ•°çš„ä¸ªæ•°(éœ€ä¸ºå¶æ•°)
 	 * @param maxNumber
-	 *            Ëù²úÉúËæ»úÊıµÄÊıÖµÉÏÏŞ
+	 *            æ‰€äº§ç”Ÿéšæœºæ•°çš„æ•°å€¼ä¸Šé™
 	 * @return Integer[]
 	 */
 	public static Integer[] getArrayWithRandomNumberInPairs(int total,int maxNumber) {
 		ParameterChecker.checkArgument(total, maxNumber);
 		ArrayList<Integer> al = new ArrayList<Integer>();
-		// Éú³É¸öÊıÎªtotalÒ»°ëµÄËæ»úÊıÊı×é
+		// ç”Ÿæˆä¸ªæ•°ä¸ºtotalä¸€åŠçš„éšæœºæ•°æ•°ç»„
 		Integer[] half = getArrayWithRandomNumberWithoutZero(total / 2,
 				maxNumber);
-		// °Ñhalf¼ÓÈëµ½alÖĞÁ½´ÎÈ·±£Ëæ»úÊı¶¼ÊÇ³É¶Ô³öÏÖµÄ
+		// æŠŠhalfåŠ å…¥åˆ°alä¸­ä¸¤æ¬¡ç¡®ä¿éšæœºæ•°éƒ½æ˜¯æˆå¯¹å‡ºç°çš„
 		al.addAll(Arrays.asList(half));
 		al.addAll(Arrays.asList(half));
 		return al.toArray(new Integer[0]);
 	}
 
 	/**
-	 * ·µ»ØËæ»úÊıÊı×é(ÔªËØ·¶Î§(0,maxNumber])
+	 * è¿”å›éšæœºæ•°æ•°ç»„(å…ƒç´ èŒƒå›´(0,maxNumber])
 	 * 
 	 * @param total
-	 *            ËùÒª²úÉúµÄËæ»úÊıµÄ¸öÊı
+	 *            æ‰€è¦äº§ç”Ÿçš„éšæœºæ•°çš„ä¸ªæ•°
 	 * @param maxNumber
-	 *            Ëù²úÉúËæ»úÊıµÄÊıÖµÉÏÏŞ
+	 *            æ‰€äº§ç”Ÿéšæœºæ•°çš„æ•°å€¼ä¸Šé™
 	 * @return Integer[]
 	 */
 	public static Integer[] getArrayWithRandomNumberWithoutZero(int total,int maxNumber) {
@@ -99,12 +99,12 @@ public class RandomArithmetic {
 	}
 	
 	/**
-	 * ·µ»ØËæ»úÊıÊı×é(ÔªËØ·¶Î§[0,maxNumber))
+	 * è¿”å›éšæœºæ•°æ•°ç»„(å…ƒç´ èŒƒå›´[0,maxNumber))
 	 * 
 	 * @param total
-	 *            ËùÒª²úÉúµÄËæ»úÊıµÄ¸öÊı
+	 *            æ‰€è¦äº§ç”Ÿçš„éšæœºæ•°çš„ä¸ªæ•°
 	 * @param maxNumber
-	 *            Ëù²úÉúËæ»úÊıµÄÊıÖµÉÏÏŞ
+	 *            æ‰€äº§ç”Ÿéšæœºæ•°çš„æ•°å€¼ä¸Šé™
 	 * @return Integer[]
 	 */
 	public static Integer[] getArrayWithRandomNumberWithoutMax(int total,int maxNumber) {
@@ -118,12 +118,12 @@ public class RandomArithmetic {
 	}
 	
 	/**
-	 * ·µ»ØËæ»úÊıÊı×é(ÔªËØ·¶Î§[0,maxNumber])
+	 * è¿”å›éšæœºæ•°æ•°ç»„(å…ƒç´ èŒƒå›´[0,maxNumber])
 	 * 
 	 * @param total
-	 *            ËùÒª²úÉúµÄËæ»úÊıµÄ¸öÊı
+	 *            æ‰€è¦äº§ç”Ÿçš„éšæœºæ•°çš„ä¸ªæ•°
 	 * @param maxNumber
-	 *            Ëù²úÉúËæ»úÊıµÄÊıÖµÉÏÏŞ
+	 *            æ‰€äº§ç”Ÿéšæœºæ•°çš„æ•°å€¼ä¸Šé™
 	 * @return Integer[]
 	 */
 	public static Integer[] getArrayWithRandomNumber(int total,int maxNumber) {
@@ -131,10 +131,10 @@ public class RandomArithmetic {
 	}
 
 	/**
-	 * ·µ»ØmaxNumberÖ®ÄÚµÄËæ»úÕûÊı
+	 * è¿”å›maxNumberä¹‹å†…çš„éšæœºæ•´æ•°
 	 * 
 	 * @param maxNumber
-	 *            Ëæ»úÊıµÄÊıÖµÉÏÏŞ
+	 *            éšæœºæ•°çš„æ•°å€¼ä¸Šé™
 	 * @return int
 	 */
 	public static int getRandomInteger(int maxNumber) {

@@ -7,11 +7,11 @@ import util.other.ParameterChecker;
 import geometry.Location;
 
 /**
- * Êı×é³£ÓÃËã·¨Àà
+ * æ•°ç»„å¸¸ç”¨ç®—æ³•ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨Ê±¼ä£º2007-10-19
+ * åˆ›å»ºæ—¶é—´ï¼š2007-10-19
  */
 public class ArrayArithmetic {
 
@@ -20,13 +20,13 @@ public class ArrayArithmetic {
 	}
 
 	/**
-	 * ·µ»ØtargetÔÚarrayÖĞÊ×´Î³öÏÖµÄË÷Òı
-	 * (ÈôÃ»ÕÒµ½·µ»Ø -1)
+	 * è¿”å›targetåœ¨arrayä¸­é¦–æ¬¡å‡ºç°çš„ç´¢å¼•
+	 * (è‹¥æ²¡æ‰¾åˆ°è¿”å› -1)
 	 * 
 	 * @param array
-	 *            Ä¿±êÊı×é
+	 *            ç›®æ ‡æ•°ç»„
 	 * @param target
-	 *            Ä¿±êÊı
+	 *            ç›®æ ‡æ•°
 	 * @return int
 	 */
 	public static int getIndex(int[] array, int target) {
@@ -39,13 +39,13 @@ public class ArrayArithmetic {
 	}
 	
 	/**
-	 * ·µ»ØtargetÔÚarrayÖĞÊ×´Î³öÏÖµÄË÷Òı
-	 * (ÈôÃ»ÕÒµ½·µ»Ø -1)
+	 * è¿”å›targetåœ¨arrayä¸­é¦–æ¬¡å‡ºç°çš„ç´¢å¼•
+	 * (è‹¥æ²¡æ‰¾åˆ°è¿”å› -1)
 	 * 
 	 * @param array
-	 *            Ä¿±êÊı×é
+	 *            ç›®æ ‡æ•°ç»„
 	 * @param target
-	 *            Ä¿±êÊı
+	 *            ç›®æ ‡æ•°
 	 * @return int
 	 */
 	public static int getIndex(Object[] array, Object target) {
@@ -58,13 +58,13 @@ public class ArrayArithmetic {
 	}
 	
 	/**
-	 * ·µ»ØtargetÔÚthe2DArrayÖĞÊ×´Î(ĞĞÓÅÏÈ)³öÏÖµÄÎ»ÖÃ
-	 * (ÈôÃ»ÕÒµ½·µ»Ø null)
+	 * è¿”å›targetåœ¨the2DArrayä¸­é¦–æ¬¡(è¡Œä¼˜å…ˆ)å‡ºç°çš„ä½ç½®
+	 * (è‹¥æ²¡æ‰¾åˆ°è¿”å› null)
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±êÊı×é
+	 *            ç›®æ ‡æ•°ç»„
 	 * @param target
-	 *            Ä¿±êÊı
+	 *            ç›®æ ‡æ•°
 	 * @return Location
 	 */
 	public static Location getLocation(int[][] the2DArray, int target) {
@@ -76,13 +76,13 @@ public class ArrayArithmetic {
 	}
 	
 	/**
-	 * ·µ»ØtargetÔÚthe2DArrayÖĞÊ×´Î(ĞĞÓÅÏÈ)³öÏÖµÄË÷ÒıÊı×é 
-	 * (ÆäÖĞ[0]´æ´¢ĞĞºÅ,[1]´æ´¢ÁĞºÅ,ÈôÃ»ÕÒµ½·µ»Ø {-1,-1} )
+	 * è¿”å›targetåœ¨the2DArrayä¸­é¦–æ¬¡(è¡Œä¼˜å…ˆ)å‡ºç°çš„ç´¢å¼•æ•°ç»„ 
+	 * (å…¶ä¸­[0]å­˜å‚¨è¡Œå·,[1]å­˜å‚¨åˆ—å·,è‹¥æ²¡æ‰¾åˆ°è¿”å› {-1,-1} )
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param target
-	 *            Ä¿±êÊı
+	 *            ç›®æ ‡æ•°
 	 * @return int[]
 	 */
 	public static int[] getIndices(int[][] the2DArray, int target) {
@@ -97,13 +97,13 @@ public class ArrayArithmetic {
 	}
 	
 	/**
-	 * ·µ»ØtargetÔÚthe2DArrayÖĞÊ×´Î(ĞĞÓÅÏÈ)³öÏÖµÄÎ»ÖÃ 
-	 * (ÈôÃ»ÕÒµ½·µ»Ø null)
+	 * è¿”å›targetåœ¨the2DArrayä¸­é¦–æ¬¡(è¡Œä¼˜å…ˆ)å‡ºç°çš„ä½ç½® 
+	 * (è‹¥æ²¡æ‰¾åˆ°è¿”å› null)
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 * @param target
-	 *            Ä¿±ê¶ÔÏó
+	 *            ç›®æ ‡å¯¹è±¡
 	 * @return
 	 */
 	public static Location getLocation(Object[][] the2DArray, Object target) {
@@ -115,13 +115,13 @@ public class ArrayArithmetic {
 	}
 	
 	/**
-	 * ·µ»ØtargetÔÚthe2DArrayÖĞµÚÒ»´Î³öÏÖµÄË÷ÒıÊı×é 
-	 * (ÆäÖĞ[0]´æ´¢ĞĞºÅ,[1]´æ´¢ÁĞºÅ,ÈôÃ»ÕÒµ½·µ»Ø {-1,-1} )
+	 * è¿”å›targetåœ¨the2DArrayä¸­ç¬¬ä¸€æ¬¡å‡ºç°çš„ç´¢å¼•æ•°ç»„ 
+	 * (å…¶ä¸­[0]å­˜å‚¨è¡Œå·,[1]å­˜å‚¨åˆ—å·,è‹¥æ²¡æ‰¾åˆ°è¿”å› {-1,-1} )
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±êÊı×é
+	 *            ç›®æ ‡æ•°ç»„
 	 * @param target
-	 *            Ä¿±êÊı
+	 *            ç›®æ ‡æ•°
 	 * @return int[]
 	 */
 	public static int[] getIndexes(Object[][] the2DArray, Object target) {
@@ -136,12 +136,12 @@ public class ArrayArithmetic {
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½¸öÎ»ÖÃÊÇ·ñÏàÁÚ
+	 * åˆ¤æ–­ä¸¤ä¸ªä½ç½®æ˜¯å¦ç›¸é‚»
 	 * 
 	 * @param a
-	 *            µÚÒ»¸öÎ»ÖÃ
+	 *            ç¬¬ä¸€ä¸ªä½ç½®
 	 * @param b
-	 *            µÚ¶ş¸öÎ»ÖÃ
+	 *            ç¬¬äºŒä¸ªä½ç½®
 	 * @return boolean
 	 */
 	public static boolean isAdjoin(Location a, Location b) {
@@ -149,23 +149,23 @@ public class ArrayArithmetic {
 	}
 	
 	/**
-	 * ÅĞ¶ÏÁ½¸öÎ»ÖÃÊÇ·ñÏàÁÚ
+	 * åˆ¤æ–­ä¸¤ä¸ªä½ç½®æ˜¯å¦ç›¸é‚»
 	 * 
 	 * @param x1
-	 *            µÚÒ»¸öÎ»ÖÃµÄĞĞºÅ
+	 *            ç¬¬ä¸€ä¸ªä½ç½®çš„è¡Œå·
 	 * @param y1
-	 *            µÚÒ»¸öÎ»ÖÃµÄÁĞºÅ
+	 *            ç¬¬ä¸€ä¸ªä½ç½®çš„åˆ—å·
 	 * @param x2
-	 *            µÚ¶ş¸öÎ»ÖÃµÄĞĞºÅ
+	 *            ç¬¬äºŒä¸ªä½ç½®çš„è¡Œå·
 	 * @param y2
-	 *            µÚ¶ş¸öÎ»ÖÃµÄÁĞºÅ
+	 *            ç¬¬äºŒä¸ªä½ç½®çš„åˆ—å·
 	 * @return boolean
 	 */
 	public static boolean isAdjoin(int x1, int y1, int x2, int y2) {
-		boolean left = (x1 - 1 == x2 && y1 == y2);// 2ÊÇ1×óÁÚ¾Ó
-		boolean right = (x1 + 1 == x2 && y1 == y2);// 2ÊÇ1ÓÒÁÚ¾Ó
-		boolean up = (x1 == x2 && y1 - 1 == y2);// 2ÊÇ1ÉÏÁÚ¾Ó
-		boolean down = (x1 == x2 && y1 + 1 == y2);// 2ÊÇ1ÏÂÁÚ¾Ó
+		boolean left = (x1 - 1 == x2 && y1 == y2);// 2æ˜¯1å·¦é‚»å±…
+		boolean right = (x1 + 1 == x2 && y1 == y2);// 2æ˜¯1å³é‚»å±…
+		boolean up = (x1 == x2 && y1 - 1 == y2);// 2æ˜¯1ä¸Šé‚»å±…
+		boolean down = (x1 == x2 && y1 + 1 == y2);// 2æ˜¯1ä¸‹é‚»å±…
 		return (left || right || up || down);
 	}
 }

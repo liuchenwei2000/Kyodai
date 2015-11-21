@@ -9,11 +9,11 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 /**
- * ×Ô¶¨ÒåFrameÀà
+ * è‡ªå®šä¹‰Frameç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨Ê±¼ä£º2007-10-19
+ * åˆ›å»ºæ—¶é—´ï¼š2007-10-19
  */
 public class MyFrame extends JFrame {
 
@@ -23,21 +23,21 @@ public class MyFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public MyFrame(){
-		// Ä¬ÈÏ¹Ø±Õ²Ù×÷
+		// é»˜è®¤å…³é—­æ“ä½œ
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	/**
-	 * component¾ÓÖĞÏÔÊ¾ÉèÖÃ
+	 * componentå±…ä¸­æ˜¾ç¤ºè®¾ç½®
 	 */
 	protected void setCenter() {
-		int windowWidth = getWidth(); // »ñµÃ´°¿Ú¿í
-		int windowHeight = getHeight(); // »ñµÃ´°¿Ú¸ß
-		Toolkit kit = Toolkit.getDefaultToolkit(); // ¶¨Òå¹¤¾ß°ü
-		Dimension screenSize = kit.getScreenSize(); // »ñÈ¡ÆÁÄ»µÄ³ß´ç
-		int screenWidth = screenSize.width; // »ñÈ¡ÆÁÄ»µÄ¿í
-		int screenHeight = screenSize.height; // »ñÈ¡ÆÁÄ»µÄ¸ß
+		int windowWidth = getWidth(); // è·å¾—çª—å£å®½
+		int windowHeight = getHeight(); // è·å¾—çª—å£é«˜
+		Toolkit kit = Toolkit.getDefaultToolkit(); // å®šä¹‰å·¥å…·åŒ…
+		Dimension screenSize = kit.getScreenSize(); // è·å–å±å¹•çš„å°ºå¯¸
+		int screenWidth = screenSize.width; // è·å–å±å¹•çš„å®½
+		int screenHeight = screenSize.height; // è·å–å±å¹•çš„é«˜
 		setLocation(screenWidth / 2 - windowWidth / 2, screenHeight / 2
-				- windowHeight / 2);// ÉèÖÃ´°¿Ú¾ÓÖĞÏÔÊ¾
+				- windowHeight / 2);// è®¾ç½®çª—å£å±…ä¸­æ˜¾ç¤º
 	}
 }

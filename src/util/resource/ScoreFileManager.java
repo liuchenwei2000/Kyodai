@@ -17,26 +17,26 @@ import assistant.KyodaiConstant;
 import assistant.Score;
 
 /**
- * ·ÖÊıÎÄ¼ş¹ÜÀíÆ÷
+ * åˆ†æ•°æ–‡ä»¶ç®¡ç†å™¨
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-11-1
+ * åˆ›å»ºæ—¥æœŸï¼š2007-11-1
  */
 public class ScoreFileManager {
 
-	private static ObjectInputStream reader;// ¶ÁÈ¡¶ÔÏóÁ÷
-	private static ObjectOutputStream writer;// Ğ´Èë¶ÔÏóÁ÷
+	private static ObjectInputStream reader;// è¯»å–å¯¹è±¡æµ
+	private static ObjectOutputStream writer;// å†™å…¥å¯¹è±¡æµ
 
 	private ScoreFileManager() {
 		// do nothing and no instance
 	}
 
 	/**
-	 * ½«·ÖÊı¶ÔÏóĞ´ÈëÎÄ¼ş
+	 * å°†åˆ†æ•°å¯¹è±¡å†™å…¥æ–‡ä»¶
 	 * 
 	 * @param score
-	 *            ·ÖÊı¶ÔÏó
+	 *            åˆ†æ•°å¯¹è±¡
 	 * @throws IOException
 	 */
 	public static void writeScoreToFile(Score score) throws IOException {
@@ -46,7 +46,7 @@ public class ScoreFileManager {
 			writer.writeObject(score);
 			writer.close();
 		} catch (FileNotFoundException e) {
-			// ÎÄ¼ş²»´æÔÚÔòÏÈ´´½¨ĞÂµÄ·ÖÊıÎÄ¼şÔÙĞ´Èë
+			// æ–‡ä»¶ä¸å­˜åœ¨åˆ™å…ˆåˆ›å»ºæ–°çš„åˆ†æ•°æ–‡ä»¶å†å†™å…¥
 			createNewScoreFile();
 			writeScoreToFile(score);
 		} catch (IOException e) {
@@ -58,7 +58,7 @@ public class ScoreFileManager {
 	}
 
 	/**
-	 * ´Ó·ÖÊıÎÄ¼şÖĞ¶ÁÈ¡·ÖÊı¶ÔÏó
+	 * ä»åˆ†æ•°æ–‡ä»¶ä¸­è¯»å–åˆ†æ•°å¯¹è±¡
 	 * 
 	 * @throws IOException
 	 */
@@ -70,12 +70,12 @@ public class ScoreFileManager {
 			score = (Score) reader.readObject();
 			return score;
 		} catch (FileNotFoundException e) {
-			// ·ÖÊıÎÄ¼ş²»´æÔÚÔòÏÈ´´½¨È»ºóĞ´ÈëÄ¬ÈÏ·ÖÊı²¢·µ»ØÄ¬ÈÏ·ÖÊı¶ÔÏó
+			// åˆ†æ•°æ–‡ä»¶ä¸å­˜åœ¨åˆ™å…ˆåˆ›å»ºç„¶åå†™å…¥é»˜è®¤åˆ†æ•°å¹¶è¿”å›é»˜è®¤åˆ†æ•°å¯¹è±¡
 			createNewScoreFile();
 			return getDefaultScoreAndResetFile();
 		} catch (IOException e) {
-			// ·ÖÊıÎÄ¼şµÄÊı¾İ±»ĞŞ¸Ä
-			DialogManager.showErrorDialog("·ÖÊıÎÄ¼şÒÑ±»ĞŞ¸Ä£¬Êı¾İ½«Çå¿Õ£¡");
+			// åˆ†æ•°æ–‡ä»¶çš„æ•°æ®è¢«ä¿®æ”¹
+			DialogManager.showErrorDialog("åˆ†æ•°æ–‡ä»¶å·²è¢«ä¿®æ”¹ï¼Œæ•°æ®å°†æ¸…ç©ºï¼");
 			return getDefaultScoreAndResetFile();
 		} catch (ClassNotFoundException e) {
 			DialogManager.showErrorDialog(e.getMessage());
@@ -88,7 +88,7 @@ public class ScoreFileManager {
 	}
 
 	/**
-	 * ·µ»ØÄ¬ÈÏ·ÖÊı¶ÔÏó²¢ÖØÉè·ÖÊıÎÄ¼ş
+	 * è¿”å›é»˜è®¤åˆ†æ•°å¯¹è±¡å¹¶é‡è®¾åˆ†æ•°æ–‡ä»¶
 	 */
 	private static Score getDefaultScoreAndResetFile() {
 		Score defaultScore = new Score();
@@ -101,7 +101,7 @@ public class ScoreFileManager {
 	}
 	
 	/**
-	 * ĞÂ½¨Ò»¸ö·ÖÊıÎÄ¼ş
+	 * æ–°å»ºä¸€ä¸ªåˆ†æ•°æ–‡ä»¶
 	 */
 	private static void createNewScoreFile() {
 		try {

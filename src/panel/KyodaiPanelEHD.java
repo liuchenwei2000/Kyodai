@@ -18,20 +18,20 @@ import assistant.KyodaiConstant;
 import assistant.Score;
 
 /**
- * Á¬Á¬¿´°´Å¥Ãæ°åÊÂ¼ş´¦ÀíÀà
+ * è¿è¿çœ‹æŒ‰é’®é¢æ¿äº‹ä»¶å¤„ç†ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-10-4
+ * åˆ›å»ºæ—¥æœŸï¼š2007-10-4
  */
 public class KyodaiPanelEHD implements ActionListener {
 
-	private KyodaiPanel m_kyodaiPanel;// Ãæ°å¶ÔÏó
-	private ButtonQueue<JButton> m_buttonQueue;// ±»µã»÷°´Å¥¶ÓÁĞ
-	private RemovableChecker m_removableChecker;// ¿ÉÏûĞÔ¼ì²é¶ÔÏó
+	private KyodaiPanel m_kyodaiPanel;// é¢æ¿å¯¹è±¡
+	private ButtonQueue<JButton> m_buttonQueue;// è¢«ç‚¹å‡»æŒ‰é’®é˜Ÿåˆ—
+	private RemovableChecker m_removableChecker;// å¯æ¶ˆæ€§æ£€æŸ¥å¯¹è±¡
 	
-	private int m_counter;// ÏûÈ¥°´Å¥¼ÆÊıÆ÷(ÓÃÓÚÅĞ¶ÏÊÇ·ñÒÑ¾­ÏûÍêËùÓĞ°´Å¥)
-	private Score m_score;// ·ÖÊı
+	private int m_counter;// æ¶ˆå»æŒ‰é’®è®¡æ•°å™¨(ç”¨äºåˆ¤æ–­æ˜¯å¦å·²ç»æ¶ˆå®Œæ‰€æœ‰æŒ‰é’®)
+	private Score m_score;// åˆ†æ•°
 
 	public KyodaiPanelEHD(KyodaiPanel kyodaiPanel) {
 		m_kyodaiPanel = kyodaiPanel;
@@ -42,21 +42,21 @@ public class KyodaiPanelEHD implements ActionListener {
 	}
 
 	/**
-	 * ÏìÓ¦ÊÂ¼şµÄ´¦Àí·½·¨
+	 * å“åº”äº‹ä»¶çš„å¤„ç†æ–¹æ³•
 	 * 
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		JButton currentButton = (JButton) e.getSource();// µ±Ç°±»µã»÷°´Å¥
+		JButton currentButton = (JButton) e.getSource();// å½“å‰è¢«ç‚¹å‡»æŒ‰é’®
 		MusicPlayer.playSelect();
 		m_buttonQueue.offer(currentButton);
-		// Èç¹ûµ±Ç°¶ÓÁĞÄÚÓĞÁ½¸ö°´Å¥ÔòÅĞ¶ÏËüÃÇÊÇ·ñ¿ÉÉ¾³ı
+		// å¦‚æœå½“å‰é˜Ÿåˆ—å†…æœ‰ä¸¤ä¸ªæŒ‰é’®åˆ™åˆ¤æ–­å®ƒä»¬æ˜¯å¦å¯åˆ é™¤
 		if (m_buttonQueue.isFull()) {
 			JButton button1 = m_buttonQueue.getFirst();
 			JButton button2 = m_buttonQueue.getLast();
-			// ÅĞ¶ÏÊÇ·ñÊÇÍ¬Ò»¸ö°´Å¥
+			// åˆ¤æ–­æ˜¯å¦æ˜¯åŒä¸€ä¸ªæŒ‰é’®
 			if (button1 != button2) {
-				// ÅĞ¶ÏÊÇ·ñÊÇÏàÍ¬Í¼Æ¬µÄ°´Å¥
+				// åˆ¤æ–­æ˜¯å¦æ˜¯ç›¸åŒå›¾ç‰‡çš„æŒ‰é’®
 				if (hasTheSameIcon(button1, button2)) {
 					if (isRemovable(button1, button2)) {
 						MusicPlayer.playRemove();
@@ -71,12 +71,12 @@ public class KyodaiPanelEHD implements ActionListener {
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½¸ö°´Å¥µÄÍ¼±êÊÇ·ñÒ»Ñù
+	 * åˆ¤æ–­ä¸¤ä¸ªæŒ‰é’®çš„å›¾æ ‡æ˜¯å¦ä¸€æ ·
 	 * 
 	 * @param button1
-	 *            °´Å¥1
+	 *            æŒ‰é’®1
 	 * @param button2
-	 *            °´Å¥2
+	 *            æŒ‰é’®2
 	 * @return boolean
 	 */
 	private boolean hasTheSameIcon(JButton button1, JButton button2) {
@@ -84,12 +84,12 @@ public class KyodaiPanelEHD implements ActionListener {
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½¸ö°´Å¥µÄActionCommandÊÇ·ñÒ»Ñù
+	 * åˆ¤æ–­ä¸¤ä¸ªæŒ‰é’®çš„ActionCommandæ˜¯å¦ä¸€æ ·
 	 * 
 	 * @param button1
-	 *            °´Å¥1
+	 *            æŒ‰é’®1
 	 * @param button2
-	 *            °´Å¥2
+	 *            æŒ‰é’®2
 	 * @return boolean
 	 */
 	private boolean hasTheSameActionCommand(JButton button1, JButton button2) {
@@ -97,16 +97,16 @@ public class KyodaiPanelEHD implements ActionListener {
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½¸ö°´Å¥ÊÇ·ñ¿ÉÉ¾³ı
+	 * åˆ¤æ–­ä¸¤ä¸ªæŒ‰é’®æ˜¯å¦å¯åˆ é™¤
 	 * 
 	 * @param button1
-	 *            °´Å¥1
+	 *            æŒ‰é’®1
 	 * @param button2
-	 *            °´Å¥2
+	 *            æŒ‰é’®2
 	 * @return boolean
 	 */
 	private boolean isRemovable(JButton button1, JButton button2) {
-		// »ñÈ¡ÕâÁ½¸ö°´Å¥ÔÚÄ£ĞÍ¶şÎ¬Êı×éÖĞµÄÎ»ÖÃ
+		// è·å–è¿™ä¸¤ä¸ªæŒ‰é’®åœ¨æ¨¡å‹äºŒç»´æ•°ç»„ä¸­çš„ä½ç½®
 		Location location1 = getLocationInModel(button1);
 		Location location2 = getLocationInModel(button2);
 		return m_removableChecker.isRemovable(m_kyodaiPanel.getModel()
@@ -114,89 +114,89 @@ public class KyodaiPanelEHD implements ActionListener {
 	}
 
 	/**
-	 * ÏûÈ¥Á½¸ö°´Å¥µÄ¾ßÌå´¦Àí¹ı³Ì
+	 * æ¶ˆå»ä¸¤ä¸ªæŒ‰é’®çš„å…·ä½“å¤„ç†è¿‡ç¨‹
 	 * 
 	 * @param button1
-	 *            °´Å¥1
+	 *            æŒ‰é’®1
 	 * @param button2
-	 *            °´Å¥2
+	 *            æŒ‰é’®2
 	 */
 	private void doRemove(JButton button1, JButton button2) {
-		// ÅĞ¶ÏÊÇ·ñÊÇÏûÈ¥ÁËÖØÁĞ°´Å¥
+		// åˆ¤æ–­æ˜¯å¦æ˜¯æ¶ˆå»äº†é‡åˆ—æŒ‰é’®
 		if(hasRefreshIcon(button1))
 		{
 			int newNumber = m_kyodaiPanel.getRefreshNumberLeft();
 			m_kyodaiPanel.setRefreshNumberLeft(newNumber + 1);
 		}
 		removeButtons(button1, button2);
-		// Çå¿Õ°´Å¥¶ÓÁĞ
+		// æ¸…ç©ºæŒ‰é’®é˜Ÿåˆ—
 		m_buttonQueue.clear();
-		// ÏûÈ¥°´Å¥¼ÆÊıÆ÷ + 2
+		// æ¶ˆå»æŒ‰é’®è®¡æ•°å™¨ + 2
 		m_counter += 2;
-		// ·ÖÊı + INCREMENT_OF_SCORE
+		// åˆ†æ•° + INCREMENT_OF_SCORE
 		m_score.addScore(KyodaiConstant.INCREMENT_OF_SCORE);
 	}
 
 	/**
-	 * ¶ÔÁ½¸ö°´Å¥Ö´ĞĞ"É¾³ı"²Ù×÷ 
-	 * 1£¬ÉèÎª²»¿É¼û 2£¬Ä£ĞÍ¶şÎ¬Êı×éµÄ¶ÔÓ¦ÔªËØÉèÎª0
+	 * å¯¹ä¸¤ä¸ªæŒ‰é’®æ‰§è¡Œ"åˆ é™¤"æ“ä½œ 
+	 * 1ï¼Œè®¾ä¸ºä¸å¯è§ 2ï¼Œæ¨¡å‹äºŒç»´æ•°ç»„çš„å¯¹åº”å…ƒç´ è®¾ä¸º0
 	 * 
 	 * @param button1
-	 *            °´Å¥1
+	 *            æŒ‰é’®1
 	 * @param button2
-	 *            °´Å¥2
+	 *            æŒ‰é’®2
 	 */
 	private void removeButtons(JButton button1, JButton button2) {
-		// ¶ÓÁĞÄÚ°´Å¥ÔÚ½çÃæÉÏµÄ¶¼±äÎª²»¿É¼ûµÄ
+		// é˜Ÿåˆ—å†…æŒ‰é’®åœ¨ç•Œé¢ä¸Šçš„éƒ½å˜ä¸ºä¸å¯è§çš„
 		button1.setVisible(false);
 		button2.setVisible(false);
-		// Ä£ĞÍµÄ¶şÎ¬Êı×éÖĞ¶ÔÓ¦ÔªËØ±äÎª0
+		// æ¨¡å‹çš„äºŒç»´æ•°ç»„ä¸­å¯¹åº”å…ƒç´ å˜ä¸º0
 		setModelWithButtonState(button1);
 		setModelWithButtonState(button2);
 	}
 
 	/**
-	 * ÉèÖÃÄ£ĞÍµÄ¶şÎ¬Êı×éÖĞ°´Å¥¶ÔÓ¦ÔªËØÎª0
+	 * è®¾ç½®æ¨¡å‹çš„äºŒç»´æ•°ç»„ä¸­æŒ‰é’®å¯¹åº”å…ƒç´ ä¸º0
 	 * 
 	 * @param button
-	 *            °´Å¥
+	 *            æŒ‰é’®
 	 */
 	private void setModelWithButtonState(JButton button) {
-		// »ñÈ¡°´Å¥ÔÚÄ£ĞÍ¶şÎ¬Êı×éÖĞµÄÎ»ÖÃÊı×é
+		// è·å–æŒ‰é’®åœ¨æ¨¡å‹äºŒç»´æ•°ç»„ä¸­çš„ä½ç½®æ•°ç»„
 		Location location = getLocationInModel(button);
-		// ÉèÖÃÄ£ĞÍÊı×éÖĞ¸Ãbutton¶ÔÓ¦µÄÊıÖµÎª0
+		// è®¾ç½®æ¨¡å‹æ•°ç»„ä¸­è¯¥buttonå¯¹åº”çš„æ•°å€¼ä¸º0
 		m_kyodaiPanel.getModel().get2DArray()[location.getRow()][location
 				.getColumn()] = 0;
 	}
 
 	/**
-	 * ÅĞ¶Ï°´Å¥ÊÇ·ñÊÇÖØÁĞÍ¼±ê
+	 * åˆ¤æ–­æŒ‰é’®æ˜¯å¦æ˜¯é‡åˆ—å›¾æ ‡
 	 */
 	private boolean hasRefreshIcon(JButton button) {
 		return getValueInModel2DArray(button) == KyodaiConstant.REFRESH_ICON;
 	}
 	
 	/**
-	 * ·µ»Ø°´Å¥ÔÚÄ£ĞÍ¶şÎ¬Êı×éÖĞµÄÖµ
+	 * è¿”å›æŒ‰é’®åœ¨æ¨¡å‹äºŒç»´æ•°ç»„ä¸­çš„å€¼
 	 * 
 	 * @param button
-	 *            °´Å¥
+	 *            æŒ‰é’®
 	 * @return int
 	 */
 	private int getValueInModel2DArray(JButton button) {
-		// »ñÈ¡°´Å¥ÔÚÄ£ĞÍ¶şÎ¬Êı×éÖĞµÄÎ»ÖÃÊı×é
+		// è·å–æŒ‰é’®åœ¨æ¨¡å‹äºŒç»´æ•°ç»„ä¸­çš„ä½ç½®æ•°ç»„
 		Location location = getLocationInModel(button);
-		// ÉèÖÃÄ£ĞÍÊı×éÖĞ¸Ãbutton¶ÔÓ¦µÄÊıÖµÎª0
+		// è®¾ç½®æ¨¡å‹æ•°ç»„ä¸­è¯¥buttonå¯¹åº”çš„æ•°å€¼ä¸º0
 		int value = m_kyodaiPanel.getModel().get2DArray()[location.getRow()][location
 				.getColumn()];
 		return value;
 	}
 	
 	/**
-	 * ·µ»Ø°´Å¥ÔÚÄ£ĞÍ¶şÎ¬Êı×éÖĞµÄÎ»ÖÃ
+	 * è¿”å›æŒ‰é’®åœ¨æ¨¡å‹äºŒç»´æ•°ç»„ä¸­çš„ä½ç½®
 	 * 
 	 * @param button
-	 *            °´Å¥
+	 *            æŒ‰é’®
 	 * @return Location
 	 */
 	private Location getLocationInModel(JButton button) {
@@ -205,10 +205,10 @@ public class KyodaiPanelEHD implements ActionListener {
 	}
 
 	/**
-	 * Ñ°ÕÒÄ¿±ê°´Å¥ÔÚ°´Å¥¶şÎ¬Êı×éÖĞµÄÎ»ÖÃ
+	 * å¯»æ‰¾ç›®æ ‡æŒ‰é’®åœ¨æŒ‰é’®äºŒç»´æ•°ç»„ä¸­çš„ä½ç½®
 	 * 
 	 * @param button
-	 *            Ä¿±ê°´Å¥
+	 *            ç›®æ ‡æŒ‰é’®
 	 * @return Location
 	 */
 	private Location getLocationInButtons(JButton button) {
@@ -217,10 +217,10 @@ public class KyodaiPanelEHD implements ActionListener {
 	}
 
 	/**
-	 * °´Å¥¶şÎ¬Êı×éµÄÎ»ÖÃ×ª»»Îª¶ÔÓ¦ÔÚÄ£ĞÍ¶şÎ¬Êı×éÖĞµÄÎ»ÖÃ
+	 * æŒ‰é’®äºŒç»´æ•°ç»„çš„ä½ç½®è½¬æ¢ä¸ºå¯¹åº”åœ¨æ¨¡å‹äºŒç»´æ•°ç»„ä¸­çš„ä½ç½®
 	 * 
 	 * @param locationInButtons
-	 *            °´Å¥ÔÚ°´Å¥Êı×éÖĞµÄÎ»ÖÃ
+	 *            æŒ‰é’®åœ¨æŒ‰é’®æ•°ç»„ä¸­çš„ä½ç½®
 	 * @return Location
 	 */
 	private Location getLocationInModel(Location locationInButtons) {
@@ -229,18 +229,18 @@ public class KyodaiPanelEHD implements ActionListener {
 	}
 
 	/**
-	 * ÅĞ¶Ï°´Å¥ÊÇ·ñÒÑ¾­È«²¿±»ÏûÈ¥
+	 * åˆ¤æ–­æŒ‰é’®æ˜¯å¦å·²ç»å…¨éƒ¨è¢«æ¶ˆå»
 	 * 
 	 * @return boolean
 	 */
 	private boolean isAllRemoved() {
 		int dimension = m_kyodaiPanel.getModel().getDimension();
-		// ¸ù¾İÏûÈ¥°´Å¥µÄ¸öÊıºÍ°´Å¥×Ü¸öÊı½øĞĞ±È½Ï
+		// æ ¹æ®æ¶ˆå»æŒ‰é’®çš„ä¸ªæ•°å’ŒæŒ‰é’®æ€»ä¸ªæ•°è¿›è¡Œæ¯”è¾ƒ
 		return (m_counter == dimension * dimension);
 	}
 
 	/**
-	 * ÏÔÊ¾ĞÂÒ»¾ÖµÄÓÎÏ·°´Å¥½çÃæ
+	 * æ˜¾ç¤ºæ–°ä¸€å±€çš„æ¸¸æˆæŒ‰é’®ç•Œé¢
 	 */
 	private void showNewGamePanel() {
 		m_kyodaiPanel.setNewModel();
@@ -248,11 +248,11 @@ public class KyodaiPanelEHD implements ActionListener {
 	}
 
 	/**
-	 * Ò»¾Ö½áÊøÖ®ºóµÄ¾ßÌå´¦Àí¹ı³Ì
+	 * ä¸€å±€ç»“æŸä¹‹åçš„å…·ä½“å¤„ç†è¿‡ç¨‹
 	 */
 	private void doAfterAllRemoved() {
 		m_counter = 0;
-		// ¹ı¹Ø½±Àø·Ö
+		// è¿‡å…³å¥–åŠ±åˆ†
 		m_score.addScore(getPrizeScore());
 		showScore();
 		showNewGamePanel();
@@ -260,14 +260,14 @@ public class KyodaiPanelEHD implements ActionListener {
 	}
 	
 	/**
-	 * ·µ»Ø¹ı¹Ø½±Àø·Ö(Î¬Êı * 20)
+	 * è¿”å›è¿‡å…³å¥–åŠ±åˆ†(ç»´æ•° * 20)
 	 */
 	private int getPrizeScore() {
 		return m_kyodaiPanel.getModel().getDimension() * 20;
 	}
 	
 	/**
-	 * ÔÚ¼Æ·ÖÀ¸ÏÔÊ¾µ±Ç°·ÖÊı
+	 * åœ¨è®¡åˆ†æ æ˜¾ç¤ºå½“å‰åˆ†æ•°
 	 */
 	private void showScore() {
 		m_kyodaiPanel.setScoreText(m_score.getScore() + "");
@@ -304,16 +304,16 @@ public class KyodaiPanelEHD implements ActionListener {
 	}
 
 	/**
-	 * °´Å¥¶ÓÁĞ(ÄÚ²¿Àà) 
+	 * æŒ‰é’®é˜Ÿåˆ—(å†…éƒ¨ç±») 
 	 * <strong> 
-	 * Warning£º°´Å¥¶ÓÁĞµÄÔªËØÊı(size)×î¶àÎª2 
-	 * µ±ÏòÒ»¸ösizeÎª2(¼´Ö»ÓĞ¶ÓÊ×ºÍ¶ÓÎ²)µÄ¶ÓÁĞÔÙÌí¼ÓÔªËØÊ±
-	 * »á°Ñ¶ÓÊ×ÔªËØÌß³ö¶ÓÁĞ£¬È»ºó°ÑĞÂÔªËØ¼ÓÈë¶ÓÎ² 
+	 * Warningï¼šæŒ‰é’®é˜Ÿåˆ—çš„å…ƒç´ æ•°(size)æœ€å¤šä¸º2 
+	 * å½“å‘ä¸€ä¸ªsizeä¸º2(å³åªæœ‰é˜Ÿé¦–å’Œé˜Ÿå°¾)çš„é˜Ÿåˆ—å†æ·»åŠ å…ƒç´ æ—¶
+	 * ä¼šæŠŠé˜Ÿé¦–å…ƒç´ è¸¢å‡ºé˜Ÿåˆ—ï¼Œç„¶åæŠŠæ–°å…ƒç´ åŠ å…¥é˜Ÿå°¾ 
 	 * </strong>
 	 * 
-	 * ´´½¨Ê±¼ä£º2007-10-20
+	 * åˆ›å»ºæ—¶é—´ï¼š2007-10-20
 	 * 
-	 * @author Áõ³¿Î°
+	 * @author åˆ˜æ™¨ä¼Ÿ
 	 */
 	@SuppressWarnings("hiding")
 	private class ButtonQueue<JButton> extends LinkedList<JButton> {
@@ -323,7 +323,7 @@ public class KyodaiPanelEHD implements ActionListener {
 		 */
 		private static final long serialVersionUID = 1L;
 
-		/** ËùÈİÄÉµÄ¹Ì¶¨ÔªËØÊı */
+		/** æ‰€å®¹çº³çš„å›ºå®šå…ƒç´ æ•° */
 		private static final int SIZE = 2;
 
 		public ButtonQueue() {
@@ -331,21 +331,21 @@ public class KyodaiPanelEHD implements ActionListener {
 		}
 
 		/**
-		 * Èç¹û¶ÓÁĞÄÚÔªËØÊıÎª2ÔÙµ÷ÓÃ´Ë·½·¨Ôò»á°Ñ¶ÓÊ×ÔªËØÌß³öÈ»ºóÌí¼ÓĞÂÔªËØµ½¶ÓÎ²
+		 * å¦‚æœé˜Ÿåˆ—å†…å…ƒç´ æ•°ä¸º2å†è°ƒç”¨æ­¤æ–¹æ³•åˆ™ä¼šæŠŠé˜Ÿé¦–å…ƒç´ è¸¢å‡ºç„¶åæ·»åŠ æ–°å…ƒç´ åˆ°é˜Ÿå°¾
 		 * 
 		 * @see java.util.LinkedList#offer(java.lang.Object)
 		 */
 		@Override
 		public boolean offer(JButton o) {
 			if (this.size() == SIZE) {
-				// Ìß³ö¶ÓÊ×ÔªËØ
+				// è¸¢å‡ºé˜Ÿé¦–å…ƒç´ 
 				this.poll();
 			}
 			return super.offer(o);
 		}
 
 		/**
-		 * ÅĞ¶Ï¶ÓÁĞÊÇ·ñÎª¿Õ
+		 * åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
 		 * 
 		 * @return boolean
 		 */
@@ -354,7 +354,7 @@ public class KyodaiPanelEHD implements ActionListener {
 		}
 
 		/**
-		 * ÅĞ¶Ï¶ÓÁĞÊÇ·ñÎªÂú(¼´ÔªËØÊıÎª2)
+		 * åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦ä¸ºæ»¡(å³å…ƒç´ æ•°ä¸º2)
 		 * 
 		 * @return boolean
 		 */

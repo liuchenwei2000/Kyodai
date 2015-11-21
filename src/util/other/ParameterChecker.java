@@ -4,43 +4,43 @@
 package util.other;
 
 /**
- * ²ÎÊıºÏ·¨ĞÔ¼ì²éÀà
+ * å‚æ•°åˆæ³•æ€§æ£€æŸ¥ç±»
  * 
- * (Èô²»ºÏ·¨ÔòÅ×³öÏàÓ¦µÄÒì³£ĞÅÏ¢)
+ * (è‹¥ä¸åˆæ³•åˆ™æŠ›å‡ºç›¸åº”çš„å¼‚å¸¸ä¿¡æ¯)
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-10-19
+ * åˆ›å»ºæ—¥æœŸï¼š2007-10-19
  */
 public class ParameterChecker {
 
 	/**
-	 * µ¥ÀıÄ£Ê½
+	 * å•ä¾‹æ¨¡å¼
 	 */
 	private ParameterChecker() {
 		// do nothing and no instance
 	}
 
 	/**
-	 * ¼ì²é´«Èë²ÎÊıµÄºÏ·¨ĞÔ
+	 * æ£€æŸ¥ä¼ å…¥å‚æ•°çš„åˆæ³•æ€§
 	 * 
 	 * @param dimension
-	 *            Ä£ĞÍÊı×éµÄÎ¬Êı
+	 *            æ¨¡å‹æ•°ç»„çš„ç»´æ•°
 	 */
 	public static void checkDimension(int dimension) {
 		if (dimension < 1)
-			throw new IllegalArgumentException("²ÎÊı±ØĞëÎªÕıÕûÊı");
+			throw new IllegalArgumentException("å‚æ•°å¿…é¡»ä¸ºæ­£æ•´æ•°");
 		if (dimension % 2 != 0)
-			throw new IllegalArgumentException("²ÎÊı±ØĞëÎªÅ¼Êı");
+			throw new IllegalArgumentException("å‚æ•°å¿…é¡»ä¸ºå¶æ•°");
 	}
 	
 	/**
-	 * ¼ì²é´«Èë²ÎÊıµÄºÏ·¨ĞÔ
+	 * æ£€æŸ¥ä¼ å…¥å‚æ•°çš„åˆæ³•æ€§
 	 * 
 	 * @param total
-	 *            Ëæ»úÊı¸öÊı
+	 *            éšæœºæ•°ä¸ªæ•°
 	 * @param maxNumber
-	 *            Ëæ»úÊıÊıÖµÉÏÏŞ
+	 *            éšæœºæ•°æ•°å€¼ä¸Šé™
 	 */
 	public static void checkArgument(int total, int maxNumber) {
 		checkTotal(total);
@@ -48,68 +48,68 @@ public class ParameterChecker {
 	}
 
 	/**
-	 * ¼ì²éËæ»úÊı¸öÊıµÄºÏ·¨ĞÔ
+	 * æ£€æŸ¥éšæœºæ•°ä¸ªæ•°çš„åˆæ³•æ€§
 	 * 
 	 * @param total
-	 *            Ëæ»úÊı¸öÊı
+	 *            éšæœºæ•°ä¸ªæ•°
 	 */
 	public static void checkTotal(int total) {
 		if (total % 2 != 0)
-			throw new IllegalArgumentException("³É¶ÔËæ»úÊıµÄ¸öÊı±ØĞëÎªÅ¼Êı!");
+			throw new IllegalArgumentException("æˆå¯¹éšæœºæ•°çš„ä¸ªæ•°å¿…é¡»ä¸ºå¶æ•°!");
 	}
 
 	/**
-	 * ¼ì²éËæ»úÊıÊıÖµÉÏÏŞµÄºÏ·¨ĞÔ
+	 * æ£€æŸ¥éšæœºæ•°æ•°å€¼ä¸Šé™çš„åˆæ³•æ€§
 	 * 
 	 * @param maxNumber
-	 *            Ëæ»úÊıÊıÖµÉÏÏŞ
+	 *            éšæœºæ•°æ•°å€¼ä¸Šé™
 	 */
 	public static void checkMaxNumber(int maxNumber) {
 		if (maxNumber < 0)
-			throw new IllegalArgumentException("Ëæ»úÊıµÄÊıÖµÉÏÏŞ²»¿ÉĞ¡ÓÚ0!");
+			throw new IllegalArgumentException("éšæœºæ•°çš„æ•°å€¼ä¸Šé™ä¸å¯å°äº0!");
 	}
 
 	/**
-	 * ¼ì²éÊı×é²ÎÊıµÄºÏ·¨ĞÔ
+	 * æ£€æŸ¥æ•°ç»„å‚æ•°çš„åˆæ³•æ€§
 	 * 
 	 * @param array
 	 */
 	public static <T> void checkArray(T[] array) {
 		if (array == null || array.length == 0)
-			throw new NullPointerException("´«ÈëµÄÊı×éÎª¿Õ»òÕß³¤¶ÈÎªÁã!");
+			throw new NullPointerException("ä¼ å…¥çš„æ•°ç»„ä¸ºç©ºæˆ–è€…é•¿åº¦ä¸ºé›¶!");
 	}
 
 	/**
-	 * ¼ì²éÊı×é²ÎÊıµÄºÏ·¨ĞÔ
+	 * æ£€æŸ¥æ•°ç»„å‚æ•°çš„åˆæ³•æ€§
 	 * 
 	 * @param array
 	 */
 	public static void checkArray(int[] array) {
 		if (array == null || array.length == 0)
-			throw new NullPointerException("´«ÈëµÄÊı×éÎª¿Õ»òÕß³¤¶ÈÎªÁã!");
+			throw new NullPointerException("ä¼ å…¥çš„æ•°ç»„ä¸ºç©ºæˆ–è€…é•¿åº¦ä¸ºé›¶!");
 	}
 
 	/**
-	 * ¼ì²é¶şÎ¬Êı×é²ÎÊıµÄºÏ·¨ĞÔ
+	 * æ£€æŸ¥äºŒç»´æ•°ç»„å‚æ•°çš„åˆæ³•æ€§
 	 * 
 	 * @param the2DArray
-	 *            ¶şÎ¬Êı×é
+	 *            äºŒç»´æ•°ç»„
 	 */
 	public static <T> void check2DArray(T[][] the2DArray) {
 		if (the2DArray == null || the2DArray.length == 0
 				|| the2DArray[0].length == 0)
-			throw new NullPointerException("´«ÈëµÄ¶şÎ¬Êı×éÎª¿Õ»òÕß³¤¶ÈÎªÁã!");
+			throw new NullPointerException("ä¼ å…¥çš„äºŒç»´æ•°ç»„ä¸ºç©ºæˆ–è€…é•¿åº¦ä¸ºé›¶!");
 	}
 
 	/**
-	 * ¼ì²é¶şÎ¬Êı×é²ÎÊıµÄºÏ·¨ĞÔ
+	 * æ£€æŸ¥äºŒç»´æ•°ç»„å‚æ•°çš„åˆæ³•æ€§
 	 * 
 	 * @param the2DArray
-	 *            ¶şÎ¬Êı×é
+	 *            äºŒç»´æ•°ç»„
 	 */
 	public static void check2DArray(int[][] the2DArray) {
 		if (the2DArray == null || the2DArray.length == 0
 				|| the2DArray[0].length == 0)
-			throw new NullPointerException("´«ÈëµÄ¶şÎ¬Êı×éÎª¿Õ»òÕß³¤¶ÈÎªÁã!");
+			throw new NullPointerException("ä¼ å…¥çš„äºŒç»´æ•°ç»„ä¸ºç©ºæˆ–è€…é•¿åº¦ä¸ºé›¶!");
 	}
 }

@@ -16,44 +16,44 @@ import assistant.KyodaiConstant;
 import panel.KyodaiPanel;
 
 /**
- * Á¬Á¬¿´Ãæ°åÉÏµÄÏß¶Î»æÖÆÀà
+ * è¿è¿çœ‹é¢æ¿ä¸Šçš„çº¿æ®µç»˜åˆ¶ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-10-23
+ * åˆ›å»ºæ—¥æœŸï¼š2007-10-23
  */
 public class LineDrawer {
 
-	private KyodaiPanel m_kyodaiPanel;// »­ÏßµÄÄ¿±êÃæ°å
-	private Graphics2D g;// »æÖÆ¶ÔÏó
+	private KyodaiPanel m_kyodaiPanel;// ç”»çº¿çš„ç›®æ ‡é¢æ¿
+	private Graphics2D g;// ç»˜åˆ¶å¯¹è±¡
 
 	public LineDrawer(KyodaiPanel kyodaiPanel) {
 		m_kyodaiPanel = kyodaiPanel;
 	}
 
 	/**
-	 * ·µ»Ø×Ô¶¨ÒåÉèÖÃºóµÄ»­Í¼¶ÔÏó
+	 * è¿”å›è‡ªå®šä¹‰è®¾ç½®åçš„ç”»å›¾å¯¹è±¡
 	 * 
 	 * @return Graphics2D
 	 */
 	private Graphics2D getGraphic2D() {
 		if (g == null) {
 			g = (Graphics2D) m_kyodaiPanel.getGraphics();
-			// ÏßµÄÑÕÉ«
+			// çº¿çš„é¢œè‰²
 			g.setColor(Color.BLUE);
-			// ÏßµÄ´ÖÏ¸
+			// çº¿çš„ç²—ç»†
 			g.setStroke(new BasicStroke(3.0f));
 		}
 		return g;
 	}
 
 	/**
-	 * »­Á½µã¼äµÄÖ±Ïß
+	 * ç”»ä¸¤ç‚¹é—´çš„ç›´çº¿
 	 * 
 	 * @param p1
-	 *            µã1
+	 *            ç‚¹1
 	 * @param p2
-	 *            µã2
+	 *            ç‚¹2
 	 */
 	private void drawLine(Point p1, Point p2) {
 		Graphics2D drawer = getGraphic2D();
@@ -61,12 +61,12 @@ public class LineDrawer {
 	}
 
 	/**
-	 * ÔÚ½çÃæÉÏ»­Ä£ĞÍÖĞÁ½Î»ÖÃµÄÁ¬Ïß
+	 * åœ¨ç•Œé¢ä¸Šç”»æ¨¡å‹ä¸­ä¸¤ä½ç½®çš„è¿çº¿
 	 * 
 	 * @param location1
-	 *            Î»ÖÃ1
+	 *            ä½ç½®1
 	 * @param location2
-	 *            Î»ÖÃ2
+	 *            ä½ç½®2
 	 */
 	private void drawRemovablePath(Location location1, Location location2) {
 		Point p1 = getPointWithLocationInModel(location1);
@@ -75,12 +75,12 @@ public class LineDrawer {
 	}
 
 	/**
-	 * ÔÚ½çÃæÉÏ»­Ä£ĞÍÖĞÁ½Î»ÖÃµÄ¿ÉÏûÂ·¾¶
+	 * åœ¨ç•Œé¢ä¸Šç”»æ¨¡å‹ä¸­ä¸¤ä½ç½®çš„å¯æ¶ˆè·¯å¾„
 	 * 
 	 * @param start
-	 *            ÆğÊ¼Î»ÖÃ
+	 *            èµ·å§‹ä½ç½®
 	 * @param end
-	 *            ½áÊøÎ»ÖÃ
+	 *            ç»“æŸä½ç½®
 	 */
 	public void drawRemovablePathAndUpdateUI(Location start, Location end) {
 		drawRemovablePath(start, end);
@@ -88,14 +88,14 @@ public class LineDrawer {
 	}
 
 	/**
-	 * ÔÚ½çÃæÉÏ»­Ä£ĞÍÖĞÈıÎ»ÖÃµÄ¿ÉÏûÂ·¾¶
+	 * åœ¨ç•Œé¢ä¸Šç”»æ¨¡å‹ä¸­ä¸‰ä½ç½®çš„å¯æ¶ˆè·¯å¾„
 	 * 
 	 * @param start
-	 *            ÆğÊ¼Î»ÖÃ
+	 *            èµ·å§‹ä½ç½®
 	 * @param middle
-	 *            ÖĞ¼äÎ»ÖÃ
+	 *            ä¸­é—´ä½ç½®
 	 * @param end
-	 *            ½áÊøÎ»ÖÃ
+	 *            ç»“æŸä½ç½®
 	 */
 	public void drawRemovablePathAndUpdateUI(Location start, Location middle,
 			Location end) {
@@ -105,16 +105,16 @@ public class LineDrawer {
 	}
 
 	/**
-	 * ÔÚ½çÃæÉÏ»­Ä£ĞÍÖĞËÄÎ»ÖÃµÄ¿ÉÏûÂ·¾¶
+	 * åœ¨ç•Œé¢ä¸Šç”»æ¨¡å‹ä¸­å››ä½ç½®çš„å¯æ¶ˆè·¯å¾„
 	 * 
 	 * @param start
-	 *            ÆğÊ¼Î»ÖÃ
+	 *            èµ·å§‹ä½ç½®
 	 * @param middle1
-	 *            ÖĞ¼äÎ»ÖÃ1
+	 *            ä¸­é—´ä½ç½®1
 	 * @param middle2
-	 *            ÖĞ¼äÎ»ÖÃ2
+	 *            ä¸­é—´ä½ç½®2
 	 * @param end
-	 *            ½áÊøÎ»ÖÃ
+	 *            ç»“æŸä½ç½®
 	 */
 	public void drawRemovablePathAndUpdateUI(Location start, Location middle1,
 			Location middle2, Location end) {
@@ -125,7 +125,7 @@ public class LineDrawer {
 	}
 
 	/**
-	 * Ë¢ĞÂÖ÷½çÃæ(Êµ¼ÊÊÇÎªÁËÏûÈ¥ÒÑ»­µÄÏß)
+	 * åˆ·æ–°ä¸»ç•Œé¢(å®é™…æ˜¯ä¸ºäº†æ¶ˆå»å·²ç”»çš„çº¿)
 	 */
 	private void updateMainUI() {
 		try {
@@ -137,10 +137,10 @@ public class LineDrawer {
 	}
 
 	/**
-	 * ¸ù¾İÄ£ĞÍÖĞµÄÎ»ÖÃĞÅÏ¢·µ»ØÔÚUI½çÃæÖĞ¶ÔÓ¦µÄµã(°´Å¥ÖĞĞÄµã)
+	 * æ ¹æ®æ¨¡å‹ä¸­çš„ä½ç½®ä¿¡æ¯è¿”å›åœ¨UIç•Œé¢ä¸­å¯¹åº”çš„ç‚¹(æŒ‰é’®ä¸­å¿ƒç‚¹)
 	 * 
 	 * @param locationInModel
-	 *            Ä£ĞÍÖĞµÄÎ»ÖÃ
+	 *            æ¨¡å‹ä¸­çš„ä½ç½®
 	 * @return Point
 	 */
 	private Point getPointWithLocationInModel(Location locationInModel) {
@@ -150,10 +150,10 @@ public class LineDrawer {
 	}
 
 	/**
-	 * ¸ù¾İÄ£ĞÍÖĞµÄÎ»ÖÃĞÅÏ¢·µ»ØÔÚUI½çÃæÖĞ¶ÔÓ¦µÄµã(°´Å¥ÖĞĞÄµã)µÄºá×ø±ê
+	 * æ ¹æ®æ¨¡å‹ä¸­çš„ä½ç½®ä¿¡æ¯è¿”å›åœ¨UIç•Œé¢ä¸­å¯¹åº”çš„ç‚¹(æŒ‰é’®ä¸­å¿ƒç‚¹)çš„æ¨ªåæ ‡
 	 * 
 	 * @param locationInModel
-	 *            Ä£ĞÍÖĞµÄÎ»ÖÃ
+	 *            æ¨¡å‹ä¸­çš„ä½ç½®
 	 * @return int
 	 */
 	private int getXWithLocationInModel(Location locationInModel) {
@@ -165,10 +165,10 @@ public class LineDrawer {
 	}
 
 	/**
-	 * ¸ù¾İÄ£ĞÍÖĞµÄÎ»ÖÃĞÅÏ¢·µ»ØÔÚUI½çÃæÖĞ¶ÔÓ¦µÄµã(°´Å¥ÖĞĞÄµã)µÄ×İ×ø±ê
+	 * æ ¹æ®æ¨¡å‹ä¸­çš„ä½ç½®ä¿¡æ¯è¿”å›åœ¨UIç•Œé¢ä¸­å¯¹åº”çš„ç‚¹(æŒ‰é’®ä¸­å¿ƒç‚¹)çš„çºµåæ ‡
 	 * 
 	 * @param locationInModel
-	 *            Ä£ĞÍÖĞµÄÎ»ÖÃ
+	 *            æ¨¡å‹ä¸­çš„ä½ç½®
 	 * @return int
 	 */
 	private int getYWithLocationInModel(Location locationInModel) {

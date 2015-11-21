@@ -6,49 +6,49 @@ package geometry;
 import java.util.ArrayList;
 
 /**
- * Ïß¶ÎÀà
- * (Ö»°üº¬ÓĞÏŞ¸öµãÇÒĞĞÁĞºÅ¶¼ÊÇÕûÊı)
+ * çº¿æ®µç±»
+ * (åªåŒ…å«æœ‰é™ä¸ªç‚¹ä¸”è¡Œåˆ—å·éƒ½æ˜¯æ•´æ•°)
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨Ê±¼ä£º2007-10-16
+ * åˆ›å»ºæ—¶é—´ï¼š2007-10-16
  */
 public abstract class Line {
 
-	private ArrayList<Location> locations;// ÓÃÀ´´æ´¢¹¹³ÉÏß¶ÎµÄÎ»ÖÃ
-	private Location start;// Ïß¶ÎÆğÊ¼Î»ÖÃ
-	private Location end;// Ïß¶Î½áÊøÎ»ÖÃ
+	private ArrayList<Location> locations;// ç”¨æ¥å­˜å‚¨æ„æˆçº¿æ®µçš„ä½ç½®
+	private Location start;// çº¿æ®µèµ·å§‹ä½ç½®
+	private Location end;// çº¿æ®µç»“æŸä½ç½®
 
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 * 
 	 * @param location1
-	 *            Ïß¶Î¶ËµãÎ»ÖÃ1
+	 *            çº¿æ®µç«¯ç‚¹ä½ç½®1
 	 * @param location2
-	 *            Ïß¶Î¶ËµãÎ»ÖÃ2
+	 *            çº¿æ®µç«¯ç‚¹ä½ç½®2
 	 */
 	public Line(Location location1, Location location2) {
 		createLine(location1, location2);
 	}
 
 	/**
-	 * Êµ¼Ê´´½¨Ïß¶ÎµÄ·½·¨,ĞèÍê³É¶ÔlocationsµÄ¹¹½¨ 
-	 * (×ÓÀàĞèÒªÊµÏÖÕâ¸ö·½·¨)
+	 * å®é™…åˆ›å»ºçº¿æ®µçš„æ–¹æ³•,éœ€å®Œæˆå¯¹locationsçš„æ„å»º 
+	 * (å­ç±»éœ€è¦å®ç°è¿™ä¸ªæ–¹æ³•)
 	 * 
 	 * @param location1
-	 *            Ïß¶Î¶ËµãÎ»ÖÃ1
+	 *            çº¿æ®µç«¯ç‚¹ä½ç½®1
 	 * @param location2
-	 *            Ïß¶Î¶ËµãÎ»ÖÃ2
+	 *            çº¿æ®µç«¯ç‚¹ä½ç½®2
 	 */
 	protected abstract void createLine(Location location1, Location location2);
 
 	/**
-	 * ÉèÖÃÆğÊ¼Î»ÖÃºÍ½áÊøÎ»ÖÃ
+	 * è®¾ç½®èµ·å§‹ä½ç½®å’Œç»“æŸä½ç½®
 	 * 
 	 * @param start
-	 *            ÆğÊ¼Î»ÖÃ
+	 *            èµ·å§‹ä½ç½®
 	 * @param end
-	 *            ½áÊøÎ»ÖÃ
+	 *            ç»“æŸä½ç½®
 	 */
 	protected void setStartAndEndLocation(Location start, Location end) {
 		setStart(start);
@@ -56,48 +56,48 @@ public abstract class Line {
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½ÌõÏß¶ÎÊÇ·ñÆ½ĞĞ
+	 * åˆ¤æ–­ä¸¤æ¡çº¿æ®µæ˜¯å¦å¹³è¡Œ
 	 * 
 	 * @param line
-	 *            Ä¿±êÏß¶Î
+	 *            ç›®æ ‡çº¿æ®µ
 	 * @return boolean
 	 */
 	public abstract boolean isParallelWith(Line line);
 
 	/**
-	 * ÅĞ¶ÏÁ½ÌõÏß¶ÎÊÇ·ñ´¹Ö±
+	 * åˆ¤æ–­ä¸¤æ¡çº¿æ®µæ˜¯å¦å‚ç›´
 	 * 
 	 * @param line
-	 *            Ä¿±êÏß¶Î
+	 *            ç›®æ ‡çº¿æ®µ
 	 * @return boolean
 	 */
 	public abstract boolean isPlumbUp(Line line);
 
 	/**
-	 * ÅĞ¶ÏÁ½ÌõÏß¶ÎÊÇ·ñÏà½»
+	 * åˆ¤æ–­ä¸¤æ¡çº¿æ®µæ˜¯å¦ç›¸äº¤
 	 * 
 	 * @param line
-	 *            Ä¿±êÏß¶Î
+	 *            ç›®æ ‡çº¿æ®µ
 	 * @return boolean
 	 */
 	public boolean isIntersectantWith(Line line) {
-		// ¸ù¾İÊÇ·ñÓĞ½»µã½øĞĞÅĞ¶Ï
+		// æ ¹æ®æ˜¯å¦æœ‰äº¤ç‚¹è¿›è¡Œåˆ¤æ–­
 		return getPointOfIntersection(line) != null;
 	}
 
 	/**
-	 * ·µ»ØÁ½ÌõÏß¶ÎµÄ½»µã
+	 * è¿”å›ä¸¤æ¡çº¿æ®µçš„äº¤ç‚¹
 	 * 
 	 * @param line
-	 *            Ä¿±êÏß¶Î
+	 *            ç›®æ ‡çº¿æ®µ
 	 * @return Location
 	 */
 	public Location getPointOfIntersection(Line line) {
 		if (line == null)
 			return null;
-		// ¶ÔÁ½¸öÏß¶ÎµÄÎ»ÖÃÁĞ±íÇó½»¼¯(Èô½»¼¯ÖĞÓĞÔªËØÔòÊÇ½»µã)
+		// å¯¹ä¸¤ä¸ªçº¿æ®µçš„ä½ç½®åˆ—è¡¨æ±‚äº¤é›†(è‹¥äº¤é›†ä¸­æœ‰å…ƒç´ åˆ™æ˜¯äº¤ç‚¹)
 		this.getLocations().retainAll(line.getLocations());
-		// Ã»ÓĞ½»µã
+		// æ²¡æœ‰äº¤ç‚¹
 		if (this.getLocations().size() == 0)
 			return null;
 		else
@@ -105,7 +105,7 @@ public abstract class Line {
 	}
 	
 	/**
-	 * ·µ»ØÏß¶ÎµÄĞĞºÅÖµÓò
+	 * è¿”å›çº¿æ®µçš„è¡Œå·å€¼åŸŸ
 	 * 
 	 * @return ValueField
 	 */
@@ -114,7 +114,7 @@ public abstract class Line {
 	}
 
 	/**
-	 * ·µ»ØÏß¶ÎµÄÁĞºÅÖµÓò
+	 * è¿”å›çº¿æ®µçš„åˆ—å·å€¼åŸŸ
 	 * 
 	 * @return ValueField
 	 */
@@ -124,39 +124,39 @@ public abstract class Line {
 	}
 
 	/**
-	 * ÅĞ¶ÏÏß¶ÎÊÇ·ñÊÇË®Æ½µÄ
+	 * åˆ¤æ–­çº¿æ®µæ˜¯å¦æ˜¯æ°´å¹³çš„
 	 * 
 	 * @param line
-	 *            Ä¿±êÏß¶Î
+	 *            ç›®æ ‡çº¿æ®µ
 	 * @return boolean
 	 */
 	public static final boolean isHorizontal(Line line) {
 		if (line == null)
-			throw new IllegalArgumentException("Ïß¶Î²»¿ÉÎª¿Õ");
-		// Ïß¶ÎÁ½¶ËÎ»ÖÃµÄĞĞºÅÏàµÈÔòÎªË®Æ½µÄ
+			throw new IllegalArgumentException("çº¿æ®µä¸å¯ä¸ºç©º");
+		// çº¿æ®µä¸¤ç«¯ä½ç½®çš„è¡Œå·ç›¸ç­‰åˆ™ä¸ºæ°´å¹³çš„
 		if (line.getStart().getRow() == line.getEnd().getRow())
 			return true;
 		return false;
 	}
 
 	/**
-	 * ÅĞ¶ÏÏß¶ÎÊÇ·ñÊÇ´¹Ö±µÄ
+	 * åˆ¤æ–­çº¿æ®µæ˜¯å¦æ˜¯å‚ç›´çš„
 	 * 
 	 * @param line
-	 *            Ä¿±êÏß¶Î
+	 *            ç›®æ ‡çº¿æ®µ
 	 * @return boolean
 	 */
 	public static final boolean isVertical(Line line) {
 		if (line == null)
-			throw new IllegalArgumentException("Ïß¶Î²»¿ÉÎª¿Õ");
-		// Ïß¶ÎÁ½¶ËÎ»ÖÃµÄÁĞºÅÏàµÈÔòÎª´¹Ö±µÄ
+			throw new IllegalArgumentException("çº¿æ®µä¸å¯ä¸ºç©º");
+		// çº¿æ®µä¸¤ç«¯ä½ç½®çš„åˆ—å·ç›¸ç­‰åˆ™ä¸ºå‚ç›´çš„
 		if (line.getStart().getColumn() == line.getEnd().getColumn())
 			return true;
 		return false;
 	}
 	
 	/**
-	 * ·µ»ØĞÎÊ½£º[2ĞĞ3ÁĞ,3ĞĞ4ÁĞ,4ĞĞ5ÁĞ]
+	 * è¿”å›å½¢å¼ï¼š[2è¡Œ3åˆ—,3è¡Œ4åˆ—,4è¡Œ5åˆ—]
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
@@ -166,7 +166,7 @@ public abstract class Line {
 	}
 
 	/**
-	 * Ïß¶ÎµÄÆğÊ¼Î»ÖÃºÍ½áÊøÎ»ÖÃÏàÍ¬ÔòËµÃ÷Ïß¶ÎÖØºÏ
+	 * çº¿æ®µçš„èµ·å§‹ä½ç½®å’Œç»“æŸä½ç½®ç›¸åŒåˆ™è¯´æ˜çº¿æ®µé‡åˆ
 	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */

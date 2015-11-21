@@ -4,18 +4,18 @@
 package geometry;
 
 /**
- * Î»ÖÃÀà
+ * ä½ç½®ç±»
  * 
- * Ö÷ÒªÓÃÀ´´æ´¢ÔªËØÔÚ¶şÎ¬Êı×éÖĞµÄË÷ÒıĞÅÏ¢
+ * ä¸»è¦ç”¨æ¥å­˜å‚¨å…ƒç´ åœ¨äºŒç»´æ•°ç»„ä¸­çš„ç´¢å¼•ä¿¡æ¯
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨Ê±¼ä£º2007-10-16
+ * åˆ›å»ºæ—¶é—´ï¼š2007-10-16
  */
 public class Location {
 
-	private int row;// ĞĞºÅ
-	private int column;// ÁĞºÅ
+	private int row;// è¡Œå·
+	private int column;// åˆ—å·
 
 	public Location() {
 		row = 0;
@@ -28,10 +28,10 @@ public class Location {
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½Î»ÖÃÊÇ·ñÔÚÍ¬Ò»ĞĞ
+	 * åˆ¤æ–­ä¸¤ä½ç½®æ˜¯å¦åœ¨åŒä¸€è¡Œ
 	 * 
 	 * @param loaction
-	 *            Ä¿±êÎ»ÖÃ
+	 *            ç›®æ ‡ä½ç½®
 	 * @return boolean
 	 */
 	public boolean isInTheSameRowWith(Location loaction) {
@@ -39,10 +39,10 @@ public class Location {
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½Î»ÖÃÊÇ·ñÔÚÍ¬Ò»ÁĞ
+	 * åˆ¤æ–­ä¸¤ä½ç½®æ˜¯å¦åœ¨åŒä¸€åˆ—
 	 * 
 	 * @param loaction
-	 *            Ä¿±êÎ»ÖÃ
+	 *            ç›®æ ‡ä½ç½®
 	 * @return boolean
 	 */
 	public boolean isInTheSameColumnWith(Location loaction) {
@@ -50,10 +50,10 @@ public class Location {
 	}
 
 	/**
-	 * ÅĞ¶ÏÁ½¸öÎ»ÖÃÊÇ·ñÎ»ÓÚÍ¬ÓÚÍ¬Ò»Ïß¶ÎÉÏ
+	 * åˆ¤æ–­ä¸¤ä¸ªä½ç½®æ˜¯å¦ä½äºåŒäºåŒä¸€çº¿æ®µä¸Š
 	 * 
 	 * @param loaction
-	 *            Ä¿±êÎ»ÖÃ
+	 *            ç›®æ ‡ä½ç½®
 	 * @return boolean
 	 */
 	public boolean isInTheSameLineWith(Location loaction) {
@@ -61,7 +61,7 @@ public class Location {
 	}
 
 	/**
-	 * ÈôÁ½¸öÎ»ÖÃµÄĞĞÁĞÏàÍ¬Ôò±íÊ¾ÕâÁ½¸öµãÊÇÏàÍ¬µÄ
+	 * è‹¥ä¸¤ä¸ªä½ç½®çš„è¡Œåˆ—ç›¸åŒåˆ™è¡¨ç¤ºè¿™ä¸¤ä¸ªç‚¹æ˜¯ç›¸åŒçš„
 	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -73,13 +73,13 @@ public class Location {
 	}
 
 	/**
-	 * ĞÎÊ½Îª£º3ĞĞ5ÁĞ
+	 * å½¢å¼ä¸ºï¼š3è¡Œ5åˆ—
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return getRow() + "ĞĞ" + getColumn() + "ÁĞ";
+		return getRow() + "è¡Œ" + getColumn() + "åˆ—";
 	}
 	
 	/**

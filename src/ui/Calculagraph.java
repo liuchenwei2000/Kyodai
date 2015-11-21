@@ -7,16 +7,16 @@ import assistant.Score;
 import util.other.DialogManager;
 
 /**
- * µπº∆ ±∆˜¿‡
+ * ÂÄíËÆ°Êó∂Âô®Á±ª
  * 
- * @author ¡ı≥øŒ∞
+ * @author ÂàòÊô®‰ºü
  * 
- * ¥¥Ω®»’∆⁄£∫2007-10-25
+ * ÂàõÂª∫Êó•ÊúüÔºö2007-10-25
  */
 public class Calculagraph implements Runnable {
 
 	private KyodaiMainUI m_mainUI;
-	private boolean isCounting;//  «∑Ò’˝‘⁄µπº∆ ±(◊¥Ã¨±Í÷æ)
+	private boolean isCounting;// ÊòØÂê¶Ê≠£Âú®ÂÄíËÆ°Êó∂(Áä∂ÊÄÅÊ†áÂøó)
 
 	Calculagraph(KyodaiMainUI kyodaiMainUI) {
 		m_mainUI = kyodaiMainUI;
@@ -32,61 +32,61 @@ public class Calculagraph implements Runnable {
 		try {
 			startCountingDown();
 		} catch (Exception e) {
-			// ±ª÷–∂œ¡ÀæÕ÷±Ω”Ω· ¯œﬂ≥Ã
+			// Ë¢´‰∏≠Êñ≠‰∫ÜÂ∞±Áõ¥Êé•ÁªìÊùüÁ∫øÁ®ã
 			return;
 		}
-		// µπº∆ ±Ω· ¯‘ÚÃ· æ ß∞‹–≈œ¢
+		// ÂÄíËÆ°Êó∂ÁªìÊùüÂàôÊèêÁ§∫Â§±Ë¥•‰ø°ÊÅØ
 		DialogManager.showFailureDialog();
 		processScore();
 		showNewGame();
 	}
 
 	/**
-	 * ∑µªÿµπº∆ ±∆˜ «∑Ò’˝‘⁄µπº∆ ±
+	 * ËøîÂõûÂÄíËÆ°Êó∂Âô®ÊòØÂê¶Ê≠£Âú®ÂÄíËÆ°Êó∂
 	 */
 	private boolean isCounting() {
 		return isCounting;
 	}
 
 	/**
-	 * …Ë÷√µπº∆ ±∆˜µƒ◊¥Ã¨
+	 * ËÆæÁΩÆÂÄíËÆ°Êó∂Âô®ÁöÑÁä∂ÊÄÅ
 	 */
 	private void setCounting(boolean isCounting) {
 		this.isCounting = isCounting;
 	}
 	
 	/**
-	 * ‘›Õ£µπº∆ ±
+	 * ÊöÇÂÅúÂÄíËÆ°Êó∂
 	 */
 	protected void pauseCountingDown() {
 		this.setCounting(false);
 	}
 	
 	/**
-	 * ºÃ–¯µπº∆ ±
+	 * ÁªßÁª≠ÂÄíËÆ°Êó∂
 	 */
 	protected void goOnCountingDown() {
 		this.setCounting(true);
 	}
 	
 	/**
-	 * ø™ ºµπº∆ ±
+	 * ÂºÄÂßãÂÄíËÆ°Êó∂
 	 * 
-	 * »Áπ˚◊¥Ã¨±Í÷æ±ª÷√Œ™false‘Ú»œŒ™ «‘›Õ£≤Ÿ◊˜
+	 * Â¶ÇÊûúÁä∂ÊÄÅÊ†áÂøóË¢´ÁΩÆ‰∏∫falseÂàôËÆ§‰∏∫ÊòØÊöÇÂÅúÊìç‰Ωú
 	 * 
 	 * @throws Exception
 	 */
 	private void startCountingDown() throws Exception {
 		for (int i = m_mainUI.getMaxTime() - 1; i > -1; i--) {
 			try {
-				Thread.sleep(1000);// 1√Î
+				Thread.sleep(1000);// 1Áßí
 			} catch (InterruptedException e) {
-				// µ±±æœﬂ≥Ã±ª÷–∂œ ±≈◊≥ˆ“Ï≥£Õ®÷™œﬂ≥ÃΩ· ¯
+				// ÂΩìÊú¨Á∫øÁ®ãË¢´‰∏≠Êñ≠Êó∂ÊäõÂá∫ÂºÇÂ∏∏ÈÄöÁü•Á∫øÁ®ãÁªìÊùü
 				throw new Exception(e);
 			}
-			// ‘›Õ£ ±µƒ¥¶¿Ìπ˝≥Ã
+			// ÊöÇÂÅúÊó∂ÁöÑÂ§ÑÁêÜËøáÁ®ã
 			if (!isCounting()) {
-				i++;// Œ™¡À±£¥Ê‘›Õ£«∞µƒ ±º‰
+				i++;// ‰∏∫‰∫Ü‰øùÂ≠òÊöÇÂÅúÂâçÁöÑÊó∂Èó¥
 				continue;
 			}
 			m_mainUI.setTimeTextWith("" + i);
@@ -94,10 +94,10 @@ public class Calculagraph implements Runnable {
 	}
 
 	/**
-	 * ¥¶¿Ì∑÷ ˝Œ Ã‚
+	 * Â§ÑÁêÜÂàÜÊï∞ÈóÆÈ¢ò
 	 */
 	private void processScore() {
-		// ≈–∂œµ±«∞∑÷ ˝ «∑Ò «◊Ó∏ﬂ∑÷
+		// Âà§Êñ≠ÂΩìÂâçÂàÜÊï∞ÊòØÂê¶ÊòØÊúÄÈ´òÂàÜ
 		if (m_mainUI.getCurrentScore() > m_mainUI.getMaxScoreFromFile()) {
 			m_mainUI.rewriteMaxScoreToFile(new Score(m_mainUI.getCurrentScore()));
 			DialogManager.showCongratulationDialog(String.valueOf(m_mainUI
@@ -106,7 +106,7 @@ public class Calculagraph implements Runnable {
 	}
 	
 	/**
-	 * ÷ÿø™“ªæ÷
+	 * ÈáçÂºÄ‰∏ÄÂ±Ä
 	 */
 	private void showNewGame() {
 		m_mainUI.showNewGame();

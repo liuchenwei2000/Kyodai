@@ -4,11 +4,11 @@
 package util.other;
 
 /**
- * ×Ö·û´®¹¤¾ßÀà
+ * å­—ç¬¦ä¸²å·¥å…·ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2007-11-1
+ * åˆ›å»ºæ—¥æœŸï¼š2007-11-1
  */
 public class StringUtil {
 
@@ -17,14 +17,14 @@ public class StringUtil {
 	}
 
 	/**
-	 * ÅĞ¶Ï×Ö·û´®´ú±íµÄÊıÊÇ·ñÊÇÕıÕûÊı
+	 * åˆ¤æ–­å­—ç¬¦ä¸²ä»£è¡¨çš„æ•°æ˜¯å¦æ˜¯æ­£æ•´æ•°
 	 */
 	public static boolean isPositiveNumber(String s) {
 		return (isInteger(s) && Integer.parseInt(s) > 0);
 	}
 
 	/**
-	 * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÊÇÕûÊı
+	 * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦æ˜¯æ•´æ•°
 	 */
 	public static boolean isInteger(String s) {
 		try {
@@ -36,7 +36,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ÅĞ¶Ï×Ö·û´®´ú±íµÄÊıÊÇ·ñÊÇÅ¼Êı
+	 * åˆ¤æ–­å­—ç¬¦ä¸²ä»£è¡¨çš„æ•°æ˜¯å¦æ˜¯å¶æ•°
 	 */
 	public static boolean isEvenNumber(String s) {
 		return (isInteger(s) && Integer.parseInt(s) % 2 == 0);

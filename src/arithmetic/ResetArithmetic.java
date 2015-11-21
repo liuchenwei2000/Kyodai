@@ -7,11 +7,11 @@ import util.other.ArrayConversion;
 import util.other.ParameterChecker;
 
 /**
- * ÖØÁĞËã·¨Àà
+ * é‡åˆ—ç®—æ³•ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨Ê±¼ä£º2007-10-19
+ * åˆ›å»ºæ—¶é—´ï¼š2007-10-19
  */
 public class ResetArithmetic {
 
@@ -20,19 +20,19 @@ public class ResetArithmetic {
 	}
 
 	/**
-	 * Ëæ»úÖØÅÅÄ¿±ê¶şÎ¬Êı×éÖĞµÄÔªËØ
+	 * éšæœºé‡æ’ç›®æ ‡äºŒç»´æ•°ç»„ä¸­çš„å…ƒç´ 
 	 * 
 	 * @param the2DArray
-	 *            Ä¿±ê¶şÎ¬Êı×é
+	 *            ç›®æ ‡äºŒç»´æ•°ç»„
 	 */
 	public static void reset2DArray(int[][] the2DArray) {
 		ParameterChecker.check2DArray(the2DArray);
-		// ½«¶şÎ¬Êı×éµÄÔªËØ´æ´¢µ½Ò»Î¬Êı×éÖĞ
+		// å°†äºŒç»´æ•°ç»„çš„å…ƒç´ å­˜å‚¨åˆ°ä¸€ç»´æ•°ç»„ä¸­
 		Integer[] oldArray = ArrayConversion.toArray(the2DArray);
-		// »ñÈ¡Ò»Î¬Êı×é½øĞĞËæ»úË³ĞòÖØÅÅºóµÄÊı×é
+		// è·å–ä¸€ç»´æ•°ç»„è¿›è¡Œéšæœºé¡ºåºé‡æ’åçš„æ•°ç»„
 		Integer[] newArray = RandomArithmetic
 				.getArrayWithRandomSequence(oldArray);
-		// ½«Ëæ»úÖØÅÅºóµÄÊı×é¸³Öµ¸ø¶şÎ¬Êı×é
+		// å°†éšæœºé‡æ’åçš„æ•°ç»„èµ‹å€¼ç»™äºŒç»´æ•°ç»„
 		ArrayConversion.to2DArray(the2DArray, newArray);
 	}
 }
