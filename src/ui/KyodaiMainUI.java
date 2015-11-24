@@ -199,7 +199,6 @@ public class KyodaiMainUI extends MyFrame {
 		if (helpMenu == null) {
 			helpMenu = new JMenu("帮助");
 			helpMenu.setFont(new Font("宋体", Font.PLAIN, 12));
-
 			helpMenu.add(createMenuItemWithListener("最高分"));
 			helpMenu.addSeparator();// 分隔符
 			helpMenu.add(createMenuItemWithListener("关于连连看"));
